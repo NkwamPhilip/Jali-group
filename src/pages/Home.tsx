@@ -36,8 +36,25 @@ const Home = () => {
       <SEOHead />
       
       {/* Hero Section */}
-      <Section variant="hero" spacing="large" className="min-h-screen flex items-center">
-        <div className="text-center animate-fadeIn">
+      <Section variant="hero" spacing="large" className="min-h-screen flex items-center relative overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            className="w-full h-full object-cover opacity-30"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/placeholder-video.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            <div className="w-full h-full bg-gradient-to-br from-background via-surface to-background"></div>
+          </video>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-background/50"></div>
+        </div>
+        
+        <div className="text-center animate-fadeIn relative z-10">
           <div className="mb-6">
             <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
               Jali Africa
