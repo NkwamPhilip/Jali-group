@@ -106,7 +106,6 @@ const Courses = () => {
         keywords="online courses, storytelling course, public speaking training, business marketing course, founder program, leadership development"
       />
 
-      {/* Hero Section */}
       <Section variant="hero" spacing="large">
         <div className="text-center animate-fadeIn">
           <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
@@ -124,7 +123,6 @@ const Courses = () => {
         </div>
       </Section>
 
-      {/* Benefits Section */}
       <Section variant="dark" spacing="normal">
         <div className="text-center mb-16">
           <h2 className="text-display mb-6 animate-slideUp">
@@ -262,7 +260,6 @@ const Courses = () => {
         </div>
       </Section>
 
-      {/* CTA Section */}
       <Section spacing="normal" className="text-center">
         <div className="content-width animate-scaleIn">
           <h2 className="text-display mb-6">

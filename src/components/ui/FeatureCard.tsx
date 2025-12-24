@@ -9,7 +9,13 @@ interface FeatureCardProps {
   children?: ReactNode;
 }
 
-const FeatureCard = ({ icon: Icon, title, description, href, children }: FeatureCardProps) => {
+const FeatureCard = ({
+  icon: Icon,
+  title,
+  description,
+  href,
+  children,
+}: FeatureCardProps) => {
   const CardContent = () => (
     <div className="card-feature group cursor-pointer">
       <div className="mb-6">

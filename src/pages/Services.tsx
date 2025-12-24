@@ -80,7 +80,6 @@ const Services = () => {
         keywords="public speaking services, business consulting, online courses, keynote speaker, business growth strategy, corporate training"
       />
 
-      {/* Hero Section */}
       <Section variant="hero" spacing="large">
         <div className="text-center animate-fadeIn">
           <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
@@ -98,7 +97,6 @@ const Services = () => {
         </div>
       </Section>
 
-      {/* Services Overview */}
       <Section variant="dark" spacing="normal">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -123,7 +121,6 @@ const Services = () => {
         </div>
       </Section>
 
-      {/* Detailed Service Sections */}
       {services.map((service, index) => (
         <Section 
           key={service.id}
@@ -210,7 +207,6 @@ const Services = () => {
         </div>
       </Section>
 
-      {/* CTA Section */}
       <Section spacing="normal" className="text-center">
         <div className="content-width animate-scaleIn">
           <h2 className="text-display mb-6">

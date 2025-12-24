@@ -37,7 +37,6 @@ const About = () => {
         keywords="about jali africa, victor okafor, storytelling expert, business growth consultant, public speaker"
       />
 
-      {/* Hero Section */}
       <Section variant="hero" spacing="large">
         <div className="text-center animate-fadeIn">
           <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
@@ -52,7 +51,6 @@ const About = () => {
         </div>
       </Section>
 
-      {/* Mission Section */}
       <Section variant="dark" spacing="normal">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slideUp">
@@ -100,7 +98,6 @@ const About = () => {
         </div>
       </Section>
 
-      {/* Founder Section */}
       <Section spacing="normal">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative animate-scaleIn">
@@ -147,7 +144,6 @@ const About = () => {
         </div>
       </Section>
 
-      {/* Values Section */}
       <Section variant="dark" spacing="normal">
         <div className="text-center mb-16">
           <h2 className="text-display mb-6 animate-slideUp">
@@ -167,7 +163,6 @@ const About = () => {
         </div>
       </Section>
 
-      {/* CTA Section */}
       <Section spacing="normal" className="text-center">
         <div className="content-width animate-scaleIn">
           <h2 className="text-display mb-6">

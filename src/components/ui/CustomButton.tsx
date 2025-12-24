@@ -25,8 +25,9 @@ const Button = ({
   className,
   ...props
 }: ButtonProps) => {
-  const baseClasses = "inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring disabled:opacity-50 disabled:pointer-events-none";
-  
+  const baseClasses =
+    "inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring disabled:opacity-50 disabled:pointer-events-none";
+
   const variantClasses = {
     primary: "btn-primary",
     secondary: "btn-secondary",
@@ -49,11 +50,17 @@ const Button = ({
   const content = (
     <>
       {Icon && iconPosition === "left" && (
-        <Icon size={size === "sm" ? 16 : size === "lg" ? 24 : 20} className="mr-2" />
+        <Icon
+          size={size === "sm" ? 16 : size === "lg" ? 24 : 20}
+          className="mr-2"
+        />
       )}
       {children}
       {Icon && iconPosition === "right" && (
-        <Icon size={size === "sm" ? 16 : size === "lg" ? 24 : 20} className="ml-2" />
+        <Icon
+          size={size === "sm" ? 16 : size === "lg" ? 24 : 20}
+          className="ml-2"
+        />
       )}
     </>
   );
@@ -71,7 +78,7 @@ const Button = ({
         </a>
       );
     }
-    
+
     return (
       <Link to={href} className={classes}>
         {content}

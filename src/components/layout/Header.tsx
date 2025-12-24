@@ -25,15 +25,13 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity duration-300"
           >
             Jali Africa
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
@@ -57,7 +55,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -69,7 +66,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border mt-4 animate-fade-in">
             <nav className="flex flex-col space-y-4">

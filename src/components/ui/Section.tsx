@@ -10,13 +10,13 @@ interface SectionProps {
   id?: string;
 }
 
-const Section = ({ 
-  children, 
+const Section = ({
+  children,
   className,
   variant = "light",
   spacing = "normal",
   containerWidth = "normal",
-  id
+  id,
 }: SectionProps) => {
   const sectionClasses = cn(
     "section-padding",
@@ -39,9 +39,7 @@ const Section = ({
 
   return (
     <section id={id} className={sectionClasses}>
-      <div className={containerClasses}>
-        {children}
-      </div>
+      <div className={containerClasses}>{children}</div>
     </section>
   );
 };
