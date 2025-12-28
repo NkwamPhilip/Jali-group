@@ -108,11 +108,6 @@ const HeroSection = () => {
 
   return (
     <Section variant="hero" spacing="large" className="min-h-screen flex items-center relative overflow-hidden">
-      <VideoBackground 
-        src="XyCMXm8LNxY" 
-        overlayOpacity={0.45} 
-        enableParallax={false} 
-      />
 
       <motion.div
         ref={heroRef}
