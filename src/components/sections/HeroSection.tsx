@@ -123,7 +123,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
-            Jali Africa
+            Jali Group
           </span>
         </motion.div>
 
