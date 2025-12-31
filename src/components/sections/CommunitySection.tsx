@@ -56,8 +56,8 @@ const CommunitySection = () => {
         </motion.div>
 
         {/* Cinematic Edge Fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-[#020202] via-[#020202]/80 to-transparent z-20" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-[#020202] via-[#020202]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-64  to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-64  to-transparent z-20" />
       </div>
 
       {/* 3. BOTTOM STATS (Data Readout Style) */}
