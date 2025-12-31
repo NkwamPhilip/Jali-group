@@ -25,8 +25,8 @@ const InsightsSection = () => {
           <span className="text-white/20 font-black tracking-[0.6em] uppercase text-[9px] mb-8 block">The Standard</span>
           <h2 className="text-5xl md:text-[6.5rem] font-bold text-white mb-10 tracking-tighter leading-[0.85] uppercase max-w-5xl">
             The Michael Jordan <br />
-            <span className="italic font-light text-white/10 lowercase">Of Founder-Led</span> <br />
-            <span className="text-white">Brand Growth.</span>
+            <span className="italic font-light text-white/10 titlecase">Of Brand</span> <br />
+            <span className="text-white">Storytelling.</span>
           </h2>
         </ScrollReveal>
       </div>

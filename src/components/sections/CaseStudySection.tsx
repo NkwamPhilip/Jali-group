@@ -23,7 +23,7 @@ const CaseStudySection = () => {
                             <span className="text-white/20 font-black tracking-[0.5em] uppercase text-[9px] mb-4 block">The Client</span>
                             <h3 className="text-6xl md:text-8xl font-bold text-white tracking-tighter uppercase leading-none">
                                 Dr. E <br />
-                                <span className="italic font-light text-white/10 lowercase">(Mazi)</span>
+                                <span className="italic font-light text-white/10 lowercase">(Okafor)</span>
                             </h3>
                             <p className="text-white/40 text-lg uppercase tracking-[0.2em] font-bold mt-4">Expert Repositioning</p>
                         </div>
@@ -86,7 +86,7 @@ const CaseStudySection = () => {
 
                         {/* PROFILE TAG - Deep Glassmorphism */}
                         <div className="absolute -bottom-6 left-6 right-6 lg:-left-10 lg:right-auto backdrop-blur-3xl bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] shadow-2xl max-w-sm">
-                            <h4 className="text-2xl font-black text-white tracking-tighter uppercase">Dr. E (Mazi)</h4>
+                            <h4 className="text-2xl font-black text-white tracking-tighter uppercase">Dr. Emmanuel Okafor</h4>
                             <div className="flex items-center gap-3 mt-2">
                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                 <p className="text-[10px] text-white/40 font-black uppercase tracking-[0.2em]">Medical Doctor : Influencer</p>
