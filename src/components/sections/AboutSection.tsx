@@ -40,6 +40,7 @@ const AboutSection = () => {
           ))}
         </div>
       </div>
+      <h2 className="text-5xl text-center md:text-7xl font-bold text-white mb-6 tracking-tighter">Brand & Clients</h2>
 
       {/* --- CLIENT LOGO SLIDER (Using standard paths) --- */}
       <div className="relative py-20 border-y border-white/5 overflow-hidden">

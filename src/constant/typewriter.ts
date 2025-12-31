@@ -1,10 +1,9 @@
 export const TYPEWRITER_OPTIONS = [
-  "Startups",
-  "Enterprises",
-  "Non-profits",
-  "Education",
-  "Healthcare",
-  "Technology",
+  "Revenue",
+  "Leverage",
+  "Authority",
+  "Community",
+  "Capital",
 ] as const;
 
 export const TYPEWRITER_CONFIG = {
