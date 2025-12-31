@@ -1,91 +1,111 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Handle scroll for glass effect transition
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navigation = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Courses", href: "/courses" },
-    { name: "Contact", href: "/contact" },
+    { name: "Varsity", href: "/courses" },
+    { name: "Industry Leader", href: "/services" },
+    { name: "WAMC", href: "/wamc" },
   ];
 
-  const isActivePage = (href: string) => {
-    if (href === "/") {
-      return location.pathname === "/";
-    }
-    return location.pathname.startsWith(href);
-  };
-
   return (
-    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
-      <div className="container-width section-padding">
-        <div className="flex items-center justify-between h-16">
+    <header
+      className={cn(
+        "fixed top-0 w-full z-[100] transition-all duration-500 px-6 py-4",
+        scrolled ? "md:py-4" : "md:py-8"
+      )}
+    >
+      <div
+        className={cn(
+          "max-w-7xl mx-auto transition-all duration-500 px-6 py-3 rounded-full border",
+          scrolled
+            ? "bg-black/60 backdrop-blur-xl border-white/10 shadow-2xl"
+            : "bg-transparent border-transparent"
+        )}
+      >
+        <div className="flex items-center justify-between">
+          {/* Logo - Minimalist Serif/Sans hybrid feel */}
           <Link
             to="/"
-            className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity duration-300"
+            className="text-white text-lg font-black tracking-[0.2em] uppercase transition-opacity hover:opacity-70"
           >
-            Jali Africa
+            Jali<span className="text-white/40">Group</span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-10">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors duration-300 relative group ${
-                  isActivePage(item.href)
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={cn(
+                  "text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-300 relative group",
+                  location.pathname.startsWith(item.href) ? "text-white" : "text-white/40 hover:text-white"
+                )}
               >
                 {item.name}
-                <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-foreground transition-all duration-300 ${
-                    isActivePage(item.href)
-                      ? "w-full"
-                      : "w-0 group-hover:w-full"
-                  }`}
-                />
+                <span className={cn(
+                  "absolute -bottom-1 left-1/2 -translate-x-1/2 h-[1px] bg-white transition-all duration-300",
+                  location.pathname.startsWith(item.href) ? "w-4" : "w-0 group-hover:w-4"
+                )} />
               </Link>
             ))}
           </nav>
 
+          {/* Action Button - The Sharp White Pill */}
+          <div className="hidden md:block">
+            <Link
+              to="/contact"
+              className="bg-white text-black text-[9px] font-black uppercase tracking-[0.2em] px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 flex items-center gap-2"
+            >
+              Contact Us <ArrowRight size={12} />
+            </Link>
+          </div>
+
+          {/* Mobile Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-foreground hover:bg-accent rounded-md transition-colors duration-300"
-              aria-label="Toggle menu"
+              className="text-white p-2"
             >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
+      </div>
 
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border mt-4 animate-fade-in">
-            <nav className="flex flex-col space-y-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors duration-300 px-2 py-1 rounded-md ${
-                    isActivePage(item.href)
-                      ? "text-foreground bg-accent"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
+      {/* Mobile Menu - Full Screen Overlay */}
+      <div className={cn(
+        "fixed inset-0 bg-black z-[-1] transition-all duration-700 flex flex-col items-center justify-center gap-8 md:hidden",
+        isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      )}>
+        {navigation.concat({ name: "Contact", href: "/contact" }).map((item) => (
+          <Link
+            key={item.name}
+            to={item.href}
+            onClick={() => setIsMenuOpen(false)}
+            className="text-white text-3xl font-bold uppercase tracking-tighter hover:italic transition-all"
+          >
+            {item.name}
+          </Link>
+        ))}
+        <div className="absolute bottom-12 text-white/20 text-[10px] uppercase tracking-[0.5em] font-black">
+          Jali Group © 2026
+        </div>
       </div>
     </header>
   );

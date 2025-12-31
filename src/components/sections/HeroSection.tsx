@@ -1,179 +1,151 @@
 import { useEffect, useRef } from "react";
-import { ArrowDown } from "lucide-react";
 import { gsap } from "gsap";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Section from "@/components/ui/Section";
 import CustomButton from "@/components/ui/CustomButton";
-import VideoBackground from "@/components/ui/VideoBackground";
 import TypewriterText from "@/components/ui/TypewriterText";
 
 const HeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const buttonsRef = useRef<HTMLDivElement>(null);
-  const scrollButtonRef = useRef<HTMLDivElement>(null);
+
+  // Parallax effect for the background text
+  const { scrollY } = useScroll();
+  const ghostY = useTransform(scrollY, [0, 500], [0, -150]);
 
   useEffect(() => {
-    if (!heroRef.current) return;
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-    tl.fromTo(
-      titleRef.current,
-      { opacity: 0, y: 80, scale: 0.9, rotationX: -15 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        rotationX: 0,
-        duration: 1.4,
-        ease: "power4.out",
-      }
-    )
-      .fromTo(
-        subtitleRef.current,
-        { opacity: 0, y: 40, filter: "blur(10px)" },
-        {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 1.0,
-          ease: "power2.out",
-        },
-        "-=0.8"
+      // Initial reveal sequence
+      tl.fromTo(".glass-shard",
+        { opacity: 0, scale: 0.9, y: 30 },
+        { opacity: 1, scale: 1, y: 0, duration: 2, stagger: 0.2 }
       )
-      .fromTo(
-        buttonsRef.current?.children,
-        {
-          opacity: 0,
-          y: 30,
-          scale: 0.8,
-          rotationY: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          rotationY: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "back.out(1.2)",
-        },
-        "-=0.6"
-      )
-      .fromTo(
-        scrollButtonRef.current,
-        { opacity: 0, y: 20, scale: 0.8 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: "elastic.out(1, 0.5)",
-        },
-        "-=0.4"
-      );
+        .fromTo(".reveal-text",
+          { y: 80, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.2, stagger: 0.1 },
+          "-=1.5"
+        );
 
-    // const parallax = gsap.to(heroRef.current, {
-    //   y: 30,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: heroRef.current,
-    //     start: "top top",
-    //     end: "bottom top",
-    //     scrub: true,
-    //   },
-    // });
+      // Mouse-move interaction for glass elements
+      const handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const xPos = (clientX / window.innerWidth - 0.5) * 30;
+        const yPos = (clientY / window.innerHeight - 0.5) * 30;
 
-    return () => {
-      tl.kill();
-      // parallax.kill();
-    };
+        gsap.to(".glass-shard", {
+          x: xPos,
+          y: yPos,
+          duration: 2.5,
+          ease: "power3.out"
+        });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
-  const scrollToServices = () => {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
-    <Section variant="hero" spacing="large" className="min-h-screen flex items-center relative overflow-hidden">
-
+    <Section
+      variant="hero"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#020202] py-0"
+    >
+      {/* 1. PARALLAX GHOST TEXT (Organized Background) */}
       <motion.div
-        ref={heroRef}
-        className="text-center relative z-10 w-full"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        style={{ y: ghostY }}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
       >
-        <motion.div
-          className="mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
-            Jali Group
-          </span>
-        </motion.div>
-
-        <h1 ref={titleRef} className="text-hero mb-6">
-          Ideas Find Their
-          <br />
-          <span className="italic">
-            <TypewriterText />
-          </span>
+        <h1 className="text-[25vw] font-black text-white/[0.01] uppercase tracking-tighter leading-none">
+          Legacy
         </h1>
+      </motion.div>
 
-        <p ref={subtitleRef} className="text-subhead text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Inspiring growth through ideas, talks, and transformation. We help individuals and
-          businesses unlock their potential.
-        </p>
+      {/* 2. STRATEGIC GLASS SHARDS (Frosted Layers) */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        {/* Top Left - Soft Glow Shard */}
+        <div className="glass-shard absolute top-[10%] left-[5%] w-[30vw] h-[30vw] bg-white/[0.02] backdrop-blur-[100px] rounded-full border border-white/5 shadow-2xl" />
 
-        <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <CustomButton variant="primary" size="lg" onClick={scrollToServices} icon={ArrowDown} iconPosition="right">
-            Explore Our Work
-          </CustomButton>
+        {/* Bottom Right - Defined Edge Shard */}
+        <div className="glass-shard absolute bottom-[10%] right-[8%] w-96 h-96 bg-white/[0.03] backdrop-blur-3xl rounded-[4rem] border border-white/10 rotate-12 shadow-2xl" />
 
-          <CustomButton variant="secondary" size="lg" href="/contact">
-            Book Discovery Call
-          </CustomButton>
+        {/* Floating Detail */}
+        <div className="glass-shard absolute top-[40%] right-[12%] w-24 h-24 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 -rotate-[15deg] hidden md:block" />
+      </div>
+
+      {/* 3. MAIN CONTENT (Structured Hierarchy) */}
+      <div ref={containerRef} className="relative z-20 text-center px-6 max-w-6xl mx-auto">
+
+        {/* Badge Indicator */}
+        <div className="mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-4 bg-white/[0.03] border border-white/10 px-6 py-2 rounded-full backdrop-blur-md"
+          >
+            <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+            <span className="text-[9px] uppercase font-black tracking-[0.4em] text-white/60">
+              EST. MMXXIV — JALI GROUP
+            </span>
+          </motion.div>
         </div>
 
-        <motion.div
-          ref={scrollButtonRef}
-          className="flex justify-center"
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <button
-            onClick={scrollToServices}
-            className="p-3 rounded-full border border-border hover:bg-accent transition-all duration-300"
-            aria-label="Scroll to services"
-          >
-            <ArrowDown size={20} className="text-muted-foreground" />
-          </button>
-        </motion.div>
-      </motion.div>
+        {/* Hero Title with Typewriter Integration */}
+        <div className="mb-12">
+          <h1 ref={titleRef} className="text-[12vw] md:text-[8rem] font-bold text-white tracking-tighter leading-[0.85] uppercase">
+            <span className="reveal-text block">Turn Story</span>
+            <div className="flex flex-wrap justify-center items-baseline gap-x-4">
+              <span className="reveal-text block text-white/20 italic font-light lowercase">Into</span>
+              <span className="reveal-text block italic font-light text-white italic">
+                <TypewriterText />
+              </span>
+            </div>
+          </h1>
+        </div>
+
+        {/* Structured Subtext */}
+        <div className="max-w-2xl mx-auto space-y-16">
+          <p className="text-lg md:text-xl text-white/30 font-light leading-relaxed reveal-text tracking-wide px-4">
+            We use influence, perception, and strategy to turn <br className="hidden md:block" />
+            invisible potential into <span className="text-white/80">inevitable capital.</span>
+          </p>
+
+          {/* Action Hub */}
+          <div className="flex flex-col sm:flex-row gap-10 justify-center items-center">
+            {/* The Ultra-Pill CTA */}
+            <CustomButton
+              className="hero-btn bg-white text-black px-16 py-8 rounded-full font-black text-[11px] uppercase tracking-[0.3em] hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+            >
+              Become Inevitable
+            </CustomButton>
+
+            {/* Glass Video Button */}
+            <button className="group flex items-center gap-5 text-[10px] font-black uppercase tracking-[0.4em] text-white transition-all">
+              <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-white/5 backdrop-blur-xl group-hover:bg-white group-hover:text-black transition-all duration-700">
+                <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[9px] border-l-current border-b-[5px] border-b-transparent ml-1" />
+              </div>
+              <span className="group-hover:translate-x-1 transition-transform">Watch Film</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. VERTICAL MARQUEE (Side Detail - Very High End) */}
+      <div className="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-20 opacity-10 pointer-events-none hidden lg:flex">
+        <span className="rotate-90 text-[10px] font-black uppercase tracking-[1em]">Strategic</span>
+        <span className="rotate-90 text-[10px] font-black uppercase tracking-[1em]">Influence</span>
+        <span className="rotate-90 text-[10px] font-black uppercase tracking-[1em]">Legacy</span>
+      </div>
+
+      {/* 5. MINIMAL SCROLL INDICATOR */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 opacity-30">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-white to-transparent" />
+      </div>
     </Section>
   );
 };
 
 export default HeroSection;
-

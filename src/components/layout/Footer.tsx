@@ -1,132 +1,132 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Youtube, Mail } from "lucide-react";
+import { Instagram, Linkedin, Youtube, Mail, ArrowUpRight, Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    {
-      name: "Instagram",
-      href: "https://instagram.com/jaliafrica",
-      icon: Instagram,
-    },
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com/company/jaliafrica",
-      icon: Linkedin,
-    },
-    {
-      name: "YouTube",
-      href: "https://youtube.com/jaliafrica",
-      icon: Youtube,
-    },
-    {
-      name: "Email",
-      href: "mailto:hello@jaliafrica.com",
-      icon: Mail,
-    },
+    { name: "Instagram", href: "https://instagram.com/jaliafrica", icon: Instagram },
+    { name: "LinkedIn", href: "https://linkedin.com/company/jaliafrica", icon: Linkedin },
+    { name: "YouTube", href: "https://youtube.com/jaliafrica", icon: Youtube },
   ];
 
   const footerLinks = [
     {
-      title: "Company",
+      title: "Navigation",
       links: [
         { name: "About", href: "/about" },
-        { name: "Services", href: "/services" },
-        { name: "Courses", href: "/courses" },
+        { name: "Jali Varsity", href: "/courses" },
+        { name: "Industry Leader", href: "/services" },
+        { name: "WAMC", href: "/wamc" },
         { name: "Contact", href: "/contact" },
       ],
     },
     {
-      title: "Services",
+      title: "Legals",
       links: [
-        { name: "Public Speaking", href: "/services#speaking" },
-        { name: "Business Consulting", href: "/services#consulting" },
-        { name: "Online Courses", href: "/courses" },
-        { name: "1:1 Coaching", href: "/contact" },
+        { name: "Privacy Policy", href: "/privacy" },
+        { name: "Terms of Service", href: "/terms" },
+        { name: "Cookie Policy", href: "/cookies" },
       ],
     },
   ];
 
   return (
-    <footer className="section-dark section-spacing">
-      <div className="container-width section-padding">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <Link 
-              to="/" 
-              className="text-2xl font-bold tracking-tight mb-4 block hover:opacity-80 transition-opacity"
-            >
-              Jali Africa
+    <footer className="bg-black border-t border-white/5 pt-24 pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Top Section: Large Branding & CTA */}
+        <div className="grid lg:grid-cols-2 gap-20 mb-24 items-start">
+          <div>
+            <Link to="/" className="inline-block group">
+              <h2 className="text-white text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-8 group-hover:italic transition-all duration-500">
+                Jali <span className="text-white/20">Group</span>
+              </h2>
             </Link>
-            <p className="text-muted-foreground text-body mb-6 max-w-md">
-              Inspiring growth through ideas, talks, and transformation. 
-              We help individuals and businesses find their voice and unlock their potential.
+            <p className="text-white/40 text-xl font-light leading-relaxed max-w-md mb-12">
+              Transforming individual potential into market dominance.
+              The world is watching—make it worth seeing.
             </p>
-            
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
+
+            {/* Newsletter / Contact Quick Action */}
+            <div className="flex items-center gap-4">
+              <a
+                href="mailto:hello@jaliafrica.com"
+                className="bg-white text-black rounded-full px-8 py-4 font-bold text-[10px] uppercase tracking-[0.2em] transition-all hover:bg-white/90"
+              >
+                Get In Touch
+              </a>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/5">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-[10px] text-white/40 font-bold uppercase tracking-widest">Active Globally</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Links Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 pt-4">
+            {footerLinks.map((column) => (
+              <div key={column.title}>
+                <h3 className="text-white/20 text-[10px] font-black uppercase tracking-[0.4em] mb-8">{column.title}</h3>
+                <ul className="space-y-4">
+                  {column.links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        className="text-white/50 hover:text-white transition-colors duration-300 text-xs font-bold uppercase tracking-widest group flex items-center gap-2"
+                      >
+                        {link.name}
+                        <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-all -translate-y-1" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {/* Socials Column */}
+            <div>
+              <h3 className="text-white/20 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Social</h3>
+              <div className="flex flex-col gap-4">
+                {socialLinks.map((social) => (
                   <a
                     key={social.name}
                     href={social.href}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-card border border-border rounded-md hover:bg-accent hover:-translate-y-1 transition-all duration-300"
-                    aria-label={social.name}
+                    className="text-white/50 hover:text-white transition-all text-xs font-bold uppercase tracking-widest flex items-center gap-3"
                   >
-                    <Icon size={20} />
+                    <social.icon size={16} strokeWidth={1.5} />
+                    {social.name}
                   </a>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Links Columns */}
-          {footerLinks.map((column) => (
-            <div key={column.title}>
-              <h3 className="font-semibold mb-4">{column.title}</h3>
-              <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-small text-muted-foreground">
-              © {currentYear} Jali Africa. All rights reserved.
+        {/* Huge Background Text Overlay (Branding) */}
+        <div className="relative h-20 md:h-40 pointer-events-none select-none overflow-hidden mb-12">
+          <h1 className="text-[12rem] md:text-[22rem] font-black text-white/[0.02] absolute left-1/2 -translate-x-1/2 -bottom-20 uppercase tracking-tighter whitespace-nowrap">
+            Jali Group
+          </h1>
+        </div>
+
+        {/* Bottom Bar: Detailed Stats / Copyright */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-8">
+            <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.3em]">
+              © {currentYear} JALI GROUP. ALL RIGHTS RESERVED.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                to="/privacy"
-                className="text-small text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
-                className="text-small text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Terms of Service
-              </Link>
+            <div className="hidden md:flex items-center gap-2 text-[9px] text-white/10 font-bold uppercase tracking-[0.3em]">
+              <Globe size={10} />
+              Lagos / London / Global
             </div>
           </div>
+
+          <p className="text-[9px] text-white/10 font-medium tracking-[0.2em] uppercase max-w-xs text-center md:text-right">
+            Designed for those who understand that being known is not enough. Being remembered is everything.
+          </p>
         </div>
       </div>
     </footer>

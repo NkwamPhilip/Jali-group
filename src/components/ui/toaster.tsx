@@ -27,7 +27,12 @@ export function Toaster() {
           </Toast>
         );
       })}
-      <ToastViewport />
+      {/* MODIFIED LINE BELOW: 
+        1. fixed bottom-0: Pins it to the bottom screen edge.
+        2. left-1/2 -translate-x-1/2: Centers it perfectly on mobile.
+        3. sm: Classes: Keeps it at bottom-right for desktop screens.
+      */}
+      <ToastViewport className="fixed bottom-0 left-1/2 z-[100] flex -translate-x-1/2 flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:left-auto sm:translate-x-0" />
     </ToastProvider>
   );
 }

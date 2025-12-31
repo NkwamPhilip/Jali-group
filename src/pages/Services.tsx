@@ -1,236 +1,266 @@
-import { Mic, TrendingUp, BookOpen, Users, Target, Lightbulb, ArrowRight, Check } from "lucide-react";
+import {
+  Check,
+  ArrowRight,
+  Lightbulb,
+  Box,
+  Globe,
+  Ticket,
+  Video,
+  ChevronRight
+} from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/ui/Section";
-import FeatureCard from "@/components/ui/FeatureCard";
 import CustomButton from "@/components/ui/CustomButton";
 import SEOHead from "@/components/ui/SEOHead";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const Services = () => {
-  const services = [
+  // Verbatim copy from "We handle everything" section
+  const handleEverything = [
     {
-      id: "speaking",
-      icon: Mic,
-      title: "Public Speaking Engagements",
-      description: "Transformational talks that inspire action and create lasting impact in your audience.",
-      features: [
-        "Keynote presentations for conferences and events",
-        "Workshop facilitation and interactive sessions",
-        "Corporate training and team development",
-        "Motivational speaking for schools and universities",
-        "Panel discussions and thought leadership forums"
-      ],
-      pricing: "Starting from $2,500 per engagement",
-      cta: "Book a Speaking Engagement"
+      id: "01",
+      title: "Strategy",
+      icon: Lightbulb,
+      items: ["Brand Narrative", "Image & Perception Map", "Documentation", "Signature Assets: Frameworks"]
     },
     {
-      id: "consulting",
-      icon: TrendingUp,
-      title: "Business Growth Consulting",
-      description: "Strategic consulting to scale your business through proven systems and frameworks.",
-      features: [
-        "Business strategy development and execution",
-        "Story-driven marketing and brand positioning",
-        "Sales system optimization and scaling",
-        "Team development and leadership coaching",
-        "Digital transformation and growth hacking"
-      ],
-      pricing: "Custom packages from $5,000",
-      cta: "Start Your Growth Journey"
+      id: "02",
+      title: "Execution",
+      icon: Box,
+      items: ["Production", "Scripting", "Design", "Editing"]
     },
     {
-      id: "courses",
-      icon: BookOpen,
-      title: "Transformational Online Courses",
-      description: "Comprehensive learning experiences that build practical skills for sustained growth.",
-      features: [
-        "Self-paced online learning modules",
-        "Live coaching sessions and Q&A",
-        "Practical assignments and real-world projects",
-        "Community access and peer networking",
-        "Lifetime access to course materials"
-      ],
-      pricing: "From $497 to $2,997 per course",
-      cta: "Explore Our Courses"
+      id: "03",
+      title: "Distribution",
+      icon: Globe,
+      items: ["Platform Hierarchy", "Content Output frequency", "Strategic Media Placement ", "Podcasts & PR"]
+    },
+    {
+      id: "04",
+      title: "Conversion",
+      icon: Ticket,
+      items: ["Lead Magnets", "Email List Integration", "Email Flow", "Additional Offer"]
+    },
+    {
+      id: "05",
+      title: "Management",
+      icon: Video,
+      items: ["Social Media Management", "Speech Writing ", "Community Creation", "Community Management"]
     }
   ];
 
-  const processSteps = [
-    {
-      icon: Users,
-      title: "Discovery Call",
-      description: "We start with a deep-dive conversation to understand your needs, goals, and current challenges."
-    },
-    {
-      icon: Target,
-      title: "Strategy Development",
-      description: "Based on our discovery, we create a customized strategy that aligns with your objectives."
-    },
-    {
-      icon: Lightbulb,
-      title: "Implementation",
-      description: "We work together to execute the strategy, providing guidance and support every step of the way."
-    }
-  ];
+  // Simple, elegant, white sharp rounded button style
+  const pillButtonStyle = "bg-white text-black rounded-full px-10 py-6 font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/90 hover:scale-[1.02]";
 
   return (
     <Layout>
-      <SEOHead 
-        title="Services - Public Speaking, Business Consulting & Online Courses | Jali Africa"
-        description="Professional public speaking engagements, strategic business growth consulting, and transformational online courses. Unlock your potential with Jali Africa's proven systems."
-        keywords="public speaking services, business consulting, online courses, keynote speaker, business growth strategy, corporate training"
+      <SEOHead
+        title="FounderSignal - Become the Unfair Advantage | Victor Okafo"
+        description="We turn founders into authority symbols. From Strategy to Execution, we handle everything."
       />
 
-      <Section variant="hero" spacing="large">
-        <div className="text-center animate-fadeIn">
-          <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
-            Our Services
-          </span>
-          <h1 className="text-hero mb-6 animate-slideUp">
-            Transform Your
-            <br />
-            <span className="italic">Potential</span>
-          </h1>
-          <p className="text-subhead text-muted-foreground max-w-3xl mx-auto animate-slideUp">
-            From public speaking to business strategy, we provide comprehensive solutions 
-            for personal and professional growth.
-          </p>
-        </div>
-      </Section>
+      {/* 1. Hero Section */}
+      <Section variant="dark" spacing="large">
+        <ScrollReveal variant="fade">
+          <div className="text-center max-w-4xl mx-auto pt-12">
+            <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-xs mb-6 block">
+              FounderSignal
+            </span>
+            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight">
+              Become the unfair advantage <br />
+              <span className="text-white/30 italic font-light">for your brand.</span>
+            </h1>
+          </div>
+        </ScrollReveal>
 
-      <Section variant="dark" spacing="normal">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div key={service.id} className="animate-fadeIn" style={{ animationDelay: `${index * 0.2}s` }}>
-              <FeatureCard 
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-              >
-                <CustomButton 
-                  variant="ghost" 
-                  href={`#${service.id}`}
-                  icon={ArrowRight}
-                  iconPosition="right"
-                  className="mt-4"
-                >
-                  Learn More
-                </CustomButton>
-              </FeatureCard>
-            </div>
-          ))}
-        </div>
-      </Section>
+        <div className="mt-24 grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <ScrollReveal variant="slideUp">
+            <img
+              src="src/components/images/guy2.JPEG"
+              alt="Victor Okafo"
+              className="relative rounded-[2rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
+            />
+          </ScrollReveal>
 
-      {services.map((service, index) => (
-        <Section 
-          key={service.id}
-          id={service.id}
-          variant={index % 2 === 0 ? "light" : "dark"}
-          spacing="normal"
-        >
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className={`animate-slideUp ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center mr-4">
-                  <service.icon size={24} />
-                </div>
-                <h2 className="text-display">{service.title}</h2>
-              </div>
-              
-              <p className="text-body text-muted-foreground mb-8 leading-relaxed">
-                {service.description}
+          <ScrollReveal variant="slideUp" delay={0.2}>
+            <div className="space-y-8">
+              <p className="text-xl text-white/60 leading-relaxed italic">
+                Africa’s most intriguing young personality in business... embodying it.
               </p>
-
-              <div className="mb-8">
-                <h3 className="text-headline mb-4">What's Included:</h3>
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <Check size={20} className="text-foreground mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-body text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <div className="bg-card border border-border rounded-lg p-6">
-                  <h4 className="font-semibold mb-2">Investment</h4>
-                  <p className="text-muted-foreground">{service.pricing}</p>
-                </div>
-              </div>
-
-              <CustomButton 
-                variant="primary"
-                href="/contact"
-                icon={ArrowRight}
-                iconPosition="right"
-              >
-                {service.cta}
+              <ul className="space-y-4">
+                {[
+                  "70M views & 650K followers in 1 year",
+                  "Sold Out Jali Events in Europe & Africa",
+                  "1200% Increase in Client Acquisition for Jali",
+                  "Consulted for Companies worth $20B",
+                  "Nominated For Global Entrepreneurship Award in 2025"
+                ].map((stat, i) => (
+                  <li key={i} className="flex items-center gap-4 text-white/80 font-medium text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                    {stat}
+                  </li>
+                ))}
+              </ul>
+              <CustomButton href="/contact" className={pillButtonStyle}>
+                Book Brand Relevance Strategy Call
               </CustomButton>
             </div>
-            
-            <div className={`relative animate-scaleIn ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-              <div className="bg-card border border-border rounded-2xl p-8 shadow-large">
-                <div className="aspect-square bg-surface rounded-lg flex items-center justify-center">
-                  <service.icon size={64} className="text-muted-foreground" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-      ))}
-
-      {/* Process Section */}
-      <Section variant="dark" spacing="normal">
-        <div className="text-center mb-16">
-          <h2 className="text-display mb-6 animate-slideUp">
-            Our Process
-          </h2>
-          <p className="text-subhead text-muted-foreground max-w-3xl mx-auto animate-slideUp">
-            A proven three-step approach that ensures your success from start to finish.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {processSteps.map((step, index) => (
-            <div key={step.title} className="text-center animate-fadeIn" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="card-feature">
-                <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-6">
-                  <step.icon size={28} />
-                </div>
-                <h3 className="text-headline mb-4">{step.title}</h3>
-                <p className="text-body text-muted-foreground">{step.description}</p>
-              </div>
-            </div>
-          ))}
+          </ScrollReveal>
         </div>
       </Section>
 
-      <Section spacing="normal" className="text-center">
-        <div className="content-width animate-scaleIn">
-          <h2 className="text-display mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-subhead text-muted-foreground mb-8">
-            Choose the service that best fits your needs, or let's discuss a custom solution during a discovery call.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CustomButton 
-              variant="primary" 
-              size="lg"
-              href="/contact"
-            >
-              Book Discovery Call
-            </CustomButton>
-            <CustomButton 
-              variant="secondary" 
-              size="lg"
-              href="/courses"
-            >
-              Browse Courses
-            </CustomButton>
+      {/* 2. Positioning Section */}
+      <Section variant="dark" spacing="large" className="bg-[#050505]">
+        <div className="max-w-4xl mx-auto text-center space-y-12 mb-20">
+          <ScrollReveal variant="slideUp">
+            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">WHEN POWER LEAVES</h3>
+            <div className="h-px w-24 bg-white/10 mx-auto mt-8" />
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 gap-12 text-left">
+            <ScrollReveal variant="fade" delay={0.2} className="bg-white/[0.02] p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
+              <p className="text-lg text-white/60 leading-relaxed">
+                People like you don’t lose in business. You lose relevance. Revenue stays fine, your team is busy, but when decisions are made in your industry, your name isn’t mentioned anymore.
+              </p>
+              <p className="mt-6 text-white font-bold italic">That’s how power quietly leaves.</p>
+            </ScrollReveal>
+
+            <ScrollReveal variant="fade" delay={0.3} className="bg-white/[0.02] p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
+              <p className="text-lg text-white/60 leading-relaxed">
+                In 2026, the most dangerous place... is to be respected inside your company, but forgotten outside of it.
+              </p>
+              <div className="mt-8">
+                <CustomButton href="/contact" className={pillButtonStyle}>
+                  Apply To Work With Jali
+                </CustomButton>
+              </div>
+            </ScrollReveal>
           </div>
+        </div>
+
+        {/* 3. FounderSignal Main Plan Card */}
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal variant="slideUp" className="bg-white text-black rounded-[3rem] p-12 md:p-16 flex flex-col justify-between shadow-2xl">
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 block opacity-40">Elite Management</span>
+              <h3 className="text-4xl font-bold mb-6">FounderSignal</h3>
+              <p className="text-black/60 mb-10">Become THE authority symbol in your industry in 6-12 months. From Strategy to Execution, we handle everything.</p>
+              <ul className="grid md:grid-cols-2 gap-4 mb-12">
+                {[
+                  "Personal Brand Narrative Mapping",
+                  "Strategy & Digital Asset Building",
+                  "Execution, Distribution & Placement",
+                  "Conversion & Management",
+                  "Speaking Engagement & Thought Leadership",
+                  "Book Deals, Signature Frameworks"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-tight">
+                    <Check size={16} className="shrink-0 text-black" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-8 border-t border-black/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <p className="text-[10px] font-black opacity-30 uppercase">Investment</p>
+                <p className="text-2xl font-black">From $6,500/Mo</p>
+              </div>
+              <CustomButton href="/contact" className="bg-black text-white px-10 py-6 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-black/80">
+                Apply To Work With Jali
+              </CustomButton>
+            </div>
+          </ScrollReveal>
+        </div>
+      </Section>
+
+      {/* 4. Fear Section */}
+      <Section variant="dark" spacing="large">
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <ScrollReveal variant="slideUp">
+            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 leading-none uppercase">Being Left Behind</h3>
+            <p className="text-white/40 text-xl italic mb-12">Remember BlackBerry. Remember Blockbuster.</p>
+            <CustomButton href="/contact" className={pillButtonStyle}>
+              Book a strategy call
+            </CustomButton>
+          </ScrollReveal>
+          <ScrollReveal variant="fade" delay={0.2} className="space-y-6 text-white/60 text-lg leading-relaxed">
+            <p>Once giants, now a memory... In 2026, customers no longer buy products, they buy stories. If yours hasn’t evolved, someone else is already telling a better one.</p>
+            <p className="text-white font-medium">Secure your category dominance before it’s written without you.</p>
+          </ScrollReveal>
+        </div>
+      </Section>
+
+      {/* 5. Process Section - Glass Grids */}
+      <Section variant="dark" spacing="large" className="bg-black">
+        <div className="text-center mb-24">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">We handle everything!</h2>
+          <p className="text-white/40 uppercase tracking-widest text-xs font-bold">So you can focus on being the face of your brand.</p>
+        </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-5 gap-6">
+            {handleEverything.map((step, index) => (
+              <ScrollReveal key={step.id} variant="slideUp" delay={index * 0.1}>
+                <div className="relative">
+                  <div className="text-center mb-10">
+                    <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <step.icon size={32} className="text-white/40" />
+                    </div>
+                    <h4 className="text-white font-bold text-xs uppercase tracking-widest">{step.id}. {step.title}</h4>
+                  </div>
+                  {/* Glass feel sub-grids */}
+                  <div className="space-y-3">
+                    {step.items.map((item, i) => (
+                      <div
+                        key={i}
+                        className="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-xl p-4 transition-all hover:bg-white/[0.08]"
+                      >
+                        <div className="flex items-start gap-3">
+                          <Check size={14} className="text-white/40 mt-0.5 shrink-0" />
+                          <span className="text-[10px] text-white/70 font-black uppercase tracking-tight">{item}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 6. Brand Relevance Stack */}
+      <Section variant="dark" spacing="large">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal variant="slideUp" className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 md:p-16 flex flex-col justify-between text-white">
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 block text-white/40">Brand Relevance Stack</span>
+              <h3 className="text-4xl font-bold mb-6 tracking-tighter">What’s Included:</h3>
+              <ul className="grid md:grid-cols-2 gap-4 mb-12">
+                {[
+                  "Narrative Definition & Brand Story Arc",
+                  "Advisory & Strategy Development",
+                  "Authority To Revenue Roadmap",
+                  "Marketing & Sales Flow System Optimization",
+                  "Digital transformation & Growth Hacking",
+                  "Team Development & Coaching",
+                  "Custom Materials delivered"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-tight text-white/60">
+                    <Check size={16} className="text-white/40 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+              <div>
+                <p className="text-[10px] uppercase font-bold tracking-widest text-white/30">Investment</p>
+                <p className="text-2xl font-black">From $5,000</p>
+              </div>
+              <CustomButton href="/contact" className={pillButtonStyle}>
+                Book Strategy Call
+              </CustomButton>
+            </div>
+          </ScrollReveal>
         </div>
       </Section>
     </Layout>

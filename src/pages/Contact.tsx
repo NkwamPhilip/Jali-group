@@ -1,96 +1,82 @@
-import { useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  CheckCircle,
-  Clock,
-  ArrowRight,
-} from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Mail, MessageSquare, Globe, Sparkles, ShieldCheck } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/ui/Section";
 import CustomButton from "@/components/ui/CustomButton";
 import SEOHead from "@/components/ui/SEOHead";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    service: "",
-    message: "",
-  });
+  const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Initialize EmailJS with your Public Key
+  useEffect(() => {
+    emailjs.init("myEjwOlLjAuFtcsoG");
+  }, []);
+
+  const pillButtonStyle = "w-full bg-white text-black rounded-full py-8 font-black text-[11px] uppercase tracking-[0.3em] transition-all duration-500 hover:bg-white/90 hover:scale-[1.02] shadow-[0_0_40px_rgba(255,255,255,0.1)]";
+  const glassInput = "w-full px-8 py-5 bg-white/[0.02] border border-white/5 rounded-[2rem] focus:outline-none focus:border-white/20 focus:bg-white/[0.05] transition-all text-white placeholder:text-white/10 text-sm font-light tracking-wide";
+
   const services = [
-    "Public Speaking Engagement",
-    "Business Growth Consulting",
-    "1:1 Coaching",
-    "Online Course Inquiry",
-    "Custom Workshop",
-    "Other",
+    "FounderSignal Management",
+    "Brand Relevance Stack",
+    "Public Speaking",
+    "Corporate Workshop",
   ];
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      details: "hello@jaliafrica.com",
-      description: "Send us an email anytime",
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      details: "+234 123 456 7890",
-      description: "Mon-Fri from 9am to 6pm",
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      details: "Lagos, Nigeria",
-      description: "Available for global engagements",
-    },
-  ];
-
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Audio Feedback Logic
+    const playSuccessSound = () => {
+      const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3");
+      audio.volume = 0.2;
+      audio.play().catch(() => console.log("Audio play blocked"));
+    };
+
+    const SERVICE_ID = "service_3aqdc3g";
+    const TEMPLATE_ID = "template_hq7kir4";
+    const PUBLIC_KEY = "myEjwOlLjAuFtcsoG";
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      if (formRef.current) {
+        const result = await emailjs.sendForm(
+          SERVICE_ID,
+          TEMPLATE_ID,
+          formRef.current,
+          PUBLIC_KEY
+        );
+
+        if (result.status === 200) {
+          // --- HAPTIC & AUDIO FEEDBACK ---
+          if ("vibrate" in navigator) {
+            navigator.vibrate([30, 50, 30]); // Subtle double-tap pulse
+          }
+          playSuccessSound();
+
+          toast({
+            title: "TRANSMISSION SUCCESSFUL",
+            description: "Your inquiry has been logged. Jali's team will contact you shortly."
+          });
+          
+          formRef.current.reset();
+        }
+      }
+    } catch (error: any) {
+      console.error("EmailJS Error:", error);
+      
+      // Error vibration (one long pulse)
+      if ("vibrate" in navigator) navigator.vibrate(200);
 
       toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        service: "",
-        message: "",
-      });
-    } catch (error) {
-      toast({
-        title: "Error sending message",
-        description: "Please try again or email us directly.",
         variant: "destructive",
+        title: "CONNECTION ERROR",
+        description: error?.text || "System failed to transmit. Please email Jaliafriq@gmail.com directly."
       });
     } finally {
       setIsSubmitting(false);
@@ -99,264 +85,107 @@ const Contact = () => {
 
   return (
     <Layout>
-      <SEOHead
-        title="Contact Jali Africa - Book Speaking Engagements & Consulting"
-        description="Get in touch with Jali Africa for public speaking engagements, business consulting, or course inquiries. We respond within 24 hours."
-        keywords="contact jali africa, book speaker, business consulting inquiry, storytelling expert contact, victor okafor contact"
-      />
+      <SEOHead title="Contact - Victor Okafo | Jali Group" />
 
-      <Section variant="hero" spacing="large">
-        <div className="text-center animate-fadeIn">
-          <span className="text-small uppercase tracking-widest text-muted-foreground mb-4 block">
-            Get In Touch
-          </span>
-          <h1 className="text-hero mb-6 animate-slideUp">
-            Let's Start a
-            <br />
-            <span className="italic">Conversation</span>
-          </h1>
-          <p className="text-subhead text-muted-foreground max-w-3xl mx-auto animate-slideUp">
-            Ready to transform your story? Let's discuss how we can help you
-            achieve your goals through our speaking, consulting, and educational
-            services.
-          </p>
+      {/* Hero Section */}
+      <Section variant="dark" className="relative pt-32 pb-20 overflow-hidden bg-[#020202]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none select-none">
+          <h2 className="text-[20vw] font-black uppercase tracking-tighter">Inquiry</h2>
+        </div>
+
+        <div className="text-center max-w-5xl mx-auto relative z-10 px-6">
+          <ScrollReveal variant="fade">
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2 rounded-full mb-10">
+              <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+              <span className="text-white/40 font-black tracking-[0.4em] uppercase text-[9px]">Direct Access</span>
+            </div>
+            <h1 className="text-6xl md:text-[7rem] font-bold text-white mb-10 tracking-tighter leading-[0.85] uppercase">
+              Start a <br />
+              <span className="italic font-light text-white/10 lowercase">Conversation</span>
+            </h1>
+          </ScrollReveal>
         </div>
       </Section>
 
-      <Section variant="dark" spacing="normal">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div className="animate-slideUp">
-            <h2 className="text-display mb-6">Send Us a Message</h2>
-            <p className="text-body text-muted-foreground mb-8">
-              Fill out the form below and we'll get back to you within 24 hours.
-              For urgent matters, feel free to call us directly.
-            </p>
+      {/* Main Form Section */}
+      <Section variant="dark" className="bg-[#020202] pt-0 pb-32">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.2fr_0.8fr] gap-20">
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
-                    placeholder="Your full name"
-                  />
+          <ScrollReveal variant="slideUp">
+            <div className="bg-white/[0.01] border border-white/5 backdrop-blur-3xl rounded-[3.5rem] p-10 md:p-16">
+              <h2 className="text-3xl font-black text-white mb-12 tracking-tighter uppercase">Inquiry Dossier</h2>
+
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Identify Yourself</label>
+                    <input name="from_name" type="text" placeholder="Full Name" className={glassInput} required />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Return Path</label>
+                    <input name="reply_to" type="email" placeholder="Email Address" className={glassInput} required />
+                  </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
-                    placeholder="your@email.com"
-                  />
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Organization</label>
+                    <input name="company" type="text" placeholder="Company Name" className={glassInput} />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Interest</label>
+                    <select name="service_type" className={`${glassInput} appearance-none cursor-pointer`} required>
+                      <option value="" className="bg-black text-white/40">Select Pillar</option>
+                      {services.map(s => <option key={s} value={s} className="bg-black text-white">{s}</option>)}
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Company/Organization
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
-                    placeholder="Your company name"
-                  />
+                <div className="space-y-2">
+                  <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Objectives</label>
+                  <textarea name="message" placeholder="Briefly describe your goals..." rows={6} className={`${glassInput} resize-none`} required />
                 </div>
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-medium mb-2"
+
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={pillButtonStyle}
                   >
-                    Service Interest *
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
-                  >
-                    <option value="">Select a service</option>
-                    {services.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
-                      </option>
-                    ))}
-                  </select>
+                    {isSubmitting ? "TRANSMITTING..." : "SUBMIT INQUIRY"}
+                  </button>
                 </div>
-              </div>
+              </form>
+            </div>
+          </ScrollReveal>
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-card border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring transition-colors resize-vertical"
-                  placeholder="Tell us about your project, event, or how we can help you..."
-                />
-              </div>
-
-              <CustomButton
-                type="submit"
-                variant="primary"
-                size="lg"
-                disabled={isSubmitting}
-                icon={isSubmitting ? Clock : Send}
-                iconPosition="right"
-                className="w-full"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </CustomButton>
-            </form>
-          </div>
-
-          {/* Contact Information */}
-          <div className="animate-scaleIn">
-            <h2 className="text-display mb-6">Get In Touch</h2>
-            <p className="text-body text-muted-foreground mb-8">
-              Prefer to reach out directly? Here are the best ways to contact
-              us.
-            </p>
-
-            <div className="space-y-6">
-              {contactInfo.map((info) => (
-                <div key={info.title} className="card-minimal">
-                  <div className="flex items-start">
-                    <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                      <info.icon size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{info.title}</h3>
-                      <p className="text-lg font-medium mb-1">{info.details}</p>
-                      <p className="text-small text-muted-foreground">
-                        {info.description}
-                      </p>
-                    </div>
+          <div className="space-y-16">
+            <div className="space-y-12">
+              {[
+                { icon: Mail, label: "Correspondence", val: "Jaliafriq@gmail.com" },
+                { icon: Globe, label: "Presence", val: "Operating Globally" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-8 group">
+                  <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-black">
+                    <item.icon size={22} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 mb-2">{item.label}</p>
+                    <p className="text-xl text-white font-light tracking-tight">{item.val}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="card-minimal mt-8">
-              <div className="flex items-center">
-                <CheckCircle size={24} className="text-foreground mr-3" />
-                <div>
-                  <h4 className="font-semibold">Quick Response Time</h4>
-                  <p className="text-small text-muted-foreground">
-                    We typically respond within 24 hours on business days
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white text-black rounded-[3rem] p-12 relative overflow-hidden group">
+              <Sparkles size={24} className="mb-6" />
+              <h4 className="font-black text-2xl tracking-tighter uppercase mb-2">Serious Inquiries Only</h4>
+              <p className="text-black/60 text-sm font-medium leading-relaxed">
+                We specialize in high-stakes brand relevance. If you're ready to scale trust, we're ready to talk.
+              </p>
+              {/* Visual Decorative Layer */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-black/[0.03] rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
             </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section spacing="normal">
-        <div className="text-center mb-16">
-          <h2 className="text-display mb-6 animate-slideUp">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-subhead text-muted-foreground max-w-2xl mx-auto animate-slideUp">
-            Quick answers to common questions about our services and process.
-          </p>
-        </div>
-
-        <div className="content-width space-y-6">
-          {[
-            {
-              question:
-                "How far in advance should I book a speaking engagement?",
-              answer:
-                "We recommend booking at least 2-3 months in advance to ensure availability, especially for keynote presentations. However, we can sometimes accommodate shorter notice for the right opportunity.",
-            },
-            {
-              question: "Do you provide consulting services internationally?",
-              answer:
-                "Yes, we work with clients globally. We offer virtual consulting sessions and can travel internationally for speaking engagements and workshops, subject to availability and terms.",
-            },
-            {
-              question: "What's included in your consulting packages?",
-              answer:
-                "Our consulting packages are customized based on your needs but typically include strategy development, implementation support, progress tracking, and ongoing communication. We'll discuss specifics during our discovery call.",
-            },
-            {
-              question:
-                "Can I get a custom course developed for my organization?",
-              answer:
-                "Absolutely! We create custom training programs and workshops tailored to your organization's specific needs, culture, and goals. Contact us to discuss your requirements.",
-            },
-          ].map((faq, index) => (
-            <div
-              key={index}
-              className="card-minimal animate-fadeIn"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <h3 className="font-semibold mb-3">{faq.question}</h3>
-              <p className="text-muted-foreground">{faq.answer}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section variant="dark" spacing="normal" className="text-center">
-        <div className="content-width animate-scaleIn">
-          <h2 className="text-display mb-6">Ready to Transform Your Story?</h2>
-          <p className="text-subhead text-muted-foreground mb-8">
-            Whether you need a speaker for your next event or want to grow your
-            business, we're here to help you succeed.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CustomButton
-              variant="primary"
-              size="lg"
-              href="/services"
-              icon={ArrowRight}
-              iconPosition="right"
-            >
-              View Our Services
-            </CustomButton>
-            <CustomButton variant="secondary" size="lg" href="/courses">
-              Browse Courses
-            </CustomButton>
           </div>
         </div>
       </Section>

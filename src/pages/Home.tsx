@@ -6,6 +6,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import InsightsSection from "@/components/sections/InsightsSection";
 import CommunitySection from "@/components/sections/CommunitySection";
 import CTASection from "@/components/sections/CTASection";
+import CaseStudySection from "@/components/sections/CaseStudySection";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <AboutSection />
       <ServicesSection />
       <InsightsSection />
+      <CaseStudySection />
       <CommunitySection />
       <CTASection />
     </Layout>

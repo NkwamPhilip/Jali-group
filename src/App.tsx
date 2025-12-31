@@ -9,13 +9,14 @@ import Services from "./pages/Services";
 import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import WAMC from "./pages/wamc";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
+      <Toaster position="bottom-center" expand={false} richColors />
       <Sonner />
       <BrowserRouter>
         <Routes>
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/wamc" element={<WAMC />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,70 +1,76 @@
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import CustomButton from "@/components/ui/CustomButton";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { STATS } from "@/constant/content";
-import { cn } from "@/lib/utils";
 
 const AboutSection = () => {
+  // Signature style for buttons
+  const pillButtonStyle = "bg-white text-black rounded-full px-12 py-7 font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/90 hover:scale-[1.05]";
+
   return (
-    <Section variant="dark" spacing="normal">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <Section variant="dark" spacing="large" className="bg-[#020202]">
+
+      {/* --- EXISTING HERO & STATS --- */}
+      <div className="grid lg:grid-cols-2 gap-20 items-center mb-40 max-w-7xl mx-auto px-6">
         <ScrollReveal variant="slideRight">
-          <h2 className="text-display mb-6">We Help Ideas Find Their Voice</h2>
-          <p className="text-body text-muted-foreground mb-8 leading-relaxed">
-            At Jali Africa, we specialize in delivering powerful talks, building business strategy,
-            and curating transformative learning experiences. Our story-centric approach to growth
-            has helped countless individuals and organizations unlock their potential.
+          <h2 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-[0.9]">
+            We Know Why <br /> <span className="italic font-light text-white/20">You're Here.</span>
+          </h2>
+          <p className="text-xl text-white/50 mb-10 leading-relaxed font-light">
+            Reality has hit. Getting to the next level has nothing to do with emotions or effort.
+            It’s about understanding the game of change.
           </p>
-          <p className="text-body text-muted-foreground mb-8 leading-relaxed">
-            Founded on the belief that the growth you seek can be found in the connections you often
-            overlook, we are committed to showing you exactly how to attract and retain the right
-            people you need to grow.
-          </p>
-          <CustomButton variant="primary" href="/about" icon={ArrowRight} iconPosition="right">
-            Learn Our Story
+          <CustomButton href="/about" className={pillButtonStyle}>
+            Rewrite Your Story
           </CustomButton>
         </ScrollReveal>
 
-        <ScrollReveal variant="scale" delay={0.2}>
-          <motion.div
-            className="bg-card border border-border rounded-2xl p-8 shadow-large"
-            whileHover={{ scale: 1.02, y: -4 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="grid grid-cols-2 gap-6 text-center">
-              {STATS.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className={cn(
-                    index % 2 === 0 ? "border-r border-border pr-6" : "pl-6",
-                    index >= 2 && "border-t border-border pt-6"
-                  )}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <motion.div
-                    className="text-3xl font-bold mb-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                  >
-                    {stat.value}
-                  </motion.div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
-              ))}
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { label: "Reach", val: "70M+" },
+            { label: "Growth", val: "1200%" },
+            { label: "Community", val: "650K" },
+            { label: "Joint Client Revenue", val: "$20.8B" }
+          ].map((stat, i) => (
+            <div key={i} className="bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem]">
+              <div className="text-4xl font-black text-white mb-2 tracking-tighter">{stat.val}</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-bold">{stat.label}</div>
             </div>
-      </motion.div>
-    </ScrollReveal>
-  </div>
-</Section>
+          ))}
+        </div>
+      </div>
+
+      {/* --- CLIENT LOGO SLIDER (Using standard paths) --- */}
+      <div className="relative py-20 border-y border-white/5 overflow-hidden">
+        <motion.div
+          className="flex items-center gap-24"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 45, ease: "linear", repeat: Infinity }}
+        >
+          {/* Mapping through your specific file names from the screenshot */}
+          {["bmm.png", "bbu.png", "jpm.png", "mtn.jpeg", "nlng.png", "nnp.png", "techstars.jpeg"].map((imgName, i) => (
+            <img
+              key={i}
+              src={`/src/components/images/${imgName}`}
+              alt="Client Logo"
+              className="h-20 w-auto object-contain hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+            />
+          ))}
+          {/* Duplicate for seamless loop */}
+          {["bmm.png", "bu.png", "jpm.png", "mtn.jpeg", "nlng.png", "nnp.png", "techstars.jpeg"].map((imgName, i) => (
+            <img
+              key={`dup-${i}`}
+              src={`/src/components/images/${imgName}`}
+              alt="Client Logo"
+              className="h-20 w-auto object-contain hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+            />
+          ))}
+        </motion.div>
+      </div>
+
+    </Section>
   );
 };
 
 export default AboutSection;
-
