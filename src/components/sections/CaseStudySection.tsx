@@ -37,10 +37,10 @@ const CaseStudySection = () => {
                             ].map((stat, i) => (
                                 <div key={i} className="group relative bg-white/[0.02] border border-white/5 backdrop-blur-md p-8 rounded-[2.5rem] hover:bg-white/[0.05] transition-all duration-500 overflow-hidden">
                                     <div className="relative z-10">
-                                        <div className={`text-4xl font-black tracking-tighter mb-2 ${stat.highlight ? 'text-white' : 'text-white/40'}`}>
+                                        <div className={`text-4xl font-black tracking-tighter mb-2 ${stat.highlight ? 'text-white' : 'text-white'}`}>
                                             {stat.val}
                                         </div>
-                                        <div className="text-[9px] text-white/30 uppercase font-black tracking-widest leading-relaxed whitespace-pre-line">
+                                        <div className="text-[9px] text-white uppercase font-black tracking-widest leading-relaxed whitespace-pre-line">
                                             {stat.sub}
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@ const CaseStudySection = () => {
                             <h4 className="text-2xl font-black text-white tracking-tighter uppercase">Dr. E (Mazi)</h4>
                             <div className="flex items-center gap-3 mt-2">
                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                <p className="text-[10px] text-white/40 font-black uppercase tracking-[0.2em]">Medical Doctor : Influence</p>
+                                <p className="text-[10px] text-white/40 font-black uppercase tracking-[0.2em]">Medical Doctor : Influencer</p>
                             </div>
                         </div>
                     </div>

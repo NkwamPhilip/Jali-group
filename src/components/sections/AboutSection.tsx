@@ -34,7 +34,7 @@ const AboutSection = () => {
             { label: "Joint Client Revenue", val: "$20.8B" }
           ].map((stat, i) => (
             <div key={i} className="bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem]">
-              <div className="text-4xl font-black text-white mb-2 tracking-tighter">{stat.val}</div>
+              <div className="text-xl font-black text-white mb-2 tracking-tighter">{stat.val}</div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-bold">{stat.label}</div>
             </div>
           ))}
@@ -44,9 +44,9 @@ const AboutSection = () => {
       {/* --- CLIENT LOGO SLIDER (Using standard paths) --- */}
       <div className="relative py-20 border-y border-white/5 overflow-hidden">
         <motion.div
-          className="flex items-center gap-24"
+          className="flex items-center gap-20"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 45, ease: "linear", repeat: Infinity }}
+          transition={{ duration: 10, ease: "linear", repeat: Infinity }}
         >
           {/* Mapping through your specific file names from the screenshot */}
           {["bmm.png", "bbu.png", "jpm.png", "mtn.jpeg", "nlng.png", "nnp.png", "techstars.jpeg"].map((imgName, i) => (
