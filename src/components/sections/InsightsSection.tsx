@@ -42,7 +42,7 @@ const InsightsSection = () => {
               className="aspect-[4/5] overflow-hidden rounded-[3.5rem] bg-white/[0.02] border border-white/5 relative"
             >
               <img
-                src="src/components/images/omo.JPEG"
+                src="/omo.JPEG"
                 alt="Victor Okafo"
                 className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
               />

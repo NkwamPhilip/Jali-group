@@ -52,7 +52,7 @@ const AboutSection = () => {
           {["bmm.png", "bbu.png", "jpm.png", "mtn.jpeg", "nlng.png", "nnp.png", "techstars.jpeg"].map((imgName, i) => (
             <img
               key={i}
-              src={`/src/components/images/${imgName}`}
+              src={`/${imgName}`}
               alt="Client Logo"
               className="h-20 w-auto object-contain hover:opacity-100 hover:grayscale-0 transition-all duration-500"
             />
@@ -61,7 +61,7 @@ const AboutSection = () => {
           {["bmm.png", "bu.png", "jpm.png", "mtn.jpeg", "nlng.png", "nnp.png", "techstars.jpeg"].map((imgName, i) => (
             <img
               key={`dup-${i}`}
-              src={`/src/components/images/${imgName}`}
+              src={`/${imgName}`}
               alt="Client Logo"
               className="h-20 w-auto object-contain hover:opacity-100 hover:grayscale-0 transition-all duration-500"
             />

@@ -81,7 +81,7 @@ const WAMC = () => {
                     <ScrollReveal variant="slideUp">
                         <div className="relative">
                             <img
-                                src="/src/components/images/guy.jpeg"
+                                src="/guy.JPEG"
                                 alt="Victor Okafor"
                                 className="rounded-[3rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl"
                             />

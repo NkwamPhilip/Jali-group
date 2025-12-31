@@ -92,7 +92,7 @@ const About = () => {
           <ScrollReveal variant="slideUp" className="order-2 lg:order-1">
             <div className="relative group">
               <img
-                src="src/components/images/guy2.JPEG"
+                src="/omo.JPEG"
                 alt="Victor Okafor"
                 className="rounded-[3rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl"
               />

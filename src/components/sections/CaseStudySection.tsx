@@ -71,7 +71,7 @@ const CaseStudySection = () => {
                         {/* Image Frame with Scanning Effect */}
                         <div className="aspect-[4/5] overflow-hidden rounded-[3.5rem] border border-white/5 bg-neutral-950 relative">
                             <img
-                                src="src/components/images/dre.jpg"
+                                src="/dre.jpg"
                                 alt="Dr. E Mazi"
                                 className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                             />

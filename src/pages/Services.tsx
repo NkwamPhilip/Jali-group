@@ -76,7 +76,7 @@ const Services = () => {
         <div className="mt-24 grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <ScrollReveal variant="slideUp">
             <img
-              src="src/components/images/guy2.JPEG"
+              src="/guy2.jpeg"
               alt="Victor Okafo"
               className="relative rounded-[2rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
             />
