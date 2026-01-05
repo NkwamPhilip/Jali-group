@@ -8,13 +8,14 @@ import TypewriterText from "@/components/ui/TypewriterText";
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  // Defaulting to muted as requested
   const [isMuted, setIsMuted] = useState(true);
 
   const { scrollY } = useScroll();
   const ghostY = useTransform(scrollY, [0, 500], [0, -150]);
 
-  // Video ID from your URL
-  const videoId = "eqrfrDuN3jo";
+  // Updated Video ID from: https://youtu.be/rRUilAYsbRQ
+  const videoId = "rRUilAYsbRQ";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,7 +38,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <iframe
             className="absolute top-1/2 left-1/2 w-[300%] h-[300%] md:w-[120%] md:h-[120%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1`}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1`}
             allow="autoplay; encrypted-media"
             title="Background Video"
           />
@@ -46,20 +47,18 @@ const HeroSection = () => {
 
       {/* 2. GLASS SHARDS (Z-INDEX 20) */}
       <div className="absolute inset-0 pointer-events-none z-20">
-        {/* Top Left Circle - Stays consistent */}
         <div className="glass-shard absolute top-[10%] left-[5%] w-[30vw] h-[30vw] bg-white/[0.02] backdrop-blur-[100px] rounded-full border border-white/5" />
 
-        {/* The Square Shard - Straightened and resized for mobile, slanted for desktop */}
         <div className="glass-shard absolute 
-    bottom-[5%] right-[5%]     /* Adjusted position for mobile */
-    md:bottom-[10%] md:right-[8%] 
-    w-8 h-8                   /* Smaller on mobile */
-    md:w-96 md:h-96             /* Original size on desktop */
-    bg-white/[0.03] backdrop-blur-3xl 
-    rounded-[2rem] md:rounded-[4rem] 
-    border border-white/10 
-    rotate-0 md:rotate-12       /* THE FIX: Straight on mobile, slanted on desktop */
-    transition-all duration-700"
+            bottom-[5%] right-[5%] 
+            md:bottom-[10%] md:right-[8%] 
+            w-8 h-8                   
+            md:w-96 md:h-96             
+            bg-white/[0.03] backdrop-blur-3xl 
+            rounded-[2rem] md:rounded-[4rem] 
+            border border-white/10 
+            rotate-0 md:rotate-12       
+            transition-all duration-700"
         />
       </div>
 
@@ -77,7 +76,7 @@ const HeroSection = () => {
             <span className="reveal-text block">Turn Story</span>
             <div className="flex flex-nowrap justify-center items-baseline gap-x-2 md:gap-x-4 whitespace-nowrap">
               <span className="reveal-text block text-white/20 italic font-light lowercase">into</span>
-              <span className="reveal-text block italic font-light text-white italic">
+              <span className="reveal-text block italic font-light text-white">
                 <TypewriterText />
               </span>
             </div>
@@ -91,7 +90,10 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-10 justify-center items-center">
-            <CustomButton className="bg-white text-black px-16 py-8 rounded-full font-black text-[11px] uppercase tracking-[0.3em] hover:scale-105 transition-all duration-500">
+            <CustomButton
+              href="/industry-leader"
+              className="bg-white text-black px-16 py-8 rounded-full font-black text-[11px] uppercase tracking-[0.3em] hover:scale-105 transition-all duration-500"
+            >
               Become Inevitable
             </CustomButton>
 

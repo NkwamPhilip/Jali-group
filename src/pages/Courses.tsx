@@ -69,6 +69,27 @@ const Courses = () => {
     { icon: Download, title: "Practical Application", desc: "Get templates, worksheets, and tools you can immediately apply to your situation." },
   ];
 
+  const testimonials = [
+    {
+      name: "Grace Vanderpuye",
+      role: "United Nations",
+      image: "/grace.jpeg",
+      content: "Jali changed how I present myself to the world. This wasn’t just coaching, it was strategy and intentionality."
+    },
+    {
+      name: "Iyobosa",
+      role: "Founder, Pershing Hills",
+      image: "/iya.jpeg",
+      content: "I’d spent thousands of dollars trying to solve a problem that the Jali team solved in a matter of weeks. Victor’s depth and the team’s professionalism is excellent."
+    },
+    {
+      name: "Stephanie",
+      role: "Founder, Furalle",
+      image: "/steph.jpeg",
+      content: "I literally went from behind the scenes to entrepreneur of the year in my industry. All thanks to Jali."
+    }
+  ];
+
   return (
     <Layout>
       <SEOHead title="Jali Varsity - Turn Influence Into Profit" description="Elite tools to master influence and command capital." />
@@ -143,6 +164,38 @@ const Courses = () => {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </Section>
+
+      {/* Testimonials Section */}
+      <Section variant="dark" spacing="large" className="bg-[#020202]">
+        <div className="text-center mb-16">
+          <span className="text-white/20 font-black tracking-[0.5em] uppercase text-[9px] mb-4 block">Proven Authority</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">The Intel</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <ScrollReveal key={index} variant="slideUp" delay={index * 0.1}>
+              <div className="bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem] h-full flex flex-col justify-between hover:bg-white/[0.04] transition-all duration-500">
+                <p className="text-white/60 text-lg font-light leading-relaxed italic mb-10">
+                  "{testimonial.content}"
+                </p>
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden border border-white/10 grayscale">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-sm uppercase tracking-widest">{testimonial.name}</h4>
+                    <p className="text-white/20 text-[10px] font-bold uppercase tracking-widest mt-1">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </Section>
 
