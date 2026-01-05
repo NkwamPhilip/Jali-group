@@ -15,7 +15,6 @@ import SEOHead from "@/components/ui/SEOHead";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const Services = () => {
-  // Verbatim copy from "We handle everything" section
   const handleEverything = [
     {
       id: "01",
@@ -49,10 +48,7 @@ const Services = () => {
     }
   ];
 
-  // The Application Link provided
   const applyLink = "https://tally.so/r/OD4XG8";
-
-  // Simple, elegant, white sharp rounded button style
   const pillButtonStyle = "bg-white text-black rounded-full px-10 py-6 font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/90 hover:scale-[1.02]";
 
   return (
@@ -66,10 +62,11 @@ const Services = () => {
       <Section variant="dark" spacing="large">
         <ScrollReveal variant="fade">
           <div className="text-center max-w-4xl mx-auto pt-12 px-6">
-            <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-xs mb-6 block">
+            <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-[9px] md:text-xs mb-6 block">
               FounderSignal
             </span>
-            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight uppercase">
+            {/* ADJUSTED: Font size and tracking for mobile hero */}
+            <h1 className="text-4xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight uppercase break-words">
               Become the unfair advantage <br />
               <span className="text-white/30 italic font-light lowercase">for your brand.</span>
             </h1>
@@ -116,19 +113,19 @@ const Services = () => {
       <Section variant="dark" spacing="large" className="bg-[#050505]">
         <div className="max-w-4xl mx-auto text-center space-y-12 mb-20 px-6">
           <ScrollReveal variant="slideUp">
-            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">WHEN POWER LEAVES</h3>
+            <h3 className="text-3xl md:text-6xl font-bold text-white tracking-tighter uppercase">WHEN POWER LEAVES</h3>
             <div className="h-px w-24 bg-white/10 mx-auto mt-8" />
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-12 text-left">
-            <ScrollReveal variant="fade" delay={0.2} className="bg-white/[0.02] p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
+            <ScrollReveal variant="fade" delay={0.2} className="bg-white/[0.02] p-8 md:p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
               <p className="text-lg text-white/60 leading-relaxed font-light">
                 People like you don’t lose in business. You lose relevance. Revenue stays fine, your team is busy, but when decisions are made in your industry, your name isn’t mentioned anymore.
               </p>
               <p className="mt-6 text-white font-bold italic">That’s how power quietly leaves.</p>
             </ScrollReveal>
 
-            <ScrollReveal variant="fade" delay={0.3} className="bg-white/[0.02] p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
+            <ScrollReveal variant="fade" delay={0.3} className="bg-white/[0.02] p-8 md:p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
               <p className="text-lg text-white/60 leading-relaxed font-light">
                 In 2026, the most dangerous place... is to be respected inside your company, but forgotten outside of it.
               </p>
@@ -141,12 +138,13 @@ const Services = () => {
           </div>
         </div>
 
-        {/* 3. FounderSignal Main Plan Card */}
+        {/* 3. FounderSignal Main Plan Card - FIX APPLIED HERE */}
         <div className="max-w-4xl mx-auto px-6">
-          <ScrollReveal variant="slideUp" className="bg-white text-black rounded-[3rem] p-12 md:p-16 flex flex-col justify-between shadow-2xl">
+          <ScrollReveal variant="slideUp" className="bg-white text-black rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 flex flex-col justify-between shadow-2xl">
             <div>
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 block opacity-40">Elite Management</span>
-              <h3 className="text-4xl font-bold mb-6 uppercase tracking-tighter">FounderSignal</h3>
+              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8 block opacity-40">Elite Management</span>
+              {/* ADJUSTED: text-3xl for mobile to prevent clipping */}
+              <h3 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tighter break-words">FounderSignal</h3>
               <p className="text-black/60 mb-10 font-medium leading-relaxed">Become THE authority symbol in your industry in 6-12 months. From Strategy to Execution, we handle everything.</p>
               <ul className="grid md:grid-cols-2 gap-4 mb-12">
                 {[
@@ -157,18 +155,18 @@ const Services = () => {
                   "Speaking Engagement & Thought Leadership",
                   "Book Deals, Signature Frameworks"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-tight">
-                    <Check size={16} className="shrink-0 text-black" /> {item}
+                  <li key={i} className="flex items-center gap-3 text-[11px] md:text-xs font-bold uppercase tracking-tight">
+                    <Check size={14} className="shrink-0 text-black" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="pt-8 border-t border-black/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
-                <p className="text-[10px] font-black opacity-30 uppercase">Investment</p>
-                <p className="text-2xl font-black">From $6,500/Mo</p>
+                <p className="text-[9px] font-black opacity-30 uppercase">Investment</p>
+                <p className="text-xl md:text-2xl font-black">From $6,500/Mo</p>
               </div>
-              <CustomButton href={applyLink} className="bg-black text-white px-10 py-6 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-black/80">
+              <CustomButton href={applyLink} className="bg-black text-white px-8 md:px-10 py-5 md:py-6 rounded-full font-bold text-[10px] md:text-[11px] uppercase tracking-widest hover:bg-black/80">
                 Apply To Work With Jali
               </CustomButton>
             </div>
@@ -180,8 +178,8 @@ const Services = () => {
       <Section variant="dark" spacing="large">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-6">
           <ScrollReveal variant="slideUp">
-            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 leading-none uppercase">Being Left Behind</h3>
-            <p className="text-white/40 text-xl italic mb-12 font-light">Remember BlackBerry. Remember Blockbuster.</p>
+            <h3 className="text-3xl md:text-6xl font-bold text-white tracking-tighter mb-8 leading-none uppercase">Being Left Behind</h3>
+            <p className="text-white/40 text-lg md:text-xl italic mb-12 font-light">Remember BlackBerry. Remember Blockbuster.</p>
             <CustomButton href={applyLink} className={pillButtonStyle}>
               Book a strategy call
             </CustomButton>
@@ -196,19 +194,19 @@ const Services = () => {
       {/* 5. Process Section */}
       <Section variant="dark" spacing="large" className="bg-black">
         <div className="text-center mb-24 px-6">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter uppercase">We handle everything!</h2>
-          <p className="text-white/40 uppercase tracking-widest text-xs font-bold">So you can focus on being the face of your brand.</p>
+          <h2 className="text-3xl md:text-6xl font-bold text-white mb-6 tracking-tighter uppercase">We handle everything!</h2>
+          <p className="text-white/40 uppercase tracking-widest text-[9px] font-bold">So you can focus on being the face of your brand.</p>
         </div>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {handleEverything.map((step, index) => (
               <ScrollReveal key={step.id} variant="slideUp" delay={index * 0.1}>
                 <div className="relative">
                   <div className="text-center mb-10">
-                    <div className="w-20 h-20 bg-white/[0.03] border border-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <step.icon size={32} className="text-white/40" />
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-white/[0.03] border border-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <step.icon size={28} className="text-white/40" />
                     </div>
-                    <h4 className="text-white font-bold text-xs uppercase tracking-widest">{step.id}. {step.title}</h4>
+                    <h4 className="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">{step.id}. {step.title}</h4>
                   </div>
                   <div className="space-y-3">
                     {step.items.map((item, i) => (
@@ -217,8 +215,8 @@ const Services = () => {
                         className="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-xl p-4 transition-all hover:bg-white/[0.08]"
                       >
                         <div className="flex items-start gap-3">
-                          <Check size={14} className="text-white/40 mt-0.5 shrink-0" />
-                          <span className="text-[10px] text-white/70 font-black uppercase tracking-tight">{item}</span>
+                          <Check size={12} className="text-white/40 mt-0.5 shrink-0" />
+                          <span className="text-[9px] text-white/70 font-black uppercase tracking-tight">{item}</span>
                         </div>
                       </div>
                     ))}
@@ -233,10 +231,10 @@ const Services = () => {
       {/* 6. Brand Relevance Stack */}
       <Section variant="dark" spacing="large">
         <div className="max-w-4xl mx-auto px-6">
-          <ScrollReveal variant="slideUp" className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 md:p-16 flex flex-col justify-between text-white">
+          <ScrollReveal variant="slideUp" className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 flex flex-col justify-between text-white">
             <div>
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 block text-white/40">Brand Relevance Stack</span>
-              <h3 className="text-4xl font-bold mb-6 tracking-tighter uppercase">What’s Included:</h3>
+              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-8 block text-white/40">Brand Relevance Stack</span>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tighter uppercase">What’s Included:</h3>
               <ul className="grid md:grid-cols-2 gap-4 mb-12">
                 {[
                   "Narrative Definition & Brand Story Arc",
@@ -247,16 +245,16 @@ const Services = () => {
                   "Team Development & Coaching",
                   "Custom Materials delivered"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-tight text-white/60">
-                    <Check size={16} className="text-white/40 shrink-0" /> {item}
+                  <li key={i} className="flex items-center gap-3 text-[10px] md:text-[11px] font-bold uppercase tracking-tight text-white/60">
+                    <Check size={14} className="text-white/40 shrink-0" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
               <div>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-white/30">Investment</p>
-                <p className="text-2xl font-black">From $5,000</p>
+                <p className="text-[9px] uppercase font-bold tracking-widest text-white/30">Investment</p>
+                <p className="text-xl md:text-2xl font-black">From $5,000</p>
               </div>
               <CustomButton href={applyLink} className={pillButtonStyle}>
                 Book Strategy Call

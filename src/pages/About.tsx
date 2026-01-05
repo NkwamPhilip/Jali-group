@@ -43,9 +43,9 @@ const About = () => {
             <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">The Origin</span>
 
             <h1 className="text-4xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight uppercase">
-              <span className="block whitespace-nowrap">Growth is found in</span>
+              <span className="block whitespace-nowrap">Growth is found</span>
               <span className="text-white/20 italic font-light text-3xl md:text-7xl block mt-2">
-                forgotten connections.
+                in forgotten connections.
               </span>
             </h1>
 

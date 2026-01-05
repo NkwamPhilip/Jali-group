@@ -8,7 +8,7 @@ const ServicesSection = () => {
     {
       icon: GraduationCap,
       title: "Jali Varsity",
-      tagline: "UK ACCREDITED & IVY-LEAGUE CURRICULUM",
+      tagline: "UK ACCREDITED & IVY-LEAGUE EXPERTS",
       desc: "Join 2000+ creators, professionals and business owners from 40 countries using their story as leverage, and turning their ideas into income.",
       price: "From $55",
       buttonText: "Access Varsity",
