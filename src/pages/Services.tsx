@@ -49,42 +49,45 @@ const Services = () => {
     }
   ];
 
+  // The Application Link provided
+  const applyLink = "https://tally.so/r/OD4XG8";
+
   // Simple, elegant, white sharp rounded button style
   const pillButtonStyle = "bg-white text-black rounded-full px-10 py-6 font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/90 hover:scale-[1.02]";
 
   return (
     <Layout>
       <SEOHead
-        title="FounderSignal - Become the Unfair Advantage | Victor Okafo"
+        title="FounderSignal - Become the Unfair Advantage | Victor Okafor"
         description="We turn founders into authority symbols. From Strategy to Execution, we handle everything."
       />
 
       {/* 1. Hero Section */}
       <Section variant="dark" spacing="large">
         <ScrollReveal variant="fade">
-          <div className="text-center max-w-4xl mx-auto pt-12">
+          <div className="text-center max-w-4xl mx-auto pt-12 px-6">
             <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-xs mb-6 block">
               FounderSignal
             </span>
-            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight">
+            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight uppercase">
               Become the unfair advantage <br />
-              <span className="text-white/30 italic font-light">for your brand.</span>
+              <span className="text-white/30 italic font-light lowercase">for your brand.</span>
             </h1>
           </div>
         </ScrollReveal>
 
-        <div className="mt-24 grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="mt-24 grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-6">
           <ScrollReveal variant="slideUp">
             <img
               src="/guy2.jpeg"
-              alt="Victor Okafo"
+              alt="Victor Okafor"
               className="relative rounded-[2rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
             />
           </ScrollReveal>
 
           <ScrollReveal variant="slideUp" delay={0.2}>
             <div className="space-y-8">
-              <p className="text-xl text-white/60 leading-relaxed italic">
+              <p className="text-xl text-white/60 leading-relaxed italic font-light">
                 Africa’s most intriguing young personality in business... embodying it.
               </p>
               <ul className="space-y-4">
@@ -101,7 +104,7 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-              <CustomButton href="/contact" className={pillButtonStyle}>
+              <CustomButton href={applyLink} className={pillButtonStyle}>
                 Book Brand Relevance Strategy Call
               </CustomButton>
             </div>
@@ -111,7 +114,7 @@ const Services = () => {
 
       {/* 2. Positioning Section */}
       <Section variant="dark" spacing="large" className="bg-[#050505]">
-        <div className="max-w-4xl mx-auto text-center space-y-12 mb-20">
+        <div className="max-w-4xl mx-auto text-center space-y-12 mb-20 px-6">
           <ScrollReveal variant="slideUp">
             <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">WHEN POWER LEAVES</h3>
             <div className="h-px w-24 bg-white/10 mx-auto mt-8" />
@@ -119,18 +122,18 @@ const Services = () => {
 
           <div className="grid md:grid-cols-2 gap-12 text-left">
             <ScrollReveal variant="fade" delay={0.2} className="bg-white/[0.02] p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
-              <p className="text-lg text-white/60 leading-relaxed">
+              <p className="text-lg text-white/60 leading-relaxed font-light">
                 People like you don’t lose in business. You lose relevance. Revenue stays fine, your team is busy, but when decisions are made in your industry, your name isn’t mentioned anymore.
               </p>
               <p className="mt-6 text-white font-bold italic">That’s how power quietly leaves.</p>
             </ScrollReveal>
 
             <ScrollReveal variant="fade" delay={0.3} className="bg-white/[0.02] p-10 rounded-[2rem] border border-white/5 backdrop-blur-sm">
-              <p className="text-lg text-white/60 leading-relaxed">
+              <p className="text-lg text-white/60 leading-relaxed font-light">
                 In 2026, the most dangerous place... is to be respected inside your company, but forgotten outside of it.
               </p>
               <div className="mt-8">
-                <CustomButton href="/contact" className={pillButtonStyle}>
+                <CustomButton href={applyLink} className={pillButtonStyle}>
                   Apply To Work With Jali
                 </CustomButton>
               </div>
@@ -139,12 +142,12 @@ const Services = () => {
         </div>
 
         {/* 3. FounderSignal Main Plan Card */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal variant="slideUp" className="bg-white text-black rounded-[3rem] p-12 md:p-16 flex flex-col justify-between shadow-2xl">
             <div>
               <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 block opacity-40">Elite Management</span>
-              <h3 className="text-4xl font-bold mb-6">FounderSignal</h3>
-              <p className="text-black/60 mb-10">Become THE authority symbol in your industry in 6-12 months. From Strategy to Execution, we handle everything.</p>
+              <h3 className="text-4xl font-bold mb-6 uppercase tracking-tighter">FounderSignal</h3>
+              <p className="text-black/60 mb-10 font-medium leading-relaxed">Become THE authority symbol in your industry in 6-12 months. From Strategy to Execution, we handle everything.</p>
               <ul className="grid md:grid-cols-2 gap-4 mb-12">
                 {[
                   "Personal Brand Narrative Mapping",
@@ -165,7 +168,7 @@ const Services = () => {
                 <p className="text-[10px] font-black opacity-30 uppercase">Investment</p>
                 <p className="text-2xl font-black">From $6,500/Mo</p>
               </div>
-              <CustomButton href="/contact" className="bg-black text-white px-10 py-6 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-black/80">
+              <CustomButton href={applyLink} className="bg-black text-white px-10 py-6 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-black/80">
                 Apply To Work With Jali
               </CustomButton>
             </div>
@@ -175,28 +178,28 @@ const Services = () => {
 
       {/* 4. Fear Section */}
       <Section variant="dark" spacing="large">
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-6">
           <ScrollReveal variant="slideUp">
             <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 leading-none uppercase">Being Left Behind</h3>
-            <p className="text-white/40 text-xl italic mb-12">Remember BlackBerry. Remember Blockbuster.</p>
-            <CustomButton href="/contact" className={pillButtonStyle}>
+            <p className="text-white/40 text-xl italic mb-12 font-light">Remember BlackBerry. Remember Blockbuster.</p>
+            <CustomButton href={applyLink} className={pillButtonStyle}>
               Book a strategy call
             </CustomButton>
           </ScrollReveal>
-          <ScrollReveal variant="fade" delay={0.2} className="space-y-6 text-white/60 text-lg leading-relaxed">
+          <ScrollReveal variant="fade" delay={0.2} className="space-y-6 text-white/60 text-lg leading-relaxed font-light">
             <p>Once giants, now a memory... In 2026, customers no longer buy products, they buy stories. If yours hasn’t evolved, someone else is already telling a better one.</p>
             <p className="text-white font-medium">Secure your category dominance before it’s written without you.</p>
           </ScrollReveal>
         </div>
       </Section>
 
-      {/* 5. Process Section - Glass Grids */}
+      {/* 5. Process Section */}
       <Section variant="dark" spacing="large" className="bg-black">
-        <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">We handle everything!</h2>
+        <div className="text-center mb-24 px-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter uppercase">We handle everything!</h2>
           <p className="text-white/40 uppercase tracking-widest text-xs font-bold">So you can focus on being the face of your brand.</p>
         </div>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-5 gap-6">
             {handleEverything.map((step, index) => (
               <ScrollReveal key={step.id} variant="slideUp" delay={index * 0.1}>
@@ -207,7 +210,6 @@ const Services = () => {
                     </div>
                     <h4 className="text-white font-bold text-xs uppercase tracking-widest">{step.id}. {step.title}</h4>
                   </div>
-                  {/* Glass feel sub-grids */}
                   <div className="space-y-3">
                     {step.items.map((item, i) => (
                       <div
@@ -230,11 +232,11 @@ const Services = () => {
 
       {/* 6. Brand Relevance Stack */}
       <Section variant="dark" spacing="large">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal variant="slideUp" className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 md:p-16 flex flex-col justify-between text-white">
             <div>
               <span className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 block text-white/40">Brand Relevance Stack</span>
-              <h3 className="text-4xl font-bold mb-6 tracking-tighter">What’s Included:</h3>
+              <h3 className="text-4xl font-bold mb-6 tracking-tighter uppercase">What’s Included:</h3>
               <ul className="grid md:grid-cols-2 gap-4 mb-12">
                 {[
                   "Narrative Definition & Brand Story Arc",
@@ -256,7 +258,7 @@ const Services = () => {
                 <p className="text-[10px] uppercase font-bold tracking-widest text-white/30">Investment</p>
                 <p className="text-2xl font-black">From $5,000</p>
               </div>
-              <CustomButton href="/contact" className={pillButtonStyle}>
+              <CustomButton href={applyLink} className={pillButtonStyle}>
                 Book Strategy Call
               </CustomButton>
             </div>

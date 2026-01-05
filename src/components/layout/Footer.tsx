@@ -6,9 +6,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "Instagram", href: "https://instagram.com/jaliafrica", icon: Instagram },
-    { name: "LinkedIn", href: "https://linkedin.com/company/jaliafrica", icon: Linkedin },
-    { name: "YouTube", href: "https://youtube.com/jaliafrica", icon: Youtube },
+    { name: "Instagram", href: "https://www.instagram.com/victor_okafor?igsh=anFtdmF3ODNvOHBj&utm_source=qr", icon: Instagram },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/victor-okaforr?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", icon: Linkedin },
+    { name: "YouTube", href: "https://youtube.com/@thevictorokafo?si=pzi1BvcYmv7zpdCX", icon: Youtube },
   ];
 
   const footerLinks = [
@@ -45,8 +45,8 @@ const Footer = () => {
               </h2>
             </Link>
             <p className="text-white/40 text-xl font-light leading-relaxed max-w-md mb-12">
-              Transforming individual potential into market dominance.
-              The world is watching—make it worth seeing.
+              Turning your story into leverage. 
+              Why be invisible when you can be inevitable?
             </p>
 
             {/* Newsletter / Contact Quick Action */}

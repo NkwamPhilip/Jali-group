@@ -76,10 +76,10 @@ const InsightsSection = () => {
           {/* Stats Grid - High Contrast */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { val: "70M+", label: "Views & 650K Subs", color: "text-white" },
+              { val: "120M+", label: "Views & 650K Subs", color: "text-white" },
               { val: "SOLD OUT", label: "Europe & Africa Events", color: "text-white" },
               { val: "1200%", label: "Client Revenue Spike", color: "text-white" }, // Removed the green to keep it Badass Monochrome
-              { val: "$20B", label: "Global Corp Consulting", color: "text-white" }
+              { val: "$20B", label: "Joint worth of Corp Clients", color: "text-white" }
             ].map((stat, i) => (
               <div
                 key={i}

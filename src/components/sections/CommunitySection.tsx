@@ -31,8 +31,7 @@ const CommunitySection = () => {
           </h2>
 
           <p className="text-white/40 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-            Join 2,000+ founders who have transcended the noise. <br className="hidden md:block" />
-            This isn't a community. <span className="text-white/80">It's an ecosystem of power.</span>
+            Join 2,000+ founders who have transcended the noise.
           </p>
         </div>
       </ScrollReveal>
@@ -64,7 +63,7 @@ const CommunitySection = () => {
       <div className="mt-24 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5 pt-20">
           {[
-            { label: "Active Members", val: "2,000+" },
+            { label: "Students", val: "2,000+" },
             { label: "Global Industries", val: "15+" },
             { label: "Nations Represented", val: "40+" }
           ].map((stat) => (

@@ -16,6 +16,9 @@ import SEOHead from "@/components/ui/SEOHead";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const WAMC = () => {
+    // Tally Link updated here
+    const applyLink = "https://tally.so/r/obeRRe";
+
     const pillButtonStyle = "bg-white text-black rounded-full px-12 py-7 font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/90 hover:scale-[1.05]";
     const glassGrid = "bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition-all hover:bg-white/[0.06] hover:border-white/20";
 
@@ -30,7 +33,7 @@ const WAMC = () => {
             <Section variant="dark" spacing="large" className="relative overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0,transparent_70%)]" />
 
-                <ScrollReveal variant="fade" className="relative z-10 text-center max-w-4xl mx-auto pt-20">
+                <ScrollReveal variant="fade" className="relative z-10 text-center max-w-4xl mx-auto pt-20 px-6">
                     <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
                         <Timer size={14} className="text-white/40" />
                         <span className="text-white/60 font-bold tracking-[0.2em] uppercase text-[9px]">
@@ -45,11 +48,11 @@ const WAMC = () => {
 
                     <div className="space-y-8 text-xl text-white/50 font-light leading-relaxed max-w-3xl mx-auto mb-16">
                         <p>
-                            When the lights are off, and it’s just you in your closest, you know you’re meant for more, yet every year ends with the same quiet regret: <span className="text-white/90 font-medium">“I could have done bigger things.”</span>
+                            When the lights are off, and it’s just you in your closet, you know you’re meant for more, yet every year ends with the same quiet regret: <span className="text-white/90 font-medium">“I could have done bigger things.”</span>
                         </p>
                     </div>
 
-                    <CustomButton href="/apply" className={pillButtonStyle}>
+                    <CustomButton href={applyLink} className={pillButtonStyle}>
                         Apply Now For The Legacy Cohort ( March 2026 )
                     </CustomButton>
                 </ScrollReveal>
@@ -57,7 +60,7 @@ const WAMC = () => {
 
             {/* --- THE COST OF INACTION --- */}
             <Section variant="dark" spacing="large" className="border-y border-white/5 bg-[#030303]">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-5xl mx-auto px-6">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <ScrollReveal variant="slideRight">
                             <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tighter leading-tight">
@@ -66,9 +69,9 @@ const WAMC = () => {
                             </h2>
                         </ScrollReveal>
                         <ScrollReveal variant="slideUp" delay={0.2}>
-                            <div className="space-y-6 text-white/40 text-lg">
+                            <div className="space-y-6 text-white/40 text-lg font-light">
                                 <p>It’s years of higher income never earned. Deeper impact never made. The freedom, confidence, and fulfillment that keep slipping away.</p>
-                                <p className="text-white/80 font-medium">Most people carry that regret to the end. Wondering what their life could have looked like if they’d finally broken through.</p>
+                                <p className="text-white/80 font-medium">Most people carry that regret to the end, wondering what their life could have looked like if they’d finally broken through.</p>
                             </div>
                         </ScrollReveal>
                     </div>
@@ -77,7 +80,7 @@ const WAMC = () => {
 
             {/* --- THE TRANSFORMATION STORY --- */}
             <Section variant="dark" spacing="large">
-                <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto px-6">
                     <ScrollReveal variant="slideUp">
                         <div className="relative">
                             <img
@@ -116,7 +119,7 @@ const WAMC = () => {
 
             {/* --- THE PROGRAM DETAILS --- */}
             <Section variant="dark" spacing="large" className="bg-[#020202]">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight uppercase">The Solution</h2>
                         <p className="text-white/20 uppercase tracking-[0.3em] text-[10px] font-bold max-w-2xl mx-auto">
@@ -138,28 +141,32 @@ const WAMC = () => {
                                         <div className="space-y-6">
                                             <div className="flex gap-4">
                                                 <CheckCircle2 className="shrink-0 text-black" size={20} />
-                                                <p className="text-[13px] font-bold uppercase tracking-tight">Crystal-clear brand offer & strategy</p>
+                                                <p className="text-[13px] font-bold uppercase tracking-tight">Access to Live Strategy sessions with Victor</p>
                                             </div>
                                             <div className="flex gap-4">
                                                 <CheckCircle2 className="shrink-0 text-black" size={20} />
-                                                <p className="text-[13px] font-bold uppercase tracking-tight">Unlock predictable financial growth</p>
+                                                <p className="text-[13px] font-bold uppercase tracking-tight">1:1 Brand offer and strategy coaching</p>
+                                            </div>
+                                            <div className="flex gap-4">
+                                                <CheckCircle2 className="shrink-0 text-black" size={20} />
+                                                <p className="text-[13px] font-bold uppercase tracking-tight">Financial & Professional Growth Map Sessions</p>
                                             </div>
                                         </div>
                                         <div className="space-y-6">
                                             <div className="flex gap-4">
                                                 <CheckCircle2 className="shrink-0 text-black" size={20} />
-                                                <p className="text-[13px] font-bold uppercase tracking-tight">High-intensity 30-day challenge</p>
+                                                <p className="text-[13px] font-bold uppercase tracking-tight">30 days of consistent posting with our frameworks and scripts</p>
                                             </div>
                                             <div className="flex gap-4">
                                                 <CheckCircle2 className="shrink-0 text-black" size={20} />
-                                                <p className="text-[13px] font-bold uppercase tracking-tight">Weekly accountability & peer group</p>
+                                                <p className="text-[13px] font-bold uppercase tracking-tight">Weekly accountability and peer group interaction</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="pt-8 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-6">
                                     <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-40">Business Owners • Creators • Professionals</p>
-                                    <CustomButton href="/apply" className="bg-black text-white px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest">
+                                    <CustomButton href={applyLink} className="bg-black text-white px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest">
                                         Apply Now
                                     </CustomButton>
                                 </div>
@@ -174,7 +181,7 @@ const WAMC = () => {
                                     Usual Growth in Reach, Community, and Revenue after 3 months.
                                 </p>
                                 <div className="h-px w-12 bg-white/10 mx-auto mb-8" />
-                                <p className="text-[9px] text-white font-black tracking-[0.3em] uppercase">60 Days of Direction</p>
+                                <p className="text-[9px] text-white font-black tracking-[0.3em] uppercase">60 Days of Momentum</p>
                             </div>
                         </ScrollReveal>
                     </div>
@@ -183,21 +190,21 @@ const WAMC = () => {
 
             {/* --- THE PILLARS --- */}
             <Section variant="dark" spacing="large">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
                     <div className="lg:col-span-1">
                         <h2 className="text-3xl font-bold text-white tracking-tighter uppercase mb-4">The Guiding Light.</h2>
-                        <p className="text-white/40 text-sm leading-relaxed">We've walked the path and can be your guiding light as you tell your stories and monetize.</p>
+                        <p className="text-white/40 text-sm leading-relaxed font-light">We've walked the path and can be your guiding light as you tell your stories and monetize.</p>
                     </div>
 
                     {[
-                        { title: "Custom Made", desc: "A plan that is CUSTOM MADE for you, no matter your niche.", icon: Target },
-                        { title: "Personal Growth", desc: "This coaching isn’t about content. It’s Your Personal & Financial growth.", icon: Flame },
+                        { title: "Custom Made", desc: "A plan that is custom made for you, no matter your niche.", icon: Target },
+                        { title: "Personal Growth", desc: "This coaching isn’t about content. It’s your personal and financial growth.", icon: Flame },
                         { title: "The Key", desc: "Your story holds the key to your becoming. Let's give you a headstart.", icon: Award }
                     ].map((item, i) => (
                         <div key={i} className={glassGrid}>
                             <item.icon size={20} className="text-white/20 mb-6" />
                             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-4 border-b border-white/10 pb-4">{item.title}</h4>
-                            <p className="text-[11px] text-white/50 leading-relaxed font-bold uppercase tracking-tight">{item.desc}</p>
+                            <p className="text-[12px] text-white/50 leading-relaxed font-medium">{item.desc}</p>
                         </div>
                     ))}
                 </div>
@@ -207,14 +214,14 @@ const WAMC = () => {
             <Section variant="dark" spacing="large" className="text-center relative">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0,transparent_60%)] pointer-events-none" />
 
-                <ScrollReveal variant="slideUp" className="max-w-4xl mx-auto relative z-10">
+                <ScrollReveal variant="slideUp" className="max-w-4xl mx-auto relative z-10 px-6">
                     <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter mb-8 uppercase">
                         Keep carrying the weight of <span className="text-white/20 italic font-light lowercase">“what if”</span>...
                     </h2>
                     <p className="text-xl text-white/40 font-light mb-12 max-w-2xl mx-auto">
                         Or step in now and turn your potential into the life you’re supposed to live.
                     </p>
-                    <CustomButton href="/apply" className={pillButtonStyle}>
+                    <CustomButton href={applyLink} className={pillButtonStyle}>
                         Apply Now For The Legacy Cohort ( March 2026 )
                     </CustomButton>
                     <div className="mt-12 space-y-2">

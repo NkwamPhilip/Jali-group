@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "Jali Africa - Inspiring Growth Through Ideas, Talks, and Transformation",
-  description = "Professional public speaking, business growth consulting, and transformational online courses. We help individuals and businesses unlock their potential through strategic storytelling and growth systems.",
+  title = "Jali Africa - Your partner for Influence and Profit",
+  description = "Global business growth consulting firm with magical specialty in Brand Storytelling & Founder-Led Growth.",
   keywords = "public speaking, business consulting, online courses, storytelling, brand strategy, business growth, transformation, Africa, professional development",
   image = "/og-image.jpg",
   url = window.location.href,

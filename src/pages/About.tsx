@@ -1,4 +1,4 @@
-import { Award, Users, Target, Heart, ArrowRight, ShieldCheck, Globe, Star } from "lucide-react";
+import { Award, Users, Target, Heart, Flame, ShieldCheck, Globe, Star, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/ui/Section";
 import CustomButton from "@/components/ui/CustomButton";
@@ -39,12 +39,16 @@ const About = () => {
       {/* --- HERO: OUR STORY --- */}
       <Section variant="dark" spacing="large">
         <ScrollReveal variant="fade">
-          <div className="text-center max-w-4xl mx-auto pt-12">
+          <div className="text-center max-w-4xl mx-auto pt-12 px-4">
             <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">The Origin</span>
-            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight">
-              Growth is found in <br />
-              <span className="text-white/20 italic font-light text-4xl md:text-7xl">forgotten connections.</span>
+
+            <h1 className="text-4xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight uppercase">
+              <span className="block whitespace-nowrap">Growth is found in</span>
+              <span className="text-white/20 italic font-light text-3xl md:text-7xl block mt-2">
+                forgotten connections.
+              </span>
             </h1>
+
             <p className="text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light">
               Founded on the belief that the leverage you seek is often hidden in the stories you have yet to tell.
             </p>
@@ -54,7 +58,7 @@ const About = () => {
 
       {/* --- IMPACT STATS --- */}
       <Section variant="dark" spacing="normal">
-        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto px-6">
           <ScrollReveal variant="slideUp" className="space-y-8">
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">Transforming Lives Through Story</h2>
             <p className="text-lg text-white/50 leading-relaxed font-light">
@@ -86,9 +90,9 @@ const About = () => {
         </div>
       </Section>
 
-      {/* --- THE FOUNDER --- */}
+      {/* --- THE FOUNDER (REVISED) --- */}
       <Section variant="dark" spacing="large" className="bg-[#050505]">
-        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto px-6">
           <ScrollReveal variant="slideUp" className="order-2 lg:order-1">
             <div className="relative group">
               <img
@@ -103,23 +107,40 @@ const About = () => {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal variant="slideUp" delay={0.2} className="order-1 lg:order-2 space-y-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">Meet the Architect</h2>
-            <div className="space-y-6 text-white/50 text-lg leading-relaxed font-light">
-              <p>
-                Victor is a top-tier strategist in the brand and marketing communication space. While his academic foundation is in <span className="text-white font-medium">Law</span>, his core mastery lies in public speaking and brand communication.
-              </p>
-              <p>
-                Having worked across <span className="text-white">Telecoms, Tech, Aviation, and FMCG</span>, Victor is sought after for his story-centric approach to business growth that transcends traditional marketing.
-              </p>
+          <ScrollReveal variant="slideUp" delay={0.2} className="order-1 lg:order-2 space-y-10">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase mb-8">Meet the Architect</h2>
+              <div className="space-y-6 text-white/70 text-lg leading-relaxed font-light">
+                <p>
+                  Victor is a <span className="text-white font-medium">global business advisor, brand consultant</span> and one of the foremost pioneers of founder-led brand growth.
+                </p>
+                <p>
+                  He is redefining how founders build power in the modern economy through authority that <span className="text-white italic">converts into capital.</span>
+                </p>
+                <p className="text-white/40 uppercase text-xs font-black tracking-[0.2em] pt-4">
+                  The Outlier Intersection:
+                </p>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-4 pt-4">
-              {["Telecoms", "Tech", "Aviation", "Law", "Management Consulting"].map((tag, i) => (
-                <span key={i} className="text-[10px] font-black uppercase tracking-widest text-white/20 border border-white/5 px-4 py-2 rounded-full">
-                  {tag}
-                </span>
+
+            {/* STRATEGIC LIST */}
+            <div className="space-y-5">
+              {[
+                "Stellar academic background in Law",
+                "7 years of experience in brand communication & storytelling",
+                "Consulted for organizations with a combined valuation exceeding $20B",
+                "Techstars Mentor",
+                "Academic Scholar in Business & Marketing"
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4 group">
+                  <div className="mt-2 w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-white transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                  <p className="text-[13px] md:text-[15px] font-bold uppercase tracking-tight text-white/50 group-hover:text-white/90 transition-colors">
+                    {item}
+                  </p>
+                </div>
               ))}
             </div>
+
             <div className="pt-8">
               <CustomButton href="/contact" className={pillButtonStyle}>
                 Work With Victor
@@ -129,14 +150,14 @@ const About = () => {
         </div>
       </Section>
 
-      {/* --- CORE VALUES (Glass Grids) --- */}
+      {/* --- CORE VALUES --- */}
       <Section variant="dark" spacing="large">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tighter uppercase">The Standard</h2>
           <p className="text-white/20 uppercase tracking-[0.3em] text-[10px] font-bold">Principles guiding every relationship</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-6">
           {values.map((value, index) => (
             <ScrollReveal key={value.title} variant="slideUp" delay={index * 0.1}>
               <div className="bg-white/[0.03] backdrop-blur-md border border-white/5 rounded-3xl p-8 h-full transition-all hover:bg-white/[0.06]">
@@ -154,7 +175,7 @@ const About = () => {
       {/* --- FINAL CTA --- */}
       <Section variant="dark" spacing="large" className="text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,transparent_70%)]" />
-        <ScrollReveal variant="fade" className="relative z-10 max-w-3xl mx-auto">
+        <ScrollReveal variant="fade" className="relative z-10 max-w-3xl mx-auto px-6">
           <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 uppercase">Ready to Start Your Journey?</h2>
           <p className="text-white/40 text-xl mb-12 font-light">
             Let's discuss how our story-centric approach can transform your personal or business growth.

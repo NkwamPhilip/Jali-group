@@ -63,13 +63,13 @@ const Contact = () => {
             title: "TRANSMISSION SUCCESSFUL",
             description: "Your inquiry has been logged. Jali's team will contact you shortly."
           });
-          
+
           formRef.current.reset();
         }
       }
     } catch (error: any) {
       console.error("EmailJS Error:", error);
-      
+
       // Error vibration (one long pulse)
       if ("vibrate" in navigator) navigator.vibrate(200);
 
@@ -118,22 +118,22 @@ const Contact = () => {
               <form ref={formRef} onSubmit={sendEmail} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Identify Yourself</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white ml-4 font-black">Identify Yourself</label>
                     <input name="from_name" type="text" placeholder="Full Name" className={glassInput} required />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Return Path</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white ml-4 font-black">Return Path</label>
                     <input name="reply_to" type="email" placeholder="Email Address" className={glassInput} required />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Organization</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white ml-4 font-black">Organization</label>
                     <input name="company" type="text" placeholder="Company Name" className={glassInput} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Interest</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-white ml-4 font-black">Interest</label>
                     <select name="service_type" className={`${glassInput} appearance-none cursor-pointer`} required>
                       <option value="" className="bg-black text-white/40">Select Pillar</option>
                       {services.map(s => <option key={s} value={s} className="bg-black text-white">{s}</option>)}
@@ -142,7 +142,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.3em] text-white/20 ml-4 font-black">Objectives</label>
+                  <label className="text-[9px] uppercase tracking-[0.3em] text-white ml-4 font-black">Objectives</label>
                   <textarea name="message" placeholder="Briefly describe your goals..." rows={6} className={`${glassInput} resize-none`} required />
                 </div>
 
@@ -162,7 +162,7 @@ const Contact = () => {
           <div className="space-y-16">
             <div className="space-y-12">
               {[
-                { icon: Mail, label: "Correspondence", val: "Jaliafriq@gmail.com" },
+                { icon: Mail, label: "Correspondence", val: "admin@jaliafriq.com" },
                 { icon: Globe, label: "Presence", val: "Operating Globally" }
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-8 group">

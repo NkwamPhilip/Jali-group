@@ -30,10 +30,11 @@ const CTASection = () => {
             </span>
           </div>
 
-          <h2 className="text-6xl md:text-[8rem] font-bold text-white mb-10 tracking-[ -0.05em] uppercase leading-[0.85]">
-            Secure Your <br />
-            <span className="italic font-light text-white/10 lowercase">category</span> <br />
-            <span className="text-white">Dominance.</span>
+          {/* FIXED HEADING: Adjusted mobile sizes and tracking */}
+          <h2 className="text-[11vw] md:text-[8rem] font-bold text-white mb-10 tracking-tight md:tracking-[-0.05em] uppercase leading-[0.85]">
+            <span className="block">Secure Your</span>
+            <span className="italic font-light text-white/10 lowercase block my-2">category</span>
+            <span className="text-white block">Dominance.</span>
           </h2>
 
           <p className="text-xl md:text-2xl text-white/40 mb-16 max-w-2xl mx-auto font-light leading-relaxed">
