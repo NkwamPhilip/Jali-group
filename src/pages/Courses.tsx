@@ -1,4 +1,4 @@
-import { Play, Users, Download, Check, Star } from "lucide-react";
+import { Play, Users, Download, Check, Star, ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Section from "@/components/ui/Section";
 import CustomButton from "@/components/ui/CustomButton";
@@ -15,7 +15,7 @@ const Courses = () => {
       link: "https://mainstack.com/varsity-foundation",
       description: "Learn the exact storytelling, personal branding and public speaking frameworks used to attract attention, build authority and monetize your brand consistently without chasing trends.",
       result: "Usual Result: You get your first 1k - 5k loyal followers, $1K - $5k from online sales.",
-      meta: { duration: "4hrs", students: "2000+ have taken the course", rating: "4.9/5" },
+      meta: { duration: "4hrs", students: "2000+ Students", rating: "4.9/5" },
       buttonText: "Join Waitlist",
       features: [
         "Practical Sales & Marketing Exercises",
@@ -36,7 +36,7 @@ const Courses = () => {
       highlight: true,
       description: "Work with Ivy-League certified frameworks that have delivered over $100k in closed deals. Positioned as Top 10 voice in your niche in 12 months.",
       result: "Usual Result: Earn $5k - $15k directly and consistently from online leads within 6 months.",
-      meta: { duration: "4 weeks", students: "113 Clients have taken the course", rating: "5.0" },
+      meta: { duration: "4 weeks", students: "113+ Clients", rating: "5.0" },
       buttonText: "Join Waitlist",
       features: [
         "Personalized Public Speaking Coaching",
@@ -54,7 +54,7 @@ const Courses = () => {
       link: "https://mainstack.com/strategy-call",
       description: "Go from invisible to inevitable. 3x your revenue, reach and community goals in 60 days by following our proven framework.",
       result: "Usual Result: $25k - $50k in 10 months from online traction | Speaking Engagement offers.",
-      meta: { duration: "8 weeks", students: "412+ People have taken the course", rating: "4.9" },
+      meta: { duration: "8 weeks", students: "412+ Participants", rating: "4.9" },
       buttonText: "Apply For The Legacy Cohort 2026",
       features: [
         "Exclusive Access to Victor Live",
@@ -79,42 +79,80 @@ const Courses = () => {
     <Layout>
       <SEOHead title="Jali Varsity - Turn Influence Into Profit" description="Elite tools to master influence and command capital." />
 
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <Section variant="dark" spacing="large">
         <ScrollReveal variant="fade">
           <div className="text-center max-w-4xl mx-auto py-12 px-6">
             <span className="text-white/40 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Jali Varsity</span>
-            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight ">
+            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-tight uppercase">
               The Pipeline That Turns <br />
               <span className="text-white/30 italic font-light lowercase">Influence Into Profit</span>
             </h1>
-            <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-8">
-              You feel that deep inner heaviness; the pressure to become more and earn more?
-              Ambition meets unstoppable execution here. Master the tools needed to make results certain.
-            </p>
           </div>
         </ScrollReveal>
       </Section>
 
-      {/* Stats/Proof Section */}
-      <Section variant="dark" className="bg-white/5 border-y border-white/5">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 py-12 text-center">
-          {[
-            { label: "Views generated", val: "70M" },
-            { label: "Sold Out Events", val: "3" },
-            { label: "Consulting Value", val: "7-Fig" },
-            { label: "Student Rating", val: "4.9/5" },
-          ].map((stat, i) => (
-            <div key={i}>
-              <div className="text-3xl md:text-5xl font-black text-white mb-2">{stat.val}</div>
-              <div className="text-[10px] uppercase tracking-widest text-white/40">{stat.label}</div>
+      {/* 2. THE NARRATIVE (New Long Copy Section) */}
+      <Section variant="dark" className="pt-0 pb-24">
+        <div className="max-w-4xl mx-auto px-6">
+          <ScrollReveal variant="slideUp">
+            <div className="space-y-12">
+              <div className="space-y-6">
+                <p className="text-2xl md:text-3xl text-white font-light leading-relaxed tracking-tight">
+                  You feel that deep inner heaviness; the not-so-quiet pressure pushing you to become more, earn more, and get to the next level? <span className="text-white/40 italic">You’re why we exist.</span>
+                </p>
+                <p className="text-lg text-white/60 font-light leading-relaxed">
+                  If you’re tired of missing out on opportunities you deserve, then get ready to access elite tools to master influence, shape perception, and implement strategy to command capital and dominate your niche.
+                </p>
+              </div>
+
+              <div className="border-l border-white/10 pl-8 py-4 space-y-6">
+                <p className="text-xl text-white font-medium italic">
+                  "Your story can serve as the leverage you need to change your life forever. It changed mine."
+                </p>
+                <p className="text-white/60 leading-relaxed">
+                  I went from talented and unknown to being the name my industry can’t ignore in just a few years. Within a year, with the same frameworks you’re about to get access to, I got:
+                </p>
+
+                <ul className="grid md:grid-cols-2 gap-y-4 gap-x-12">
+                  {[
+                    "70 million views",
+                    "3 Sold out events in Europe & Africa",
+                    "7 figure Consulting gigs for global businesses",
+                    "TEDX invitations",
+                    "Funding from international organizations"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-white/80">
+                      <div className="w-1.5 h-1.5 bg-[#ADFF00] rounded-full" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="space-y-8 pt-8">
+                <p className="text-lg text-white/60 font-light leading-relaxed">
+                  There’s a method to all of it. It’s about mastering the tools needed to make results as certain as possible. This is why we have created the Varsity.
+                  Our courses combine data-backed frameworks with practical application to deliver real, measurable results.
+                </p>
+                <div className="inline-flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl">
+                  <span className="text-[#ADFF00] animate-pulse"><ArrowRight size={20} /></span>
+                  <p className="text-sm font-bold uppercase tracking-widest text-white">
+                    This is where ambition meets unstoppable execution.
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
+          </ScrollReveal>
         </div>
       </Section>
 
-      {/* Pricing Grid */}
-      <Section variant="dark" spacing="normal">
+      {/* 3. Pricing Grid */}
+      <Section variant="dark" spacing="normal" className="bg-[#050505]">
+        <div className="text-center mb-16 px-6">
+          <h2 className="text-white/20 font-black tracking-[0.4em] uppercase text-[10px] mb-4">The Selection</h2>
+          <p className="text-white text-2xl font-light">Choose a plan that aligns with where you are.</p>
+        </div>
         <div className="grid lg:grid-cols-3 gap-8 items-stretch px-6">
           {plans.map((plan, index) => (
             <ScrollReveal key={plan.id} variant="slideUp" delay={index * 0.1}>

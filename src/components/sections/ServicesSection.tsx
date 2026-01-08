@@ -10,7 +10,7 @@ const ServicesSection = () => {
       title: "Jali Varsity",
       tagline: "UK ACCREDITED & IVY-LEAGUE EXPERTS",
       desc: "Join 2000+ creators, professionals and business owners from 40 countries using their story as leverage, and turning their ideas into income.",
-      price: "From $55",
+      price: "From $75",
       buttonText: "Access Varsity",
       href: "/courses"
     },
