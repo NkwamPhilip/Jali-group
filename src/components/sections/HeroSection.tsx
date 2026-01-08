@@ -73,7 +73,7 @@ const HeroSection = () => {
 
         <div className="mb-12">
           <h1 className="text-[12vw] md:text-[8rem] font-bold text-white tracking-tighter leading-[0.85] uppercase">
-            <span className="reveal-text block">Turn Story</span>
+            <span className="reveal-text block">Your Story</span>
             <div className="flex flex-nowrap justify-center items-baseline gap-x-2 md:gap-x-4 whitespace-nowrap">
               <span className="reveal-text block text-white/20 italic font-light lowercase">into</span>
               <span className="reveal-text block italic font-light text-white">
@@ -91,7 +91,7 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-10 justify-center items-center">
             <CustomButton
-              href="/industry-leader"
+              href="/services"
               className="bg-white text-black px-16 py-8 rounded-full font-black text-[11px] uppercase tracking-[0.3em] hover:scale-105 transition-all duration-500"
             >
               Become Inevitable

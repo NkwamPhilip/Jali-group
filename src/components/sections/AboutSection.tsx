@@ -36,7 +36,7 @@ const AboutSection = () => {
             Reality has hit. Getting to the next level has nothing to do with emotions or effort.
             It’s about understanding the game of change.
           </p>
-          <CustomButton href="/about" className={pillButtonStyle}>
+          <CustomButton href="/courses" className={pillButtonStyle}>
             Rewrite Your Story
           </CustomButton>
         </ScrollReveal>
