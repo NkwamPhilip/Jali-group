@@ -17,7 +17,6 @@ const Home = () => {
       <ServicesSection />
       <InsightsSection />
       <CaseStudySection />
-      <CommunitySection />
       <CTASection />
     </Layout>
   );

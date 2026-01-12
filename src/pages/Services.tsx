@@ -49,6 +49,7 @@ const Services = () => {
   ];
 
   const applyLink = "https://tally.so/r/OD4XG8";
+  const applyLink2 = "https://mainstack.com/strategy-call"
   const pillButtonStyle = "bg-white text-black rounded-full px-10 py-6 font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/90 hover:scale-[1.02]";
 
   return (
@@ -102,7 +103,7 @@ const Services = () => {
                 ))}
               </ul>
               <CustomButton href={applyLink} className={pillButtonStyle}>
-                Book Brand Relevance Strategy Call
+                Apply to work with Jali
               </CustomButton>
             </div>
           </ScrollReveal>
@@ -180,7 +181,7 @@ const Services = () => {
           <ScrollReveal variant="slideUp">
             <h3 className="text-3xl md:text-6xl font-bold text-white tracking-tighter mb-8 leading-none uppercase">Being Left Behind</h3>
             <p className="text-white/40 text-lg md:text-xl italic mb-12 font-light">Remember BlackBerry. Remember Blockbuster.</p>
-            <CustomButton href={applyLink} className={pillButtonStyle}>
+            <CustomButton href={applyLink2} className={pillButtonStyle}>
               Book a strategy call
             </CustomButton>
           </ScrollReveal>
@@ -256,7 +257,7 @@ const Services = () => {
                 <p className="text-[9px] uppercase font-bold tracking-widest text-white/30">Investment</p>
                 <p className="text-xl md:text-2xl font-black">From $5,000</p>
               </div>
-              <CustomButton href={applyLink} className={pillButtonStyle}>
+              <CustomButton href={applyLink2} className={pillButtonStyle}>
                 Book Strategy Call
               </CustomButton>
             </div>

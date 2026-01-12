@@ -8,14 +8,11 @@ import TypewriterText from "@/components/ui/TypewriterText";
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  // Defaulting to muted as requested
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
   const { scrollY } = useScroll();
   const ghostY = useTransform(scrollY, [0, 500], [0, -150]);
-
-  // Updated Video ID from: https://youtu.be/rRUilAYsbRQ
-  const videoId = "rRUilAYsbRQ";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,26 +23,38 @@ const HeroSection = () => {
     return () => ctx.revert();
   }, []);
 
+  // Sync state with video element
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
   return (
     <Section variant="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black py-0">
 
-      {/* 1. DIRECT IFRAME LAYER (Z-INDEX 0) */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* 1. LOCAL VIDEO LAYER */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Visual Overlays for Readability */}
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />
 
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <iframe
-            className="absolute top-1/2 left-1/2 w-[300%] h-[300%] md:w-[120%] md:h-[120%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1`}
-            allow="autoplay; encrypted-media"
-            title="Background Video"
-          />
-        </div>
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover scale-105"
+        >
+          {/* Prioritizing MP4 for faster web streaming */}
+          <source src="/vic.mp4" type="video/mp4" />
+          <source src="/vic.MOV" type="video/quicktime" />
+        </video>
       </div>
 
-      {/* 2. GLASS SHARDS (Z-INDEX 20) */}
+      {/* 2. GLASS SHARDS */}
       <div className="absolute inset-0 pointer-events-none z-20">
         <div className="glass-shard absolute top-[10%] left-[5%] w-[30vw] h-[30vw] bg-white/[0.02] backdrop-blur-[100px] rounded-full border border-white/5" />
 
@@ -62,7 +71,7 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* 3. MAIN CONTENT (Z-INDEX 30) */}
+      {/* 3. MAIN CONTENT */}
       <div ref={containerRef} className="relative z-30 text-center px-6 max-w-6xl mx-auto">
         <div className="mb-8">
           <div className="inline-flex items-center gap-4 bg-white/[0.05] border border-white/10 px-6 py-2 rounded-full backdrop-blur-md">
@@ -96,17 +105,6 @@ const HeroSection = () => {
             >
               Become Inevitable
             </CustomButton>
-
-            {/* SOUND TOGGLE */}
-            <button
-              onClick={() => setIsMuted(!isMuted)}
-              className="group flex items-center gap-5 text-[10px] font-black uppercase tracking-[0.4em] text-white transition-all"
-            >
-              <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-xl group-hover:bg-white group-hover:text-black transition-all duration-700">
-                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} className="animate-pulse" />}
-              </div>
-              <span>{isMuted ? "Unmute Experience" : "Sound On"}</span>
-            </button>
           </div>
         </div>
       </div>
