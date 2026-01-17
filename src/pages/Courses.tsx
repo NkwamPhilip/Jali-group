@@ -12,7 +12,7 @@ const Courses = () => {
       title: "Story-Selling",
       subtitle: "Foundation Plan",
       price: "$67",
-      link: "https://mainstack.com/varsity-foundation",
+      link: "https://mainstack.com/storyselling",
       description: "Learn the exact storytelling, personal branding and public speaking frameworks used to attract attention, build authority and monetize your brand consistently without chasing trends.",
       result: "Usual Result: You get your first 1k - 5k loyal followers, $1K - $5k from online sales.",
       meta: { duration: "4hrs", students: "2000+ Students", rating: "4.9/5" },
