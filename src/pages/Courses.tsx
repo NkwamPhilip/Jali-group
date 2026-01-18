@@ -51,7 +51,7 @@ const Courses = () => {
       title: "WAMC Exclusive",
       subtitle: "Varsity Elite",
       price: "$1150",
-      link: "https://mainstack.com/strategy-call",
+      link: "https://tally.so/r/obeRRe",
       description: "Go from invisible to inevitable. 3x your revenue, reach and community goals in 60 days by following our proven framework.",
       result: "Usual Result: $25k - $50k in 10 months from online traction | Speaking Engagement offers.",
       meta: { duration: "8 weeks", students: "412+ Participants", rating: "4.9" },

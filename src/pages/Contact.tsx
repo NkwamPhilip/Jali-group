@@ -162,7 +162,7 @@ const Contact = () => {
           <div className="space-y-16">
             <div className="space-y-12">
               {[
-                { icon: Mail, label: "Correspondence", val: "admin@jaliafriq.com" },
+                { icon: Mail, label: "Correspondence", val: "Support@jaliafriq.com" },
                 { icon: Globe, label: "Presence", val: "Operating Globally" }
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-8 group">
