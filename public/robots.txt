@@ -2,13 +2,14 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://jaliafrica.com/sitemap.xml
+Sitemap: https://jaligroup.org/sitemap.xml
 
 # Specific paths
 Allow: /about
 Allow: /services
 Allow: /courses
 Allow: /contact
+Allow: /wamc
 
 # Disallow admin or sensitive areas (if any in future)
 # Disallow: /admin
