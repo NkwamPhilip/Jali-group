@@ -11,12 +11,12 @@ const Courses = () => {
       id: "foundation",
       title: "Story-Selling",
       subtitle: "Foundation Plan",
-      price: "$67",
-      link: "https://mainstack.com/storyselling",
+      price: "$55",
+      link: "https://mainstack.com/varsity-foundation-plan",
       description: "Learn the exact storytelling, personal branding and public speaking frameworks used to attract attention, build authority and monetize your brand consistently without chasing trends.",
       result: "Usual Result: You get your first 1k - 5k loyal followers, $1K - $5k from online sales.",
-      meta: { duration: "4hrs", students: "2000+ Students", rating: "4.9/5" },
-      buttonText: "Join Waitlist",
+      meta: { duration: "", students: "2000+ Students", rating: "4.9/5" },
+      buttonText: "Get Full Details",
       features: [
         "Practical Sales & Marketing Exercises",
         "Pitching & Public Speaking full course",
@@ -31,13 +31,13 @@ const Courses = () => {
       id: "pro",
       title: "Story-Training",
       subtitle: "Pro Level",
-      price: "$350",
+      price: "$275",
       link: "https://mainstack.com/varsity-pro",
       highlight: true,
       description: "Work with Ivy-League certified frameworks that have delivered over $100k in closed deals. Positioned as Top 10 voice in your niche in 12 months.",
       result: "Usual Result: Earn $5k - $15k directly and consistently from online leads within 6 months.",
       meta: { duration: "4 weeks", students: "113+ Clients", rating: "5.0" },
-      buttonText: "Join Waitlist",
+      buttonText: "Get Full Details",
       features: [
         "Personalized Public Speaking Coaching",
         "Personalized Brand Strategy & Content Plan",
@@ -50,12 +50,12 @@ const Courses = () => {
       id: "elite",
       title: "WAMC Exclusive",
       subtitle: "Varsity Elite",
-      price: "$1150",
+      price: "$750",
       link: "https://tally.so/r/obeRRe",
       description: "Go from invisible to inevitable. 3x your revenue, reach and community goals in 60 days by following our proven framework.",
       result: "Usual Result: $25k - $50k in 10 months from online traction | Speaking Engagement offers.",
       meta: { duration: "8 weeks", students: "412+ Participants", rating: "4.9" },
-      buttonText: "Apply For The Legacy Cohort 2026",
+      buttonText: "Get Full Details",
       features: [
         "Exclusive Access to Victor Live",
         "Group Coaching (30 vetted participants)",
@@ -152,6 +152,7 @@ const Courses = () => {
         <div className="text-center mb-16 px-6">
           <h2 className="text-white/20 font-black tracking-[0.4em] uppercase text-[10px] mb-4">The Selection</h2>
           <p className="text-white text-2xl font-light">Choose a plan that aligns with where you are.</p>
+          <h3 className="text-white/20 font-black tracking-[0.4em] uppercase text-[10px] mb-4">( These are waitlist prices and will change on the 31st of Jan, 2026) </h3>
         </div>
         <div className="grid lg:grid-cols-3 gap-8 items-stretch px-6">
           {plans.map((plan, index) => (

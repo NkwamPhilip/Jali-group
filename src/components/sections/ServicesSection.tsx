@@ -10,7 +10,7 @@ const ServicesSection = () => {
       title: "Jali Varsity",
       tagline: "UK ACCREDITED & IVY-LEAGUE EXPERTS",
       desc: "Join 2000+ creators, professionals and business owners from 40 countries using their story as leverage, and turning their ideas into income.",
-      price: "From $75",
+      price: "From $55",
       buttonText: "Access Varsity",
       href: "/courses"
     },
@@ -28,7 +28,7 @@ const ServicesSection = () => {
       title: "WAMC Legacy Cohort",
       tagline: "VICTOR'S INNER CIRCLE",
       desc: "Triple your revenue, reach and community in 8 weeks with our Clarity-Output-Influence-Income framework. Gain direct access to Victor and Tier 1 industry experts. 30 slots only.",
-      price: "From $1150",
+      price: "From $750",
       buttonText: "Apply for WAMC",
       href: "/wamc"
     }
