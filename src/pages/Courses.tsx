@@ -152,7 +152,7 @@ const Courses = () => {
         <div className="text-center mb-16 px-6">
           <h2 className="text-white/20 font-black tracking-[0.4em] uppercase text-[10px] mb-4">The Selection</h2>
           <p className="text-white text-2xl font-light">Choose a plan that aligns with where you are.</p>
-          <h3 className="text-white/20 font-black tracking-[0.4em] uppercase text-[10px] mb-4">( These are waitlist prices and will change on the 31st of Jan, 2026) </h3>
+          <h3 className="text-white/20 font-black tracking-[0.4em] uppercase text-[10px] mb-4"></h3>
         </div>
         <div className="grid lg:grid-cols-3 gap-8 items-stretch px-6">
           {plans.map((plan, index) => (
