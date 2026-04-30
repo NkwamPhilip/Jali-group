@@ -31,7 +31,7 @@ const Courses = () => {
       id: "pro",
       title: "Story-Training",
       subtitle: "Pro Level",
-      price: "$300 ( N350K )",
+      price: "$250 ( N350K )",
       link: "https://mainstack.com/varsity-pro",
       highlight: true,
       description: "Work with Ivy-League certified frameworks that have delivered over $100k in closed deals. Positioned as Top 10 voice in your niche in 12 months.",
