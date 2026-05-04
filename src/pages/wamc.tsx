@@ -53,7 +53,7 @@ const WAMC = () => {
                     </div>
 
                     <CustomButton href={applyLink} className={pillButtonStyle}>
-                        Apply Now For The Legacy Cohort ( March 2026 )
+                        Apply Now For The Legacy Cohort ( May 2026 )
                     </CustomButton>
                 </ScrollReveal>
             </Section>
@@ -133,7 +133,7 @@ const WAMC = () => {
                                 <div>
                                     <div className="flex justify-between items-start mb-8">
                                         <h3 className="text-4xl font-bold tracking-tighter">8-Week Group Coaching</h3>
-                                        <div className="bg-black text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">March 2026</div>
+                                        <div className="bg-black text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">May 2026</div>
                                     </div>
                                     <p className="mb-10 text-black/60 font-medium">For 60 days, you'd have clarity, direction, and precise execution while being guided by world-class experts.</p>
 
@@ -222,7 +222,7 @@ const WAMC = () => {
                         Or step in now and turn your potential into the life you’re supposed to live.
                     </p>
                     <CustomButton href={applyLink} className={pillButtonStyle}>
-                        Apply Now For The Legacy Cohort ( March 2026 )
+                        Apply Now For The Legacy Cohort ( May 2026 )
                     </CustomButton>
                     <div className="mt-12 space-y-2">
                         <p className="text-white text-[10px] font-black uppercase tracking-[0.4em]">
