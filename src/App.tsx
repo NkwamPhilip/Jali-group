@@ -3,14 +3,17 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/ui/ScrollToTop"; // Ensure this file exists in src/components/ui/
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Courses from "./pages/Courses";
-import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ui/ScrollToTop";
+
+// New Jali Group design
+import JaliHome from "./pages/JaliHome";
+import JaliTribe from "./pages/JaliTribe";
+import CreatorFounder from "./pages/CreatorFounder";
+import JaliWamc from "./pages/JaliWamc";
+
+import JaliAbout from "./pages/JaliAbout";
+import JaliContact from "./pages/JaliContact";
 import NotFound from "./pages/NotFound";
-import WAMC from "./pages/wamc";
 
 const queryClient = new QueryClient();
 
@@ -26,12 +29,22 @@ const App = () => (
         <ScrollToTop />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/wamc" element={<WAMC />} />
+          <Route path="/" element={<JaliHome />} />
+
+          {/* The Tribe (replaces Jali Varsity — /courses kept as an alias) */}
+          <Route path="/tribe" element={<JaliTribe />} />
+          <Route path="/courses" element={<JaliTribe />} />
+
+          {/* Creator-Founder Service (replaces FounderSignal — /services kept as an alias) */}
+          <Route path="/founders" element={<CreatorFounder />} />
+          <Route path="/services" element={<CreatorFounder />} />
+
+          {/* WAMC Growth Challenge */}
+          <Route path="/wamc" element={<JaliWamc />} />
+
+          {/* About + Contact (new design) */}
+          <Route path="/about" element={<JaliAbout />} />
+          <Route path="/contact" element={<JaliContact />} />
 
           {/* Catch-all for 404s */}
           <Route path="*" element={<NotFound />} />
