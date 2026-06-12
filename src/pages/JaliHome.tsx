@@ -28,7 +28,7 @@ const JaliHome = () => {
           <a href="#services" className="hero-cta-secondary">See What We Do</a>
         </div>
         <div className="hero-video">
-          <video autoPlay muted loop playsInline controls preload="metadata">
+          <video autoPlay muted loop playsInline preload="metadata">
             <source src="/vic.mp4" type="video/mp4" />
             <source src="/vic.MOV" type="video/quicktime" />
           </video>
