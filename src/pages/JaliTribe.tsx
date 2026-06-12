@@ -428,8 +428,8 @@ const JaliTribe = () => {
             Chevening Scholar, Techstars mentor, and the creator-entrepreneur who built 800K+ followers and 70M+
             views in 90 days through storytelling alone — and now teaches the exact system inside the Tribe.
           </p>
-          <div className="portrait"><img src="/guy2.jpeg" alt="Victor Okafor" /></div>
-          <p className="portrait-cap">Victor Okafor · Founder, Jali Group</p>
+          <div className="feature-photo"><img src="/victor-main.jpg" alt="Victor Okafor speaking at The Jali Experience, Abuja" /></div>
+          <p className="feature-cap">Victor Okafor · The Jali Experience, Abuja</p>
         </div>
       </section>
 

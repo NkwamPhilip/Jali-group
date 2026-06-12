@@ -304,6 +304,17 @@
 .jali-site .testi-name{font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1}
 .jali-site .testi-role{font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-top:6px}
 
+/* feature photo (landscape founder / stage shot) */
+.jali-site .feature-photo{max-width:780px;margin:48px auto 0;border-radius:24px;overflow:hidden;border:1px solid var(--rule);box-shadow:0 20px 60px rgba(0,0,0,0.12);background:var(--bg-alt)}
+.jali-site .feature-photo img{width:100%;height:auto;display:block}
+.jali-site .feature-cap{text-align:center;margin-top:16px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light)}
+
+/* text reviews (no photo) */
+.jali-site .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;text-align:left}
+.jali-site .review-card{padding:32px;border:1px solid var(--rule);border-radius:16px;background:var(--bg);display:flex;flex-direction:column}
+.jali-site .review-text{font-size:15px;line-height:1.8;color:var(--text-mid);margin-bottom:20px;flex-grow:1}
+.jali-site .review-name{font-family:'Bebas Neue',sans-serif;font-size:20px;padding-top:16px;border-top:1px solid var(--rule)}
+
 /* community carousel (auto-scrolling marquee) */
 .jali-site .marquee{margin-top:48px;-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
 .jali-site .marquee-track{display:flex;gap:24px;width:max-content;animation:jali-scroll 45s linear infinite}
@@ -335,6 +346,7 @@
   .page-wamc .price-banner{gap:32px}
   .page-wamc .not-list{column-count:1}
   .jali-site .testi-grid{grid-template-columns:1fr}
+  .jali-site .reviews-grid{grid-template-columns:1fr}
   .jali-site .marquee-item{width:230px;height:230px}
 }
 

@@ -247,8 +247,8 @@ const CreatorFounder = () => {
             Every system we sell to founders, we've tested on ourselves first. The framework isn't theoretical.
             It's documented proof.
           </p>
-          <div className="portrait"><img src="/guy2.jpeg" alt="Victor Okafor" /></div>
-          <p className="portrait-cap">Victor Okafor · Founder, Jali Group</p>
+          <div className="feature-photo"><img src="/victor-main.jpg" alt="Victor Okafor speaking at The Jali Experience, Abuja" /></div>
+          <p className="feature-cap">Victor Okafor · The Jali Experience, Abuja</p>
         </div>
       </section>
 

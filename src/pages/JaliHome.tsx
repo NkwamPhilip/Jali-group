@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import JaliLayout from "@/components/jali/JaliLayout";
 import Testimonials from "@/components/jali/Testimonials";
+import Reviews from "@/components/jali/Reviews";
 import CommunityCarousel from "@/components/jali/CommunityCarousel";
 
 const JaliHome = () => {
@@ -137,6 +138,13 @@ const JaliHome = () => {
       {/* THE STORY */}
       <section className="section section-alt" id="story">
         <div className="wrap">
+          <div className="feature-photo" style={{ marginTop: 0 }}>
+            <img src="/victor-main.jpg" alt="Victor Okafor speaking at The Jali Experience, Abuja" />
+          </div>
+          <p className="feature-cap" style={{ marginBottom: "44px" }}>
+            Victor Okafor · The Jali Experience, Abuja
+          </p>
+
           <p className="eyebrow">How This Started</p>
           <h2 className="h2">One Phone. One Decision. Everything Changed.</h2>
           <p className="story-text">
@@ -150,11 +158,6 @@ const JaliHome = () => {
             That system is now Jali Group.
           </p>
 
-          <div className="portrait">
-            <img src="/omo.JPEG" alt="Victor Okafor" />
-          </div>
-          <p className="portrait-cap">Victor Okafor · Founder, Jali Group</p>
-
           <div className="stats-row">
             <div className="stat-box"><div className="stat-num">800K+</div><p className="stat-label">Followers Built</p></div>
             <div className="stat-box"><div className="stat-num">70M+</div><p className="stat-label">Views Generated</p></div>
@@ -165,6 +168,9 @@ const JaliHome = () => {
 
       {/* TESTIMONIALS */}
       <Testimonials />
+
+      {/* REVIEWS */}
+      <Reviews alt />
 
       {/* FINAL CTA */}
       <section className="final-cta">
