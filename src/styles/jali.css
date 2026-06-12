@@ -38,8 +38,8 @@
 .jali-site .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--text)}
 .jali-site .nav-logo span{color:var(--amber)}
 .jali-site .nav-links{display:flex;gap:32px;align-items:center}
-.jali-site .nav-links a{font-size:14px;font-weight:500;color:var(--text-mid);transition:color 0.2s}
-.jali-site .nav-links a:hover,.jali-site .nav-links a.active{color:var(--text)}
+.jali-site .nav-links a:not(.nav-cta){font-size:14px;font-weight:500;color:var(--text-mid);transition:color 0.2s}
+.jali-site .nav-links a:not(.nav-cta):hover,.jali-site .nav-links a.active:not(.nav-cta){color:var(--text)}
 .jali-site .nav-cta{background:var(--text);color:var(--bg);font-size:13px;font-weight:600;padding:10px 24px;border-radius:6px;transition:background 0.2s}
 .jali-site .nav-cta:hover{opacity:.85}
 .page-wamc .nav{background:rgba(10,10,10,0.9)}
