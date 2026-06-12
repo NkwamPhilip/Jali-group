@@ -26,6 +26,12 @@ const JaliHome = () => {
           <Link to="/tribe" className="hero-cta">Join The Jali Tribe</Link>
           <a href="#services" className="hero-cta-secondary">See What We Do</a>
         </div>
+        <div className="hero-video">
+          <video autoPlay muted loop playsInline controls preload="metadata">
+            <source src="/vic.mp4" type="video/mp4" />
+            <source src="/vic.MOV" type="video/quicktime" />
+          </video>
+        </div>
       </section>
 
       {/* PAIN */}
