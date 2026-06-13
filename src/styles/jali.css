@@ -316,7 +316,7 @@
 .jali-site .review-name{font-family:'Bebas Neue',sans-serif;font-size:20px;padding-top:16px;border-top:1px solid var(--rule)}
 
 /* community carousel (auto-scrolling marquee) */
-.jali-site .marquee{margin-top:48px;-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
+.jali-site .marquee{margin-top:48px;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
 .jali-site .marquee-track{display:flex;gap:24px;width:max-content;animation:jali-scroll 45s linear infinite}
 .jali-site .marquee:hover .marquee-track{animation-play-state:paused}
 .jali-site .marquee-item{flex:0 0 auto;width:300px;height:300px;border-radius:20px;overflow:hidden;border:1px solid var(--rule);background:var(--bg-alt)}
