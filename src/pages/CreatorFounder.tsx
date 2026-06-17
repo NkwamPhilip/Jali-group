@@ -16,7 +16,7 @@ const CreatorFounder = () => {
           A bespoke, done-with-you service for founders who want to build audience, community, and revenue using
           creator-led growth. We handle strategy, content, and execution. You show up 4 hours a month.
         </p>
-        <a href="#book" className="hero-cta">Book A 30-Minute Call</a>
+        <a href="https://mainstack.com/book-a-strategy-call-for-foundersignal" target="_blank" rel="noopener noreferrer" className="hero-cta">Book A 30-Minute Call</a>
       </section>
 
       {/* ANCHOR */}
@@ -171,7 +171,7 @@ const CreatorFounder = () => {
       </section>
 
       <div className="mid-cta" id="book">
-        <a href="#book">Book A 30-Minute Call</a>
+        <a href="https://mainstack.com/book-a-strategy-call-for-foundersignal" target="_blank" rel="noopener noreferrer">Book A 30-Minute Call</a>
       </div>
 
       {/* WHAT THIS IS / ISN'T */}
@@ -266,7 +266,7 @@ const CreatorFounder = () => {
               Every dollar you invest comes back as visibility, inbound leads, and opportunities your competitors
               can't touch.
             </p>
-            <a href="#book" className="hero-cta">Book A 30-Minute Call</a>
+            <a href="https://mainstack.com/book-a-strategy-call-for-foundersignal" target="_blank" rel="noopener noreferrer" className="hero-cta">Book A 30-Minute Call</a>
           </div>
         </div>
       </section>
@@ -279,7 +279,7 @@ const CreatorFounder = () => {
           We handle everything: content, strategy, execution. 4 hours of your time a month. Book a 30-minute
           call. We'll walk you through how this works.
         </p>
-        <a href="#book" className="final-cta-btn">Book A 30-Minute Call</a>
+        <a href="https://mainstack.com/book-a-strategy-call-for-foundersignal" target="_blank" rel="noopener noreferrer" className="final-cta-btn">Book A 30-Minute Call</a>
         <p className="price-note">support@jaligroup.org · jaligroup.org · +44 7549 561046</p>
       </section>
     </JaliLayout>

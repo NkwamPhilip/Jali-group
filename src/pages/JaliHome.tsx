@@ -29,8 +29,7 @@ const JaliHome = () => {
         </div>
         <div className="hero-video">
           <video autoPlay muted loop playsInline preload="metadata">
-            <source src="/vic.mp4" type="video/mp4" />
-            <source src="/vic.MOV" type="video/quicktime" />
+            <source src="/hero-video.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
@@ -68,6 +67,16 @@ const JaliHome = () => {
           you: your story.</strong>
         </p>
       </div>
+
+      {/* COMMUNITY PHOTO — TOP */}
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <div className="wrap-wide">
+          <div className="feature-photo" style={{ marginTop: 0 }}>
+            <img src="/community-1.jpg" alt="The Jali Experience, Lagos 2025" loading="lazy" />
+          </div>
+          <p className="feature-cap">The Jali Experience · Lagos '25</p>
+        </div>
+      </section>
 
       {/* SERVICES */}
       <section className="section" id="services">
@@ -171,6 +180,16 @@ const JaliHome = () => {
 
       {/* REVIEWS */}
       <Reviews alt />
+
+      {/* COMMUNITY PHOTO — END */}
+      <section className="section">
+        <div className="wrap-wide">
+          <div className="feature-photo" style={{ marginTop: 0 }}>
+            <img src="/community-2.jpg" alt="The Jali Experience community, Lagos 2025" loading="lazy" />
+          </div>
+          <p className="feature-cap">Inside the room · The Jali Experience, Lagos '25</p>
+        </div>
+      </section>
 
       {/* FINAL CTA */}
       <section className="final-cta">

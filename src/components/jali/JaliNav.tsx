@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const links = [
   { name: "Home", to: "/" },
@@ -11,7 +11,12 @@ const links = [
   { name: "Contact", to: "/contact" },
 ];
 
-const JaliNav = () => {
+interface JaliNavProps {
+  theme: "dark" | "light";
+  onToggleTheme: () => void;
+}
+
+const JaliNav = ({ theme, onToggleTheme }: JaliNavProps) => {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
@@ -25,24 +30,34 @@ const JaliNav = () => {
           JALI<span>.</span>
         </Link>
 
-        <div className="nav-links">
-          {links.map((l) => (
-            <Link key={l.to} to={l.to} className={isActive(l.to) ? "active" : ""}>
-              {l.name}
+        <div className="nav-right">
+          <div className="nav-links">
+            {links.map((l) => (
+              <Link key={l.to} to={l.to} className={isActive(l.to) ? "active" : ""}>
+                {l.name}
+              </Link>
+            ))}
+            <Link to="/tribe" className="nav-cta">
+              Join The Tribe
             </Link>
-          ))}
-          <Link to="/tribe" className="nav-cta">
-            Join The Tribe
-          </Link>
-        </div>
+          </div>
 
-        <button
-          className="nav-toggle"
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
+          <button
+            className="theme-toggle"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={onToggleTheme}
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
+          <button
+            className="nav-toggle"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </nav>
 
       <div className={`mobile-menu${open ? " open" : ""}`}>

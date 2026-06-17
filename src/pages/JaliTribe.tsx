@@ -1,8 +1,73 @@
+import { useState } from "react";
 import JaliLayout from "@/components/jali/JaliLayout";
 import Testimonials from "@/components/jali/Testimonials";
+import Reviews from "@/components/jali/Reviews";
 import CommunityCarousel from "@/components/jali/CommunityCarousel";
 
+const TRIBE_URL = "https://mainstack.com/the-jali-tribe";
+
+const faqs: { q: string; a: string }[] = [
+  {
+    q: "What exactly do I get when I join the Jali Tribe?",
+    a: `You get immediate access to the full Resource Vault — that's 10 structured modules across the Creator Track, Entrepreneur Track, and Shared Track. On top of that, you get our custom AI tools, the weekly live sessions (Ignition Call and Win Wall), the community infrastructure (Deal Board, Accountability Pods, Member Directory, Resource Request Board), and access to quarterly events including the Jali Summit. The exact mix of live access depends on your tier — Member, Builder, or Inner Circle — but every tier gets the full vault with zero locked content.`,
+  },
+  {
+    q: "I'm a complete beginner with no audience. Is this for me?",
+    a: `Yes — and you might actually get the most out of it. The entire system was built by someone who started with under 1,000 followers. The Creator Track begins with Personal Brand Architecture — positioning, voice, and identity — before you post a single piece of content. You're not playing catch-up. You're building the right foundation from the start, which means you skip the mistakes most people spend years making.`,
+  },
+  {
+    q: "I'm an entrepreneur, not a creator. Will this work for me?",
+    a: `The Entrepreneur Track was built specifically for founders who need visibility but don't want to become influencers. It covers founder content systems, audience building for business, offer architecture, and scale. You'll learn how to use your founder story as a growth channel — not how to dance on TikTok. Some of our most successful members are B2B founders who've generated six figures in inbound revenue through the content strategies inside the vault.`,
+  },
+  {
+    q: "What's the difference between the three tiers?",
+    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in live access and speed. <strong>Jali Member ($29/mo)</strong> gets the vault, 2 of 3 AI tools, community access, the monthly Mixer, Deal Board, and quarterly Summit access. <strong>Jali Builder ($69/quarter)</strong> adds all 3 AI tools, weekly Ignition Calls, monthly Expert Room sessions, Accountability Pod placement, the Resource Request Board, WAMC Challenge participation, and Member Spotlight eligibility. <strong>Jali Inner Circle (£269/year)</strong> adds a monthly 1-on-1 strategy call with Victor, a private direct-access channel, VIP hot seat priority, and an annual featured case study across Victor's full audience. Builder and Inner Circle both include the option to pay in 3 instalments.`,
+  },
+  {
+    q: "What are the AI tools and how do they work?",
+    a: `These are three custom-built tools exclusive to Tribe members — not ChatGPT wrappers. The <strong>Magnetic Content Engine & Brand Voice Tool</strong> generates full 30-day content calendars, rewrites weak hooks, and creates a complete brand voice guide from your inputs. The <strong>Story Architect Tool</strong> transforms your raw experiences and business lessons into high-performing storytelling content. The <strong>Creator Business Diagnostic Tool</strong> audits your current positioning, brand associations, content volume, and credibility so you know exactly where you stand and what to fix first. Jali Members get access to 2 of the 3 tools; Builder and Inner Circle get all 3.`,
+  },
+  {
+    q: "How much time do I need to commit each week?",
+    a: `That depends on your tier and how fast you want to move. At a minimum, you can work through the vault at your own pace — even 2-3 hours a week of focused implementation will produce noticeable results within 30 days. If you're on the Builder or Inner Circle tier, the live sessions add another 1-2 hours per week. The Accountability Pods meet weekly for about 30 minutes. The members who see the fastest results are the ones who treat it like a part-time job for the first 90 days — but the system is designed to work even if you're busy.`,
+  },
+  {
+    q: "What happens on the weekly live sessions?",
+    a: `The <strong>Ignition Call</strong> happens every Saturday — one tactical focus, one actionable framework, and you leave with a clear action for the week. It's not a lecture. It's a working session. The <strong>Win Wall</strong> happens every other Friday — a live celebration and accountability session where members share wins, report progress, and course-correct publicly. Both sessions are recorded if you can't attend live, but the culture of the Tribe is built around showing up.`,
+  },
+  {
+    q: "What are Accountability Pods and how do they work?",
+    a: `When you join at Builder tier or above, you're placed into a pod of 5 members matched by goal and stage. Your pod meets weekly — quick check-ins, progress sharing, and honest feedback. The pod is the reason members show up even on hard weeks. It's not optional accountability — it's a small group of people who know what you committed to and will call you out if you disappear. Many members say the pod alone is worth the membership.`,
+  },
+  {
+    q: "What's the Deal Board?",
+    a: `A private board inside the community where members post and find opportunities — freelance work, collaborations, job openings, partnership proposals, beta testers, guest appearances, and referrals. The idea is simple: when you're in a room of creators and entrepreneurs who are all building, opportunities flow naturally. The Deal Board is where those opportunities get formalised. Members have landed paid gigs, co-created products, and found clients directly through it.`,
+  },
+  {
+    q: "What does the Member Spotlight look like?",
+    a: `Every week, one Tribe member gets featured across Victor's 800K+ audience on all platforms. That's real exposure — the kind you can't buy. You'll be introduced with your story, your work, and a direct link to whatever you're building. It's designed to drive followers, leads, and credibility to you. Spotlight eligibility starts at the Builder tier.`,
+  },
+  {
+    q: "Can I switch tiers later?",
+    a: `Absolutely. You can upgrade or downgrade at any time. Many members start at the Member tier to explore the vault, then move to Builder once they're ready for the live sessions and pods. There's no penalty for switching, and any remaining balance on your current billing cycle gets applied.`,
+  },
+  {
+    q: "What if I join and it's not for me?",
+    a: `You can cancel anytime — no contracts, no lock-in, no awkward cancellation process. If you join and realise it's not the right fit, you cancel and your access continues until the end of your current billing period. We don't make it hard to leave because we'd rather have a room full of people who want to be there.`,
+  },
+  {
+    q: "What's the waitlist pricing about?",
+    a: `We're launching the Tribe with discounted waitlist pricing that locks in before July 18. Jali Member drops from $29 to $19/month, Builder drops from $69 to $49/quarter, and Inner Circle drops from £269 to $199/year. Once you lock in a waitlist price, you keep that rate for as long as you stay subscribed. After July 18, prices go to full rate for all new members.`,
+  },
+  {
+    q: "How is this different from every other creator community out there?",
+    a: `Three things. First, everything in the Tribe is built on a documented, proven system — the same one behind 800K+ followers and 70M+ views. It's not theory. Second, the Tribe is structured with real infrastructure — Accountability Pods, a Deal Board, a Member Directory, weekly live sessions, and quarterly summits. This isn't a Slack group that goes quiet after two weeks. Third, you get custom AI tools built exclusively for this community, direct exposure to Victor's audience, and a community of people who are actually building — not just consuming content about building.`,
+  },
+];
+
 const JaliTribe = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <JaliLayout
       page="tribe"
@@ -49,6 +114,16 @@ const JaliTribe = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* COMMUNITY PHOTO — TOP */}
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <div className="wrap-wide">
+          <div className="feature-photo" style={{ marginTop: 0 }}>
+            <img src="/community-1.jpg" alt="The Jali Experience, Lagos 2025" loading="lazy" />
+          </div>
+          <p className="feature-cap">The Jali Experience · Lagos '25</p>
         </div>
       </section>
 
@@ -436,8 +511,11 @@ const JaliTribe = () => {
       {/* TESTIMONIALS */}
       <Testimonials alt heading="The Tribe Already Changes Lives." eyebrow="Member Results" />
 
+      {/* REVIEWS */}
+      <Reviews />
+
       {/* PRICING */}
-      <section className="section" id="pricing">
+      <section className="section section-alt" id="pricing">
         <div className="wrap">
           <p className="eyebrow" style={{ textAlign: "center" }}>Choose Your Path</p>
           <h2 className="h2" style={{ textAlign: "center" }}>Three Tiers. Zero Locked Content On The Vault.</h2>
@@ -445,23 +523,10 @@ const JaliTribe = () => {
             Every tier gets the full resource vault. The difference is how much access, accountability, and speed
             you want.
           </p>
-          <div className="pricing-grid">
-            <div className="price-card">
-              <div className="price-tier">Jali Member</div>
-              <div className="price-amount">$29</div>
-              <div className="price-period">per month (or per year)</div>
-              <div className="price-waitlist">$19/mo waitlist price before July 18</div>
-              <ul className="price-features">
-                <li>Full Resource Vault — all creator & entrepreneur tracks</li>
-                <li>Access to 2 of 3 custom AI tools</li>
-                <li>Community access & member directory</li>
-                <li>Monthly Jali Mixer networking event</li>
-                <li>Deal Board access</li>
-                <li>Quarterly Jali Summit access</li>
-              </ul>
-              <button className="price-btn price-btn-outline">Join as Member</button>
-            </div>
-
+          <div
+            className="pricing-grid"
+            style={{ gridTemplateColumns: "1fr", maxWidth: "540px", marginLeft: "auto", marginRight: "auto", marginTop: "48px" }}
+          >
             <div className="price-card featured">
               <div className="price-badge">Best For Builders</div>
               <div className="price-tier">Jali Builder</div>
@@ -469,17 +534,42 @@ const JaliTribe = () => {
               <div className="price-period">per quarter</div>
               <div className="price-waitlist">$49/quarter waitlist price before July 18</div>
               <ul className="price-features">
-                <li>Everything in Member</li>
-                <li>Monday Ignition Call — live weekly</li>
+                <li>Full Resource Vault — all creator & entrepreneur tracks</li>
+                <li>All 3 custom AI tools</li>
+                <li>Community access & member directory</li>
+                <li>Saturday Ignition Call — live weekly</li>
                 <li>Monthly Expert Room guest session</li>
                 <li>Monthly Deep Dive Masterclass</li>
                 <li>Accountability Pod placement</li>
-                <li>Resource Request Board access</li>
+                <li>Deal Board & Resource Request Board</li>
                 <li>Quarterly WAMC Challenge participation</li>
                 <li>Member Spotlight eligibility</li>
                 <li>24-hour response guarantee</li>
+                <li style={{ fontWeight: 700, color: "var(--amber)", borderBottom: "none", fontSize: "14px" }}>✦ Option to pay in 3 instalments</li>
               </ul>
-              <button className="price-btn price-btn-fill">Join as Builder</button>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                <a className="price-btn price-btn-fill" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join as Builder</a>
+                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Pay in Instalments</a>
+              </div>
+            </div>
+
+            <div className="price-card">
+              <div className="price-tier">Jali Member</div>
+              <div className="price-amount">$29</div>
+              <div className="price-period">per month</div>
+              <div className="price-waitlist">$19/month waitlist price before July 18</div>
+              <ul className="price-features">
+                <li>Full Resource Vault — all creator & entrepreneur tracks</li>
+                <li>Access to 2 of 3 custom AI tools</li>
+                <li>Community access & member directory</li>
+                <li>Monthly Jali Mixer networking event</li>
+                <li>Deal Board access</li>
+                <li>Quarterly Jali Summit access</li>
+                <li>Cancel anytime</li>
+              </ul>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join as Member</a>
+              </div>
             </div>
 
             <div className="price-card">
@@ -488,7 +578,7 @@ const JaliTribe = () => {
               <div className="price-period">per year</div>
               <div className="price-waitlist">$199/year waitlist price before July 18</div>
               <ul className="price-features">
-                <li>Everything in Member + Builder</li>
+                <li>Everything in Builder</li>
                 <li>Monthly 1-on-1 strategy call with Victor — 45 min, recorded, actioned</li>
                 <li>Private Inner Circle channel — direct access, 12-hour response</li>
                 <li>First access to every new product, resource & event</li>
@@ -496,10 +586,38 @@ const JaliTribe = () => {
                 <li>Annual featured case study to Victor's full audience</li>
                 <li>Private Inner Circle credential for your bio & LinkedIn</li>
                 <li>VIP invitation to annual in-person Jali Tribe event</li>
+                <li style={{ fontWeight: 700, color: "var(--amber)", borderBottom: "none", fontSize: "14px" }}>✦ Option to pay in 3 instalments</li>
               </ul>
-              <button className="price-btn price-btn-outline">Join The Jali Inner Circle</button>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join The Jali Inner Circle</a>
+                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Pay in Instalments</a>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section" id="faq">
+        <div className="wrap">
+          <p className="eyebrow" style={{ textAlign: "center" }}>Common Questions</p>
+          <h2 className="h2" style={{ textAlign: "center" }}>Before You Decide</h2>
+          {faqs.map((f, i) => (
+            <div className={`faq-item${openFaq === i ? " open" : ""}`} key={i}>
+              <div className="faq-q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>{f.q}</div>
+              <div className="faq-a"><p dangerouslySetInnerHTML={{ __html: f.a }} /></div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* COMMUNITY PHOTO — END */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap-wide">
+          <div className="feature-photo" style={{ marginTop: 0 }}>
+            <img src="/community-2.jpg" alt="The Jali Experience community, Lagos 2025" loading="lazy" />
+          </div>
+          <p className="feature-cap">Inside the room · The Jali Experience, Lagos '25</p>
         </div>
       </section>
 
