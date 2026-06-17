@@ -10,6 +10,7 @@ import JaliHome from "./pages/JaliHome";
 import JaliTribe from "./pages/JaliTribe";
 import CreatorFounder from "./pages/CreatorFounder";
 import JaliWamc from "./pages/JaliWamc";
+import CreatorBusinessLive from "./pages/CreatorBusinessLive";
 
 import JaliAbout from "./pages/JaliAbout";
 import JaliContact from "./pages/JaliContact";
@@ -41,6 +42,9 @@ const App = () => (
 
           {/* WAMC Growth Challenge */}
           <Route path="/wamc" element={<JaliWamc />} />
+
+          {/* Creator Business Live — campaign landing page */}
+          <Route path="/live" element={<CreatorBusinessLive />} />
 
           {/* About + Contact (new design) */}
           <Route path="/about" element={<JaliAbout />} />
