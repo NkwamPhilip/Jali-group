@@ -280,7 +280,7 @@ const CreatorFounder = () => {
           call. We'll walk you through how this works.
         </p>
         <a href="https://mainstack.com/book-a-strategy-call-for-foundersignal" target="_blank" rel="noopener noreferrer" className="final-cta-btn">Book A 30-Minute Call</a>
-        <p className="price-note">support@jaligroup.org · jaligroup.org · +44 7549 561046</p>
+        <p className="price-note">hello@jaliafriq.com · jaligroup.org · +44 7549 561046</p>
       </section>
     </JaliLayout>
   );

@@ -20,6 +20,13 @@ const testimonials = [
     quote:
       "Working with the Jali team in 2025 was incredible. Communicating my value was made very easy and I had a structure for consistency.",
   },
+  {
+    image: "/dre.jpg",
+    name: "Dr. Emmanuel Okafor",
+    role: "Medical Doctor · Influencer",
+    quote:
+      "Using the Jali Framework, Dr. E completely restructured his digital persona — pivoting from a standard practitioner to a sought-after industry authority. From 88 followers to 10,000 in 14 days, with 5M+ organic views.",
+  },
 ];
 
 interface TestimonialsProps {

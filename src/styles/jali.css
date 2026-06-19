@@ -302,7 +302,7 @@
 .page-wamc .portrait{background:var(--bg-card)}
 
 /* testimonials */
-.jali-site .testi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:48px}
+.jali-site .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;max-width:920px;margin-left:auto;margin-right:auto}
 .jali-site .testi-card{border:1px solid var(--rule);border-radius:16px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
 .jali-site .testi-photo{aspect-ratio:1/1;overflow:hidden;background:var(--bg-alt)}
 .jali-site .testi-photo img{width:100%;height:100%;object-fit:cover}

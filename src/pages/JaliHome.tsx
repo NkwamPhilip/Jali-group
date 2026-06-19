@@ -29,7 +29,7 @@ const JaliHome = () => {
         </div>
         <div className="hero-video">
           <video autoPlay muted loop playsInline preload="metadata">
-            <source src="/hero-video.mp4" type="video/mp4" />
+            <source src="/vic.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
@@ -64,7 +64,7 @@ const JaliHome = () => {
         <p>
           That's exactly why we built this. Not another course. Not another community that goes quiet after a
           week. <strong>A system that actually works — because it's built on the one thing nobody can take from
-          you: your story.</strong>
+            you: your story.</strong>
         </p>
       </div>
 

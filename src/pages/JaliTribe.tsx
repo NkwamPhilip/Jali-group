@@ -21,7 +21,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What's the difference between the three tiers?",
-    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in live access and speed. <strong>Jali Member ($29/mo)</strong> gets the vault, 2 of 3 AI tools, community access, the monthly Mixer, Deal Board, and quarterly Summit access. <strong>Jali Builder ($69/quarter)</strong> adds all 3 AI tools, weekly Ignition Calls, monthly Expert Room sessions, Accountability Pod placement, the Resource Request Board, WAMC Challenge participation, and Member Spotlight eligibility. <strong>Jali Inner Circle (£269/year)</strong> adds a monthly 1-on-1 strategy call with Victor, a private direct-access channel, VIP hot seat priority, and an annual featured case study across Victor's full audience. Builder and Inner Circle both include the option to pay in 3 instalments.`,
+    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in live access and speed. <strong>Jali Member ($29/mo)</strong> gets the vault, 2 of 3 AI tools, community access, the monthly Mixer, Deal Board, and quarterly Summit access. <strong>Jali Builder ($69/quarter)</strong> adds all 3 AI tools, weekly Ignition Calls, monthly Expert Room sessions, Accountability Pod placement, the Resource Request Board, WAMC Challenge participation, and Member Spotlight eligibility. <strong>Jali Inner Circle ($269/year)</strong> adds a monthly 1-on-1 strategy call with Victor, a private direct-access channel, VIP hot seat priority, and an annual featured case study across Victor's full audience. Builder and Inner Circle both include the option to pay in 3 instalments.`,
   },
   {
     q: "What are the AI tools and how do they work?",
@@ -57,7 +57,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What's the waitlist pricing about?",
-    a: `We're launching the Tribe with discounted waitlist pricing that locks in before July 18. Jali Member drops from $29 to $19/month, Builder drops from $69 to $49/quarter, and Inner Circle drops from £269 to $199/year. Once you lock in a waitlist price, you keep that rate for as long as you stay subscribed. After July 18, prices go to full rate for all new members.`,
+    a: `We're launching the Tribe with discounted waitlist pricing that locks in before July 18. Builder drops from $69 to $49/quarter, and Inner Circle drops from $269 to $199/year (Jali Member stays at its full $29/month). Once you lock in a waitlist price, you keep that rate for as long as you stay subscribed. After July 18, prices go to full rate for all new members.`,
   },
   {
     q: "How is this different from every other creator community out there?",
@@ -82,7 +82,8 @@ const JaliTribe = () => {
         </h1>
         <p className="sub">
           The Jali Tribe is a private international community for creators and entrepreneurs who refuse to stay
-          invisible. Playbooks. Coaching. AI tools. Accountability. Revenue. Not in theory. In 90 days.
+          invisible. Playbooks. Coaching. AI tools. Accountability. Revenue. Not in theory. Visible results in
+          just 30 days.
         </p>
         <a href="#pricing" className="hero-cta">Join The Tribe</a>
       </section>
@@ -251,7 +252,7 @@ const JaliTribe = () => {
               <ul className="box-list">
                 <li>Generate your first inbound lead through content within 60 days</li>
                 <li>Build a "build in public" narrative that attracts customers, partners, and press</li>
-                <li>Turn your founder journey into a marketing engine that costs £0 in ad spend</li>
+                <li>Turn your founder journey into a marketing engine that costs $0 in ad spend</li>
               </ul>
             </div>
           </div>
@@ -557,7 +558,6 @@ const JaliTribe = () => {
               <div className="price-tier">Jali Member</div>
               <div className="price-amount">$29</div>
               <div className="price-period">per month</div>
-              <div className="price-waitlist">$19/month waitlist price before July 18</div>
               <ul className="price-features">
                 <li>Full Resource Vault — all creator & entrepreneur tracks</li>
                 <li>Access to 2 of 3 custom AI tools</li>
@@ -574,7 +574,7 @@ const JaliTribe = () => {
 
             <div className="price-card">
               <div className="price-tier">Jali Inner Circle</div>
-              <div className="price-amount">£269</div>
+              <div className="price-amount">$269</div>
               <div className="price-period">per year</div>
               <div className="price-waitlist">$199/year waitlist price before July 18</div>
               <ul className="price-features">

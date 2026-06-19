@@ -81,9 +81,15 @@ const JaliAbout = () => {
                   <li key={c}>{c}</li>
                 ))}
               </ul>
-              <Link to="/contact" className="hero-cta" style={{ marginTop: "32px", display: "inline-block" }}>
+              <a
+                href="https://mainstack.com/strategy-with-okafo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta"
+                style={{ marginTop: "32px", display: "inline-block" }}
+              >
                 Work With Victor
-              </Link>
+              </a>
             </div>
           </div>
         </div>

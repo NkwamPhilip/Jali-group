@@ -13,7 +13,7 @@ const JaliFooter = () => {
         <Link to="/contact">Contact</Link>
       </p>
       <p>
-        © {year} Jali Group. <a href="mailto:support@jaligroup.org">support@jaligroup.org</a>
+        © {year} Jali Group. <a href="mailto:hello@jaliafriq.com">hello@jaliafriq.com</a>
         {" · "}
         <a href="https://jaligroup.org">jaligroup.org</a>
       </p>

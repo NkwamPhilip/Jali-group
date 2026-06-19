@@ -4,8 +4,7 @@ import SEOHead from "@/components/ui/SEOHead";
 import "@/styles/cbl.css";
 
 // Reserve / checkout link for the masterclass.
-// TODO: replace "#" with the live Mainstack (or other) reservation URL.
-const RESERVE_URL = "#";
+const RESERVE_URL = "https://mainstack.com/the-creator-business-live-masterclass";
 
 // Event goes live July 4, 2026, 18:00 UTC (year bumped from the 2025 mockup
 // so the countdown is live — adjust the exact date/time if needed).

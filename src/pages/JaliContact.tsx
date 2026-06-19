@@ -44,7 +44,7 @@ const JaliContact = () => {
       toast({
         variant: "destructive",
         title: "Something went wrong",
-        description: error?.text || "Please email support@jaligroup.org directly.",
+        description: error?.text || "Please email hello@jaliafriq.com directly.",
       });
     } finally {
       setIsSubmitting(false);
@@ -119,7 +119,7 @@ const JaliContact = () => {
                 <div className="info-icon"><Mail size={20} strokeWidth={1.6} /></div>
                 <div>
                   <div className="info-label">Email</div>
-                  <a className="info-val" href="mailto:support@jaligroup.org">support@jaligroup.org</a>
+                  <a className="info-val" href="mailto:hello@jaliafriq.com">hello@jaliafriq.com</a>
                 </div>
               </div>
               <div className="info-item">

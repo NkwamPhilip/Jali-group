@@ -7,7 +7,7 @@ const links = [
   { name: "The Tribe", to: "/tribe" },
   { name: "For Founders", to: "/founders" },
   { name: "WAMC", to: "/wamc" },
-  { name: "Live", to: "/live" },
+  { name: "CB-Live", to: "/live" },
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
 ];
