@@ -82,7 +82,7 @@ const JaliAbout = () => {
                 ))}
               </ul>
               <a
-                href="https://mainstack.com/strategy-with-okafo"
+                href="https://mainstack.com/p/strategy-with-okafo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-cta"

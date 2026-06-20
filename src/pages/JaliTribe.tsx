@@ -4,7 +4,7 @@ import Testimonials from "@/components/jali/Testimonials";
 import Reviews from "@/components/jali/Reviews";
 import CommunityCarousel from "@/components/jali/CommunityCarousel";
 
-const TRIBE_URL = "https://mainstack.com/the-jali-tribe";
+const TRIBE_URL = "https://mainstack.com/p/the-jali-tribe";
 
 const faqs: { q: string; a: string }[] = [
   {

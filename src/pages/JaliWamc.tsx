@@ -46,7 +46,7 @@ const JaliWamc = () => {
           The exact system that took one creator from under 1,000 followers to 800,000+ in 90 days. Compressed
           into a 6-week sprint. With a coach in your corner the entire time.
         </p>
-        <a href="https://mainstack.com/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer" className="hero-cta">Join The Waitlist — $500</a>
+        <a href="https://mainstack.com/p/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer" className="hero-cta">Join The Waitlist — $500</a>
       </section>
 
       {/* PRICING BANNER */}
@@ -103,7 +103,7 @@ const JaliWamc = () => {
       </section>
 
       {/* MID CTA */}
-      <div className="mid-cta"><a href="https://mainstack.com/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer">Secure Your Slot — $500</a></div>
+      <div className="mid-cta"><a href="https://mainstack.com/p/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer">Secure Your Slot — $500</a></div>
 
       {/* THE 3 PHASES */}
       <section className="section">
@@ -183,7 +183,7 @@ const JaliWamc = () => {
       </section>
 
       {/* MID CTA */}
-      <div className="mid-cta"><a href="https://mainstack.com/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer">Secure Your Slot — $500</a></div>
+      <div className="mid-cta"><a href="https://mainstack.com/p/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer">Secure Your Slot — $500</a></div>
 
       {/* WHAT YOU GET */}
       <section className="section">
@@ -260,7 +260,7 @@ const JaliWamc = () => {
           The waitlist price of $500 is only available for the first 25 people. After that, it's $750. Don't
           think about it. You already know.
         </p>
-        <a href="https://mainstack.com/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer" className="hero-cta" style={{ marginTop: "36px" }}>Join The Waitlist — $500</a>
+        <a href="https://mainstack.com/p/wamcexclusive-waitlist" target="_blank" rel="noopener noreferrer" className="hero-cta" style={{ marginTop: "36px" }}>Join The Waitlist — $500</a>
       </section>
     </JaliLayout>
   );
