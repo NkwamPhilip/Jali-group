@@ -531,9 +531,9 @@ const JaliTribe = () => {
             <div className="price-card featured">
               <div className="price-badge">Best For Builders</div>
               <div className="price-tier">Jali Builder</div>
-              <div className="price-amount">$69</div>
+              <div className="price-amount">$69<span className="price-naira"> / ₦93,000</span></div>
               <div className="price-period">per quarter</div>
-              <div className="price-waitlist">$49/quarter waitlist price before July 18</div>
+              <div className="price-waitlist">$49 / ₦66,000 waitlist price before July 18</div>
               <ul className="price-features">
                 <li>Full Resource Vault — all creator & entrepreneur tracks</li>
                 <li>All 3 custom AI tools</li>
@@ -556,7 +556,7 @@ const JaliTribe = () => {
 
             <div className="price-card">
               <div className="price-tier">Jali Member</div>
-              <div className="price-amount">$29</div>
+              <div className="price-amount">$29<span className="price-naira"> / ₦39,000</span></div>
               <div className="price-period">per month</div>
               <ul className="price-features">
                 <li>Full Resource Vault — all creator & entrepreneur tracks</li>
@@ -574,9 +574,9 @@ const JaliTribe = () => {
 
             <div className="price-card">
               <div className="price-tier">Jali Inner Circle</div>
-              <div className="price-amount">$269</div>
+              <div className="price-amount">$269<span className="price-naira"> / ₦363,000</span></div>
               <div className="price-period">per year</div>
-              <div className="price-waitlist">$199/year waitlist price before July 18</div>
+              <div className="price-waitlist">$199 / ₦268,000 waitlist price before July 18</div>
               <ul className="price-features">
                 <li>Everything in Builder</li>
                 <li>Monthly 1-on-1 strategy call with Victor — 45 min, recorded, actioned</li>

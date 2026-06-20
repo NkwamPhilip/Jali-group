@@ -195,6 +195,7 @@
 .page-tribe .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--amber);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:4px 16px;border-radius:20px;text-transform:uppercase;white-space:nowrap}
 .page-tribe .price-tier{font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:4px}
 .page-tribe .price-amount{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;margin-bottom:2px}
+.page-tribe .price-naira{font-family:'DM Sans',sans-serif;font-size:22px;color:var(--text-mid);font-weight:500}
 .page-tribe .price-period{font-size:13px;color:var(--text-light);margin-bottom:4px}
 .page-tribe .price-waitlist{font-size:13px;color:var(--amber);font-weight:500;margin-bottom:20px}
 .page-tribe .price-features{list-style:none;text-align:left;padding:0;margin-bottom:24px;flex-grow:1}
