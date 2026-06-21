@@ -1,0 +1,18 @@
+# Netlify build + SPA routing config.
+# Makes the build settings explicit (so they don't depend on the UI) and
+# guarantees client-side routes (e.g. /cblive) resolve on direct visit.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback: serve the app for any path that isn't a real file.
+# (Same effect as public/_redirects — kept here too so it works even if
+# the _redirects file is missed.)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
