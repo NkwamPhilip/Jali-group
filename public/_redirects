@@ -1,0 +1,4 @@
+# Netlify SPA fallback — serve index.html for any path that isn't a real
+# file, so client-side routes (e.g. /cblive, /tribe) work on direct visit
+# and refresh. Existing files (JS/CSS/images) are still served directly.
+/*    /index.html   200
