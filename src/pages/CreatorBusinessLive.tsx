@@ -53,7 +53,7 @@ const CreatorBusinessLive = () => {
           <h1>CREATOR<br />BUSINESS<br /><span>LIVE</span></h1>
           <p className="hero-sub">
             90 minutes. One framework. The exact system behind 800,000+ followers, 70M+ views, and a business
-            built entirely on storytelling. No theory. No fluff. Just the blueprint that changed everything.
+            built entirely on storytelling. No theory. Just the blueprint that changed everything.
           </p>
           <div className="hero-meta">
             <div className="meta-item">
