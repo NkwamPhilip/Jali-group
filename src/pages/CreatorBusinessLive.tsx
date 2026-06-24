@@ -38,8 +38,12 @@ const CreatorBusinessLive = () => {
     <div className="cbl-page">
       <SEOHead
         title="Creator Business Live — by Jali"
-        description="A live masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. July 4. $0.99 to reserve your seat."
+        description="A live masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. July 4. $5 to reserve your seat."
       />
+
+      <div className="cbl-banner">
+        Early bird seats are sold out. You can still get in at almost no cost within 48hrs.
+      </div>
 
       <nav className="nav">
         <Link to="/" className="nav-logo">JALI<span>.</span></Link>
@@ -207,7 +211,7 @@ const CreatorBusinessLive = () => {
           session. No replay promised. Be in the room.
         </p>
         <div className="price-tag">
-          <span className="price">$0.99</span>
+          <span className="price">$5</span>
         </div>
         <a href={RESERVE_URL} className="hero-cta">Reserve My Seat</a>
         <p className="price-note">One commitment. One framework. 90 minutes that earns back every hour you've wasted guessing.</p>
