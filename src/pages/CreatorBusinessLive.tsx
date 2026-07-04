@@ -6,9 +6,9 @@ import "@/styles/cbl.css";
 // Reserve / checkout link for the masterclass.
 const RESERVE_URL = "https://mainstack.com/p/the-creator-business-live-masterclass";
 
-// Event goes live July 4, 2026, 18:00 UTC (year bumped from the 2025 mockup
+// Event goes live July 11, 2026, 18:00 UTC (year bumped from the 2025 mockup
 // so the countdown is live — adjust the exact date/time if needed).
-const TARGET = new Date("2026-07-04T18:00:00Z").getTime();
+const TARGET = new Date("2026-07-011T18:00:00Z").getTime();
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -38,7 +38,7 @@ const CreatorBusinessLive = () => {
     <div className="cbl-page">
       <SEOHead
         title="Creator Business Live — by Jali"
-        description="A live masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. July 4. $5 to reserve your seat."
+        description="A live masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. July 11. $5 to reserve your seat."
       />
 
       <div className="cbl-banner">
@@ -47,13 +47,13 @@ const CreatorBusinessLive = () => {
 
       <nav className="nav">
         <Link to="/" className="nav-logo">JALI<span>.</span></Link>
-        <div className="nav-date">JULY 4 — LIVE</div>
+        <div className="nav-date">JULY 11 — LIVE</div>
       </nav>
 
       {/* HERO */}
       <section className="hero">
         <div className="hero-content">
-          <p className="eyebrow">Live Masterclass — July 4</p>
+          <p className="eyebrow">Live Masterclass — July 11</p>
           <h1>CREATOR<br />BUSINESS<br /><span>LIVE</span></h1>
           <p className="hero-sub">
             90 minutes. One framework. The exact system behind 800,000+ followers, 70M+ views, and a business
@@ -62,7 +62,7 @@ const CreatorBusinessLive = () => {
           <div className="hero-meta">
             <div className="meta-item">
               <span className="meta-label">Date</span>
-              <span className="meta-value">July 4, 2026</span>
+              <span className="meta-value">July 11, 2026</span>
             </div>
             <div className="meta-item">
               <span className="meta-label">Duration</span>
@@ -122,7 +122,7 @@ const CreatorBusinessLive = () => {
       {/* TRANSITION */}
       <div className="transition">
         <p>
-          On July 4, I'm going to show you the exact framework I used to go from 1,000 followers to 800,000+ in
+          On July 11, I'm going to show you the exact framework I used to go from 1,000 followers to 800,000+ in
           18 months. <strong>Not the highlights. The actual system.</strong> The one behind the first 100,000
           followers in 90 days. The one that led to a Chevening Scholarship, international speaking opportunities,
           and a business that runs on visibility.
@@ -204,7 +204,7 @@ const CreatorBusinessLive = () => {
 
       {/* FINAL CTA */}
       <section className="final-cta">
-        <p className="eyebrow">July 4 — 1 Hour — Live</p>
+        <p className="eyebrow">July 11 — 1 Hour — Live</p>
         <h2 className="h2">One Hour Could Change How You Build For The Next Ten Years</h2>
         <p className="sub">
           This is the framework behind everything. The audience. The business. The opportunities. One live

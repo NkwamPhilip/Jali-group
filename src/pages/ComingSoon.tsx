@@ -72,7 +72,7 @@ const ComingSoon = () => (
         letterSpacing: "0.02em",
       }}
     >
-      Creator Business Live — July 4 →
+      Creator Business Live — July 11th →
     </Link>
 
     <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", marginTop: "44px" }}>
