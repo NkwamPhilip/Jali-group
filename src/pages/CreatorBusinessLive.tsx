@@ -8,7 +8,7 @@ const RESERVE_URL = "https://mainstack.com/p/the-creator-business-live-mastercla
 
 // Event goes live July 11, 2026, 18:00 UTC (year bumped from the 2025 mockup
 // so the countdown is live — adjust the exact date/time if needed).
-const TARGET = new Date("2026-07-011T18:00:00Z").getTime();
+const TARGET = new Date("2026-07-11T18:00:00Z").getTime();
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
