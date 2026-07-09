@@ -4,7 +4,7 @@ import SEOHead from "@/components/ui/SEOHead";
 import "@/styles/cbl.css";
 
 // Reserve / checkout link for the masterclass.
-const RESERVE_URL = "https://mainstack.com/p/the-creator-business-live-masterclass";
+const RESERVE_URL = "https://nestuge.com/creatorbusinessmasterclass";
 
 // Event goes live July 11, 2026, 18:00 UTC (year bumped from the 2025 mockup
 // so the countdown is live — adjust the exact date/time if needed).
