@@ -24,7 +24,7 @@ import ComingSoon from "./pages/ComingSoon";
 //  ►► TO BRING THE WHOLE SITE BACK ONLINE: set this to `false`. ◄◄
 //  (Nothing else needs to change — all the real routes are kept below.)
 // ──────────────────────────────────────────────────────────────────────
-const LAUNCHING_SOON = true;
+const LAUNCHING_SOON = false;
 
 const queryClient = new QueryClient();
 
