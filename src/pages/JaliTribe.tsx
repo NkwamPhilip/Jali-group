@@ -4,7 +4,7 @@ import Testimonials from "@/components/jali/Testimonials";
 import Reviews from "@/components/jali/Reviews";
 import CommunityCarousel from "@/components/jali/CommunityCarousel";
 
-const TRIBE_URL = "https://mainstack.com/p/the-jali-tribe";
+const TRIBE_URL = "https://hubs.nestuge.com/thejalitribe";
 
 const faqs: { q: string; a: string }[] = [
   {
@@ -21,11 +21,11 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What's the difference between the three tiers?",
-    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in live access and speed. <strong>Jali Member ($29/mo)</strong> gets the vault, 2 of 3 AI tools, community access, the monthly Mixer, Deal Board, and quarterly Summit access. <strong>Jali Builder ($69/quarter)</strong> adds all 3 AI tools, weekly Ignition Calls, monthly Expert Room sessions, Accountability Pod placement, the Resource Request Board, WAMC Challenge participation, and Member Spotlight eligibility. <strong>Jali Inner Circle ($269/year)</strong> adds a monthly 1-on-1 strategy call with Victor, a private direct-access channel, VIP hot seat priority, and an annual featured case study across Victor's full audience. Builder and Inner Circle both include the option to pay in 3 instalments.`,
+    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in live access and speed. <strong>Jali Builder ($49)</strong> gets the vault, all 3 AI tools, weekly Ignition Calls, monthly Expert Room sessions, Accountability Pod placement, the Resource Request Board, WAMC Challenge participation, and Member Spotlight eligibility. <strong>Jali Core ($92)</strong> includes the vault, community access, the monthly Mixer, Deal Board, and quarterly Summit access. <strong>Jali Inner Circle ($199)</strong> adds a monthly 1-on-1 strategy call with Victor, a private direct-access channel, VIP hot seat priority, and an annual featured case study across Victor's full audience. Builder and Inner Circle both include the option to pay in 3 instalments.`,
   },
   {
     q: "What are the AI tools and how do they work?",
-    a: `These are three custom-built tools exclusive to Tribe members — not ChatGPT wrappers. The <strong>Magnetic Content Engine & Brand Voice Tool</strong> generates full 30-day content calendars, rewrites weak hooks, and creates a complete brand voice guide from your inputs. The <strong>Story Architect Tool</strong> transforms your raw experiences and business lessons into high-performing storytelling content. The <strong>Creator Business Diagnostic Tool</strong> audits your current positioning, brand associations, content volume, and credibility so you know exactly where you stand and what to fix first. Jali Members get access to 2 of the 3 tools; Builder and Inner Circle get all 3.`,
+    a: `These are three custom-built tools exclusive to Tribe members — not ChatGPT wrappers. The <strong>Magnetic Content Engine & Brand Voice Tool</strong> generates full 30-day content calendars, rewrites weak hooks, and creates a complete brand voice guide from your inputs. The <strong>Story Architect Tool</strong> transforms your raw experiences and business lessons into high-performing storytelling content. The <strong>Creator Business Diagnostic Tool</strong> audits your current positioning, brand associations, content volume, and credibility so you know exactly where you stand and what to fix first. Jali Core members get access to 2 of the 3 tools; Builder and Inner Circle get all 3.`,
   },
   {
     q: "How much time do I need to commit each week?",
@@ -56,8 +56,8 @@ const faqs: { q: string; a: string }[] = [
     a: `You can cancel anytime — no contracts, no lock-in, no awkward cancellation process. If you join and realise it's not the right fit, you cancel and your access continues until the end of your current billing period. We don't make it hard to leave because we'd rather have a room full of people who want to be there.`,
   },
   {
-    q: "What's the waitlist pricing about?",
-    a: `We're launching the Tribe with discounted waitlist pricing that locks in before July 18. Builder drops from $69 to $49/quarter, and Inner Circle drops from $269 to $199/year (Jali Member stays at its full $29/month). Once you lock in a waitlist price, you keep that rate for as long as you stay subscribed. After July 18, prices go to full rate for all new members.`,
+    q: "Are these prices discounted?",
+    a: `Yes — the current rates (Jali Builder $49, Jali Core $92, Jali Inner Circle $199) are discounted launch pricing. Lock in now and you keep your rate for as long as you stay subscribed.`,
   },
   {
     q: "How is this different from every other creator community out there?",
@@ -531,9 +531,9 @@ const JaliTribe = () => {
             <div className="price-card featured">
               <div className="price-badge">Best For Builders</div>
               <div className="price-tier">Jali Builder</div>
-              <div className="price-amount">$69<span className="price-naira"> / ₦93,000</span></div>
+              <div className="price-amount">$49<span className="price-naira"> / ₦66,000</span></div>
               <div className="price-period">per quarter</div>
-              <div className="price-waitlist">$49 / ₦66,000 waitlist price before July 18</div>
+              <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
                 <li>Full Resource Vault — all creator & entrepreneur tracks</li>
                 <li>All 3 custom AI tools</li>
@@ -555,9 +555,10 @@ const JaliTribe = () => {
             </div>
 
             <div className="price-card">
-              <div className="price-tier">Jali Member</div>
-              <div className="price-amount">$29<span className="price-naira"> / ₦39,000</span></div>
+              <div className="price-tier">Jali Core</div>
+              <div className="price-amount">$92<span className="price-naira"> / ₦124,000</span></div>
               <div className="price-period">per month</div>
+              <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
                 <li>Full Resource Vault — all creator & entrepreneur tracks</li>
                 <li>Access to 2 of 3 custom AI tools</li>
@@ -568,15 +569,15 @@ const JaliTribe = () => {
                 <li>Cancel anytime</li>
               </ul>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join as Member</a>
+                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join as Core</a>
               </div>
             </div>
 
             <div className="price-card">
               <div className="price-tier">Jali Inner Circle</div>
-              <div className="price-amount">$269<span className="price-naira"> / ₦363,000</span></div>
+              <div className="price-amount">$199<span className="price-naira"> / ₦268,000</span></div>
               <div className="price-period">per year</div>
-              <div className="price-waitlist">$199 / ₦268,000 waitlist price before July 18</div>
+              <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
                 <li>Everything in Builder</li>
                 <li>Monthly 1-on-1 strategy call with Victor — 45 min, recorded, actioned</li>
@@ -627,8 +628,7 @@ const JaliTribe = () => {
         <h2 className="h2">How Much Longer Will You Wait?</h2>
         <p className="sub sub-center">
           You already have the talent. You already have the drive. What you've been missing is the system, the
-          community, and the accountability to make it all count. The Tribe is where that changes. Waitlist
-          pricing ends July 18.
+          community, and the accountability to make it all count. The Tribe is where that changes.
         </p>
         <a href="#pricing" className="final-cta-btn">Join The Jali Tribe</a>
       </section>
