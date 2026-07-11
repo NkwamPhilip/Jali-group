@@ -557,7 +557,7 @@ const JaliTribe = () => {
             <div className="price-card">
               <div className="price-tier">Jali Core</div>
               <div className="price-amount">$92<span className="price-naira"> / ₦124,000</span></div>
-              <div className="price-period">per month</div>
+              <div className="price-period">biannually</div>
               <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
                 <li>Full Resource Vault — all creator & entrepreneur tracks</li>
