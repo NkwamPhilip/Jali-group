@@ -21,11 +21,11 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What's the difference between the three tiers?",
-    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in live access and speed. <strong>Jali Builder ($49)</strong> gets the vault, all 3 AI tools, weekly Ignition Calls, monthly Expert Room sessions, Accountability Pod placement, the Resource Request Board, WAMC Challenge participation, and Member Spotlight eligibility. <strong>Jali Core ($92)</strong> includes the vault, community access, the monthly Mixer, Deal Board, and quarterly Summit access. <strong>Jali Inner Circle ($199)</strong> adds a monthly 1-on-1 strategy call with Victor, a private direct-access channel, VIP hot seat priority, and an annual featured case study across Victor's full audience. Builder and Inner Circle both include the option to pay in 3 instalments.`,
+    a: `Every tier gets the full Resource Vault — all 10 modules, no content locked behind a paywall. The difference is in the extra access and perks. <strong>Jali Builder</strong> gets the vault, 2 of 3 AI tools, community and member directory, Deal Board access, the Weekly Ignition Newsletter, monthly Expert Room and Deep Dive Masterclass, the monthly Jali Mixer, quarterly Summit access, Accountability Pod placement, Resource Request Board access, and Member Spotlight eligibility. <strong>Jali Core</strong> includes everything in Builder plus a private Inner Circle channel with 12-hour response, first access to every new product and event, an annual featured case study to Victor's audience, a private Inner Circle credential, and a VIP invitation to the annual in-person Jali Tribe event. <strong>Jali Inner Circle</strong> includes everything in Core plus a monthly 1-on-1 strategy call with Victor and VIP hot seat priority.`,
   },
   {
     q: "What are the AI tools and how do they work?",
-    a: `These are three custom-built tools exclusive to Tribe members — not ChatGPT wrappers. The <strong>Magnetic Content Engine & Brand Voice Tool</strong> generates full 30-day content calendars, rewrites weak hooks, and creates a complete brand voice guide from your inputs. The <strong>Story Architect Tool</strong> transforms your raw experiences and business lessons into high-performing storytelling content. The <strong>Creator Business Diagnostic Tool</strong> audits your current positioning, brand associations, content volume, and credibility so you know exactly where you stand and what to fix first. Jali Core members get access to 2 of the 3 tools; Builder and Inner Circle get all 3.`,
+    a: `These are three custom-built tools exclusive to Tribe members — not ChatGPT wrappers. The <strong>Magnetic Content Engine & Brand Voice Tool</strong> generates full 30-day content calendars, rewrites weak hooks, and creates a complete brand voice guide from your inputs. The <strong>Story Architect Tool</strong> transforms your raw experiences and business lessons into high-performing storytelling content. The <strong>Creator Business Diagnostic Tool</strong> audits your current positioning, brand associations, content volume, and credibility so you know exactly where you stand and what to fix first. Every Tribe tier includes access to 2 of the 3 tools.`,
   },
   {
     q: "How much time do I need to commit each week?",
@@ -535,22 +535,21 @@ const JaliTribe = () => {
               <div className="price-period">per quarter</div>
               <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
-                <li>Full Resource Vault — all creator & entrepreneur tracks</li>
-                <li>All 3 custom AI tools</li>
+                <li>Full Resource Vault (all creator & entrepreneur tracks)</li>
+                <li>Access to 2 of 3 custom AI tools</li>
+                <li>Member Spotlight eligibility</li>
                 <li>Community access & member directory</li>
-                <li>Saturday Ignition Call — live weekly</li>
+                <li>Deal Board Access</li>
+                <li>Weekly Ignition Newsletter</li>
                 <li>Monthly Expert Room guest session</li>
                 <li>Monthly Deep Dive Masterclass</li>
+                <li>Monthly Jali Mixer networking event</li>
+                <li>Quarterly Jali Summit access</li>
                 <li>Accountability Pod placement</li>
-                <li>Deal Board & Resource Request Board</li>
-                <li>Quarterly WAMC Challenge participation</li>
-                <li>Member Spotlight eligibility</li>
-                <li>24-hour response guarantee</li>
-                <li style={{ fontWeight: 700, color: "var(--amber)", borderBottom: "none", fontSize: "14px" }}>✦ Option to pay in 3 instalments</li>
+                <li>Resource Request Board access</li>
               </ul>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a className="price-btn price-btn-fill" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join as Builder</a>
-                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Pay in Instalments</a>
               </div>
             </div>
 
@@ -560,13 +559,12 @@ const JaliTribe = () => {
               <div className="price-period">biannually</div>
               <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
-                <li>Full Resource Vault — all creator & entrepreneur tracks</li>
-                <li>Access to 2 of 3 custom AI tools</li>
-                <li>Community access & member directory</li>
-                <li>Monthly Jali Mixer networking event</li>
-                <li>Deal Board access</li>
-                <li>Quarterly Jali Summit access</li>
-                <li>Cancel anytime</li>
+                <li>Everything in Jali Builder</li>
+                <li>Private Inner Circle channel — direct access, 12-hour response</li>
+                <li>First access to every new product, resource & event</li>
+                <li>Annual featured case study to Victor's full audience</li>
+                <li>Private Inner Circle credential for your bio & LinkedIn</li>
+                <li>VIP invitation to annual in-person Jali Tribe event</li>
               </ul>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join as Core</a>
@@ -579,19 +577,12 @@ const JaliTribe = () => {
               <div className="price-period">per year</div>
               <div className="price-waitlist">Discounted rate</div>
               <ul className="price-features">
-                <li>Everything in Builder</li>
+                <li>Everything in Jali Core</li>
                 <li>Monthly 1-on-1 strategy call with Victor — 45 min, recorded, actioned</li>
-                <li>Private Inner Circle channel — direct access, 12-hour response</li>
-                <li>First access to every new product, resource & event</li>
                 <li>VIP hot seat priority — guaranteed spot once per quarter</li>
-                <li>Annual featured case study to Victor's full audience</li>
-                <li>Private Inner Circle credential for your bio & LinkedIn</li>
-                <li>VIP invitation to annual in-person Jali Tribe event</li>
-                <li style={{ fontWeight: 700, color: "var(--amber)", borderBottom: "none", fontSize: "14px" }}>✦ Option to pay in 3 instalments</li>
               </ul>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Join The Jali Inner Circle</a>
-                <a className="price-btn price-btn-outline" href={TRIBE_URL} target="_blank" rel="noopener noreferrer">Pay in Instalments</a>
               </div>
             </div>
           </div>
