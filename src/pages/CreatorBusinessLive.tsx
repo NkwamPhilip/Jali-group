@@ -3,7 +3,7 @@ import SEOHead from "@/components/ui/SEOHead";
 import "@/styles/cbl.css";
 
 // Reserve / registration link for the masterclass.
-const RESERVE_URL = "https://mainstack.com/p/the-creator-business-live-masterclass";
+const RESERVE_URL = "https://nestuge.com/cbmasterclass";
 
 const reviews: { name: string; img?: string; text: string }[] = [
   {
@@ -214,7 +214,7 @@ const CreatorBusinessLive = () => {
           Be in the room.
         </p>
         <div className="price-tag">
-          <span className="price">FREE</span>
+          <span className="price">$5</span>
         </div>
         <a href={RESERVE_URL} className="hero-cta">Reserve My Seat</a>
         <p className="price-note">One commitment. One framework. 90 minutes that earns back every hour you've wasted guessing.</p>
