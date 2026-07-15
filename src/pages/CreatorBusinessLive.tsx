@@ -1,72 +1,67 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/ui/SEOHead";
 import "@/styles/cbl.css";
 
-// Reserve / checkout link for the masterclass.
-const RESERVE_URL = "https://nestuge.com/creatorbusinessmasterclass";
+// Reserve / registration link for the masterclass.
+const RESERVE_URL = "https://mainstack.com/p/the-creator-business-live-masterclass";
 
-// Event goes live July 11, 2026, 18:00 UTC (year bumped from the 2025 mockup
-// so the countdown is live — adjust the exact date/time if needed).
-const TARGET = new Date("2026-07-11T18:00:00Z").getTime();
-
-const pad = (n: number) => String(n).padStart(2, "0");
+const reviews: { name: string; img?: string; text: string }[] = [
+  {
+    name: "@bloom_with_nay",
+    img: "/cblive-3.jpg",
+    text: "This has been without an iota of doubt the best 2+ hours of my life. How do you know you have come in contact with excellence if a gap has not been closed? If a void has not been filled? A BIG THANKS to Victor and the Jali team. This was a 100% high impact class.",
+  },
+  {
+    name: "@d_biboye_egbejule",
+    img: "/cblive-4.jpg",
+    text: "This class was genuinely the best 1,500 I have ever spent in my life. The clarity, the relatability, the practical steps. Nothing was just talk, everything was real and everything landed. The storytelling alone sold me an experience I did not even know I needed. 10 out of 10.",
+  },
+  {
+    name: "@profitswithjess",
+    img: "/cblive-5.jpg",
+    text: "I've honestly never been this excited for a masterclass before, and it was so worth it. The value! Victor, you really outdid yourself. This gave me so much clarity on what I need to do next.",
+  },
+  {
+    name: "@julietoj_",
+    text: "Thank you V.O, thank you JALI Team. I gained clarity on my differentiator and unique trust accelerator. I'm glad I positioned myself for the gems I've received tonight.",
+  },
+  {
+    name: "Vesto",
+    img: "/cblive-6.jpg",
+    text: "Wow! This is a lot of valuable information for this masterclass. Even though I've already started learning some of these skills, I can see that I'm on the right path. I'm excited to use it to elevate my career to the next level.",
+  },
+  {
+    name: "@foremanbiola · @adefolarin._",
+    text: "This is a best experience for me as a creator and entrepreneur. Thank you so much.  Congratss. The masterclass was value packed!",
+  },
+];
 
 const CreatorBusinessLive = () => {
-  const [cd, setCd] = useState({ d: "--", h: "--", m: "--", s: "--" });
-
-  useEffect(() => {
-    const update = () => {
-      const diff = TARGET - Date.now();
-      if (diff <= 0) {
-        setCd({ d: "00", h: "00", m: "00", s: "00" });
-        return;
-      }
-      setCd({
-        d: pad(Math.floor(diff / 86400000)),
-        h: pad(Math.floor((diff % 86400000) / 3600000)),
-        m: pad(Math.floor((diff % 3600000) / 60000)),
-        s: pad(Math.floor((diff % 60000) / 1000)),
-      });
-    };
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <div className="cbl-page">
       <SEOHead
-        title="Creator Business Live — by Jali"
-        description="A live masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. July 11. $5 to reserve your seat."
+        title="Creator Business Masterclass — by Jali"
+        description="A masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. Free — just commit to show up."
       />
-
-      <div className="cbl-banner">
-        Early bird seats are sold out. You can still get in at almost no cost within 48hrs.
-      </div>
 
       <nav className="nav">
         <Link to="/" className="nav-logo">JALI<span>.</span></Link>
-        <div className="nav-date">JULY 11 — LIVE</div>
+        <div className="nav-date">MASTERCLASS</div>
       </nav>
 
       {/* HERO */}
       <section className="hero">
         <div className="hero-content">
-          <p className="eyebrow">Live Masterclass — July 11</p>
-          <h1>CREATOR<br />BUSINESS<br /><span>LIVE</span></h1>
+          <h1>CREATOR<br />BUSINESS<br /><span>MASTERCLASS</span></h1>
           <p className="hero-sub">
             90 minutes. One framework. The exact system behind 800,000+ followers, 70M+ views, and a business
-            built entirely on storytelling. No theory. Just the blueprint that changed everything.
+            built entirely on storytelling. No theory. Just the blueprint that changed everything. This
+            masterclass is FREE, but you just have to commit to show up so you don't take this for granted.
           </p>
           <div className="hero-meta">
             <div className="meta-item">
-              <span className="meta-label">Date</span>
-              <span className="meta-value">July 11, 2026</span>
-            </div>
-            <div className="meta-item">
               <span className="meta-label">Duration</span>
-              <span className="meta-value">1h 30min Live</span>
+              <span className="meta-value">1h 30min</span>
             </div>
             <div className="meta-item">
               <span className="meta-label">Host</span>
@@ -76,20 +71,9 @@ const CreatorBusinessLive = () => {
           <a href={RESERVE_URL} className="hero-cta">Reserve My Seat</a>
         </div>
         <div className="hero-image">
-          <img src="/cbl-1.jpg" alt="Victor Okafor speaking at The Jali Experience" />
+          <img src="/cblive-1.jpg" alt="Victor Okafor speaking at The Jali Experience" />
         </div>
       </section>
-
-      {/* COUNTDOWN */}
-      <div className="countdown-bar">
-        <p className="countdown-label">Masterclass Goes Live In</p>
-        <div className="countdown">
-          <div className="cd-unit"><div className="cd-num">{cd.d}</div><p className="cd-label">Days</p></div>
-          <div className="cd-unit"><div className="cd-num">{cd.h}</div><p className="cd-label">Hours</p></div>
-          <div className="cd-unit"><div className="cd-num">{cd.m}</div><p className="cd-label">Minutes</p></div>
-          <div className="cd-unit"><div className="cd-num">{cd.s}</div><p className="cd-label">Seconds</p></div>
-        </div>
-      </div>
 
       {/* THE PROBLEM */}
       <section className="section">
@@ -122,17 +106,17 @@ const CreatorBusinessLive = () => {
       {/* TRANSITION */}
       <div className="transition">
         <p>
-          On July 11, I'm going to show you the exact framework I used to go from 1,000 followers to 800,000+ in
-          18 months. <strong>Not the highlights. The actual system.</strong> The one behind the first 100,000
-          followers in 90 days. The one that led to a Chevening Scholarship, international speaking opportunities,
-          and a business that runs on visibility.
+          In this masterclass, I'm going to show you the exact framework I used to go from 1,000 followers to
+          800,000+ in 18 months. <strong>Not the highlights. The actual system.</strong> The one behind the
+          first 100,000 followers in 90 days. The one that led to a Chevening Scholarship, international speaking
+          opportunities, and a business that runs on visibility.
         </p>
       </div>
 
       {/* WHAT YOU'LL LEARN */}
       <section className="section section-alt">
         <div className="wrap">
-          <p className="eyebrow">What I'm Covering, Live</p>
+          <p className="eyebrow">What I'm Covering</p>
           <h2 className="h2">The Framework From Unknown To Inevitable</h2>
           <div className="learn-grid">
             <div className="learn-item">
@@ -186,32 +170,51 @@ const CreatorBusinessLive = () => {
           <h2 className="h2">Victor Okafor</h2>
           <div className="who">
             <div className="who-img">
-              <img src="/cbl-2.jpg" alt="Victor Okafor" />
+              <img src="/cblive-2.jpg" alt="Victor Okafor" />
             </div>
             <div>
               <div className="who-name">Victor Okafor</div>
               <div className="who-title">Founder, Jali Group — Chevening Scholar — Techstars Mentor</div>
               <p className="who-bio">
                 800,000+ followers built from scratch. 70M+ views. 2,000+ students across multiple programmes.
-                Built an entire audience and business from under 1,000 followers in 18 months through
-                storytelling. No ads. No team at the start. No shortcuts. Everything in this masterclass comes
-                from what he did, not what he read in a book.
+                Harvard Rhetoric — perfect score. Built an entire audience and business from under 1,000
+                followers in 18 months through storytelling. No ads. No team at the start. No shortcuts.
+                Everything in this masterclass comes from what he did, not what he read in a book.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section className="section section-alt">
+        <div className="wrap">
+          <p className="eyebrow">Reviews</p>
+          <h2 className="h2">What The Room Says</h2>
+          <div className="rev-grid">
+            {reviews.map((r) => (
+              <div className="rev-card" key={r.name}>
+                <div className="rev-head">
+                  {r.img && <img src={r.img} alt={r.name} loading="lazy" />}
+                  <div className="rev-name">{r.name}</div>
+                </div>
+                <p>“{r.text}”</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="final-cta">
-        <p className="eyebrow">July 11 — 1 Hour — Live</p>
+        <p className="eyebrow">The Masterclass — 1 Hour</p>
         <h2 className="h2">One Hour Could Change How You Build For The Next Ten Years</h2>
         <p className="sub">
-          This is the framework behind everything. The audience. The business. The opportunities. One live
-          session. No replay promised. Be in the room.
+          This is the framework behind everything. The audience. The business. The opportunities. One session.
+          Be in the room.
         </p>
         <div className="price-tag">
-          <span className="price">$5</span>
+          <span className="price">FREE</span>
         </div>
         <a href={RESERVE_URL} className="hero-cta">Reserve My Seat</a>
         <p className="price-note">One commitment. One framework. 90 minutes that earns back every hour you've wasted guessing.</p>

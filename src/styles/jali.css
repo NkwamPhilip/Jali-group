@@ -76,7 +76,7 @@
 .jali-site .hero{padding:180px 40px 100px;text-align:center}
 .jali-site .hero .h1{max-width:820px;margin-left:auto;margin-right:auto}
 .jali-site .hero .sub{max-width:620px;margin:0 auto 40px}
-.jali-site .hero-line{width:48px;height:3px;background:var(--amber);margin:0 auto 28px;border-radius:2px}
+.jali-site .hero-line{display:none}
 .jali-site .hero-cta-group{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .jali-site .hero-cta{display:inline-block;background:var(--amber);color:#fff;font-size:15px;font-weight:600;padding:16px 44px;border-radius:8px;transition:background 0.2s;letter-spacing:0.02em}
 .jali-site .hero-cta:hover{background:var(--amber-hover)}
