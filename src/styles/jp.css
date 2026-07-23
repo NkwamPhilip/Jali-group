@@ -1,0 +1,123 @@
+/* ============================================================
+   JALI "PRICING / FAST TRACK / CREATOR LABEL" design system.
+   Schibsted Grotesk + Inter + IBM Plex Mono, dark + amber.
+   All selectors scoped under .jp-page so they never collide
+   with the main .jali-site or .cbl-page designs.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+.jp-page{
+  --amber:#D97706;--amber-hover:#B45E04;--amber-soft:rgba(217,119,6,0.12);
+  --gray:#8A8A8A;--line:#262626;
+  font-family:'Inter',sans-serif;background:#0a0a0a;color:#FAFAFA;line-height:1.6;
+  -webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;
+}
+.jp-page *{margin:0;padding:0;box-sizing:border-box}
+.jp-page ::selection{background:#fff;color:#000}
+.jp-page a{text-decoration:none;color:inherit}
+.jp-page .mono{font-family:'IBM Plex Mono',monospace}
+.jp-page .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.jp-page nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.jp-page .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.jp-page .logo{font-family:'Schibsted Grotesk',sans-serif;font-weight:900;font-size:18px;letter-spacing:-.02em;color:#fff}
+.jp-page .nav-links{display:flex;gap:24px;align-items:center}
+.jp-page .nav-links a{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.6)}
+.jp-page .nav-links a:hover{color:#fff}
+.jp-page .nav-cta{background:var(--amber);color:#000;padding:10px 20px;border-radius:8px;font-weight:600}
+
+/* HERO */
+.jp-page .hero{padding:110px 0 80px}
+.jp-page .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:28px}
+.jp-page h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:900;letter-spacing:-.035em;line-height:1.05;font-size:clamp(40px,7vw,84px);max-width:18ch;color:#fff}
+.jp-page .hero .subtitle{max-width:56ch;font-size:18px;color:rgba(255,255,255,.6);margin:32px 0 40px}
+
+/* BUTTONS */
+.jp-page .btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:16px 32px;border:1px solid #333;transition:all .2s;cursor:pointer;background:#141414;color:#FAFAFA;border-radius:8px}
+.jp-page .btn-solid{background:var(--amber);border-color:var(--amber);color:#000;font-weight:600}
+.jp-page .btn-solid:hover{background:var(--amber-hover);border-color:var(--amber-hover);color:#000}
+.jp-page .btn-ghost{background:#141414;color:#FAFAFA}
+.jp-page .btn-ghost:hover{background:#1f1f1f;color:#fff;border-color:#555}
+.jp-page .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+
+/* TICKER */
+.jp-page .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:#0a0a0a;padding:14px 0}
+.jp-page .ticker-track{display:flex;gap:56px;width:max-content;animation:jp-scroll 28s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.jp-page .ticker-track .dead{color:rgba(255,255,255,.35);text-decoration:line-through}
+.jp-page .ticker-track .live{font-weight:500;color:var(--amber)}
+@keyframes jp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.jp-page section{padding:96px 0}
+.jp-page .sec-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:20px}
+.jp-page h2{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.1;font-size:clamp(30px,4.5vw,52px);max-width:22ch;margin-bottom:24px;color:#fff}
+.jp-page .lead{font-size:16px;color:rgba(255,255,255,.6);max-width:640px;line-height:1.7}
+.jp-page .dark{background:#000}
+.jp-page section.light,.jp-page .light{background:#141414}
+
+/* TIERS */
+.jp-page .tiers{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-top:56px;border-radius:12px;overflow:hidden}
+.jp-page .tiers-3{grid-template-columns:repeat(3,1fr)}
+.jp-page .tiers-1{grid-template-columns:1fr;max-width:640px}
+.jp-page .tier{padding:48px 40px;background:#0a0a0a}
+.jp-page .tier + .tier{border-left:1px solid var(--line)}
+.jp-page .tiers-1 .tier + .tier{border-left:none;border-top:1px solid var(--line)}
+.jp-page .tier-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border:1px solid currentColor;margin-bottom:24px}
+.jp-page .tier h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.02em;margin-bottom:10px;color:#fff}
+.jp-page .tier p{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7}
+.jp-page .tier ul{list-style:none}
+.jp-page .tier li{padding:12px 0;border-top:1px solid var(--line);font-size:15px;color:rgba(255,255,255,.75)}
+.jp-page .tier li::before{content:"·  ";color:var(--gray)}
+.jp-page .tier-featured{background:var(--amber-soft);color:#fff}
+.jp-page .tier-featured li{border-top:1px solid rgba(217,119,6,.3);color:#eee}
+.jp-page .tier-featured .btn-ghost{background:transparent;border-color:#555;color:#fff}
+.jp-page .tier-featured .btn-ghost:hover{background:#1f1f1f}
+.jp-page .price-amount{font-family:'Schibsted Grotesk',sans-serif;font-weight:900;font-size:52px;letter-spacing:-.03em;margin:8px 0 2px;color:var(--amber)}
+.jp-page .price-period{font-size:14px;color:rgba(255,255,255,.5)}
+.jp-page .price-waitlist{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:10px;padding:8px 12px;border:1px solid var(--amber);color:var(--amber);display:inline-block}
+.jp-page .btn-stack{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.jp-page .btn-stack .btn{text-align:center}
+
+/* PRICE BANNER (WAMC) */
+.jp-page .price-banner{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);max-width:640px;margin-top:48px;border-radius:12px;overflow:hidden}
+.jp-page .price-opt{padding:28px 32px}
+.jp-page .price-opt + .price-opt{border-left:1px solid var(--line)}
+.jp-page .price-opt .plabel{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.jp-page .price-opt .pamount{font-family:'Schibsted Grotesk',sans-serif;font-weight:900;font-size:40px;letter-spacing:-.03em;color:var(--amber)}
+.jp-page .price-opt .pnote{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px}
+.jp-page .price-opt.featured{background:var(--amber-soft);color:#fff}
+
+/* GRID CARDS */
+.jp-page .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px;border-radius:12px;overflow:hidden}
+.jp-page .grid-2{grid-template-columns:repeat(2,1fr)}
+.jp-page .gcard{background:#0a0a0a;padding:32px 28px}
+.jp-page .gcard h4{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;color:var(--amber)}
+.jp-page .gcard h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:12px;color:#fff}
+.jp-page .gcard p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* IMG BLOCK */
+.jp-page .img-block{margin:48px auto 8px;border:1px solid var(--line);max-width:560px;border-radius:12px;overflow:hidden}
+.jp-page .img-block img{width:100%;display:block;filter:grayscale(1)}
+.jp-page .img-cap{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:14px 18px;border-top:1px solid var(--line);background:#0a0a0a}
+
+/* FINAL + FOOTER */
+.jp-page .final{text-align:center;padding-bottom:120px}
+.jp-page .final h2{margin:0 auto 16px}
+.jp-page .final .lead{margin:0 auto 36px;max-width:560px}
+.jp-page footer{background:#000;color:#999;padding:56px 0}
+.jp-page .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center}
+.jp-page .foot .logo{color:#fff}
+.jp-page .foot p{font-size:13px;font-family:'IBM Plex Mono',monospace}
+.jp-page .foot a{color:#999}
+
+@media (max-width:820px){
+  .jp-page .nav-links a:not(.nav-cta){display:none}
+  .jp-page .tiers,.jp-page .tiers-3{grid-template-columns:1fr}
+  .jp-page .tier + .tier{border-left:none;border-top:1px solid var(--line)}
+  .jp-page .grid-3,.jp-page .grid-2{grid-template-columns:1fr}
+  .jp-page .price-banner{grid-template-columns:1fr}
+  .jp-page .price-opt + .price-opt{border-left:none;border-top:1px solid var(--line)}
+  .jp-page section{padding:72px 0}
+  .jp-page .hero{padding:72px 0 56px}
+}

@@ -12,6 +12,11 @@ import CreatorFounder from "./pages/CreatorFounder";
 import JaliWamc from "./pages/JaliWamc";
 import CreatorBusinessLive from "./pages/CreatorBusinessLive";
 
+// New "pricing / fast-track / creator-label" design system
+import JaliPricing from "./pages/JaliPricing";
+import FastTrack from "./pages/FastTrack";
+import CreatorLabel from "./pages/CreatorLabel";
+
 import JaliAbout from "./pages/JaliAbout";
 import JaliContact from "./pages/JaliContact";
 import NotFound from "./pages/NotFound";
@@ -62,6 +67,11 @@ const App = () => (
 
             {/* WAMC Growth Challenge */}
             <Route path="/wamc" element={<JaliWamc />} />
+
+            {/* Pricing · Fast Track · Creator Label (new design system) */}
+            <Route path="/pricing" element={<JaliPricing />} />
+            <Route path="/fast-track" element={<FastTrack />} />
+            <Route path="/creator-label" element={<CreatorLabel />} />
 
             {/* Creator Business Live — campaign landing page */}
             <Route path="/cblive" element={<CreatorBusinessLive />} />
