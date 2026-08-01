@@ -1,9 +1,90 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/ui/SEOHead";
 import "@/styles/cbl.css";
 
 // Reserve / registration link for the masterclass.
 const RESERVE_URL = "https://nestuge.com/cbmasterclass";
+
+// ── Weekly live masterclass schedule ────────────────────────────────
+// The class runs EVERY Saturday. The countdown below auto-rolls to the
+// next Saturday session with no manual updates. To change the start
+// time, edit these two constants (West Africa Time, UTC+1, no DST).
+const SESSION_HOUR_WAT = 18; // 18:00 = 6:00 PM WAT
+const SESSION_DURATION_MIN = 90;
+const WAT_UTC_OFFSET = 1; // WAT is UTC+1 year-round
+
+// Returns the start Date of the next (or currently-running) Saturday session.
+function getUpcomingSession(now: Date): Date {
+  const t = new Date(
+    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), SESSION_HOUR_WAT - WAT_UTC_OFFSET, 0, 0, 0)
+  );
+  t.setUTCDate(t.getUTCDate() + ((6 - t.getUTCDay() + 7) % 7)); // advance to Saturday
+  const durationMs = SESSION_DURATION_MIN * 60 * 1000;
+  // Roll forward a week only once this week's session has fully ended.
+  while (now.getTime() >= t.getTime() + durationMs) {
+    t.setUTCDate(t.getUTCDate() + 7);
+  }
+  return t;
+}
+
+const SESSION_DATE_FMT = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Africa/Lagos",
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+});
+
+const pad = (n: number) => String(n).padStart(2, "0");
+
+function LiveCountdown({ reserveUrl }: { reserveUrl: string }) {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const session = getUpcomingSession(now);
+  const durationMs = SESSION_DURATION_MIN * 60 * 1000;
+  const isLive = now.getTime() >= session.getTime() && now.getTime() < session.getTime() + durationMs;
+
+  if (isLive) {
+    return (
+      <div className="countdown-bar">
+        <div className="countdown-label live-now">● Live Now — This Week's Masterclass Is On</div>
+        <a href={reserveUrl} className="hero-cta">Join The Live Room</a>
+      </div>
+    );
+  }
+
+  const diff = Math.max(0, session.getTime() - now.getTime());
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  const units = [
+    { n: days, l: "Days" },
+    { n: hours, l: "Hours" },
+    { n: mins, l: "Minutes" },
+    { n: secs, l: "Seconds" },
+  ];
+
+  return (
+    <div className="countdown-bar">
+      <div className="countdown-label">
+        Next Live Masterclass — {SESSION_DATE_FMT.format(session)} · 6:00 PM WAT
+      </div>
+      <div className="countdown">
+        {units.map((u) => (
+          <div className="cd-unit" key={u.l}>
+            <div className="cd-num">{pad(u.n)}</div>
+            <div className="cd-label">{u.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const reviews: { name: string; img?: string; text: string }[] = [
   {
@@ -46,7 +127,7 @@ const CreatorBusinessLive = () => {
 
       <nav className="nav">
         <Link to="/" className="nav-logo">JALI<span>.</span></Link>
-        <div className="nav-date">MASTERCLASS</div>
+        <div className="nav-date">LIVE EVERY SATURDAY</div>
       </nav>
 
       {/* HERO */}
@@ -74,6 +155,9 @@ const CreatorBusinessLive = () => {
           <img src="/cblive-1.jpg" alt="Victor Okafor speaking at The Jali Experience" />
         </div>
       </section>
+
+      {/* WEEKLY LIVE COUNTDOWN */}
+      <LiveCountdown reserveUrl={RESERVE_URL} />
 
       {/* THE PROBLEM */}
       <section className="section">

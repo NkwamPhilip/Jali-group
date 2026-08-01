@@ -52,6 +52,10 @@
 .cbl-page .cd-unit{text-align:center}
 .cbl-page .cd-num{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;color:var(--text);background:var(--bg-light);padding:12px 20px;border-radius:8px;min-width:70px;border:1px solid var(--rule)}
 .cbl-page .cd-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-top:6px}
+.cbl-page .countdown-label.live-now{color:#ff4d4d;margin-bottom:16px;animation:cbl-pulse 1.6s ease-in-out infinite}
+.cbl-page .countdown-bar .hero-cta{margin-top:2px}
+@keyframes cbl-pulse{0%,100%{opacity:1}50%{opacity:0.55}}
+@media(prefers-reduced-motion:reduce){.cbl-page .countdown-label.live-now{animation:none}}
 
 /* SECTIONS */
 .cbl-page .section{padding:80px 40px}

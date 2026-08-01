@@ -4,8 +4,10 @@ import JpNav from "@/components/jali/JpNav";
 import JpFooter from "@/components/jali/JpFooter";
 import "@/styles/jp.css";
 
-// TODO: replace "#" with the real purchase links for each product.
-const BUY = "#";
+// Mainstack purchase links for each Fast Track product.
+const BUY_STORY_AUDIT = "https://mainstack.com/p/story-audit-tool";
+const BUY_CONTENT_ENGINE = "https://mainstack.com/p/jali-30-in-one-content-engine";
+const BUY_BRAINBOX = "https://mainstack.com/p/victorsbrainbox";
 
 const olabel: React.CSSProperties = {
   fontFamily: "'IBM Plex Mono',monospace",
@@ -76,7 +78,7 @@ const FastTrack = () => (
               of what story content to make, and how, for the next month.
             </p>
             <div className="btn-stack">
-              <a className="btn btn-solid" href={BUY}>Get The Story Audit Tool</a>
+              <a className="btn btn-solid" href={BUY_STORY_AUDIT} target="_blank" rel="noopener noreferrer">Get The Story Audit Tool</a>
             </div>
           </div>
 
@@ -97,7 +99,7 @@ const FastTrack = () => (
               consistency problem.
             </p>
             <div className="btn-stack">
-              <a className="btn btn-solid" href={BUY}>Get The Content Engine</a>
+              <a className="btn btn-solid" href={BUY_CONTENT_ENGINE} target="_blank" rel="noopener noreferrer">Get The Content Engine</a>
               <Link className="btn btn-ghost" to="/tribe">Access for free in the community</Link>
             </div>
           </div>
@@ -120,7 +122,7 @@ const FastTrack = () => (
               speak, how to tell your story, and how to build a brand people follow.
             </p>
             <div className="btn-stack">
-              <a className="btn btn-solid" href={BUY}>Unlock The BrainBox</a>
+              <a className="btn btn-solid" href={BUY_BRAINBOX} target="_blank" rel="noopener noreferrer">Unlock The BrainBox</a>
             </div>
           </div>
         </div>
