@@ -4,7 +4,7 @@ import SEOHead from "@/components/ui/SEOHead";
 import "@/styles/cbl.css";
 
 // Reserve / registration link for the masterclass.
-const RESERVE_URL = "https://nestuge.com/cbmasterclass";
+const RESERVE_URL = "https://nestuge.com/cblivemasterclass";
 
 // ── Weekly live masterclass schedule ────────────────────────────────
 // The class runs EVERY Saturday. The countdown below auto-rolls to the
@@ -121,8 +121,8 @@ const CreatorBusinessLive = () => {
   return (
     <div className="cbl-page">
       <SEOHead
-        title="Creator Business Masterclass — by Jali"
-        description="A masterclass by Victor Okafor. The framework that took him from 1,000 followers to 800,000+ in 18 months. Free — just commit to show up."
+        title="Creator Business Live Masterclass — by Jali"
+        description="A live masterclass by Victor Okafor, every Saturday. The framework that took him from 1,000 followers to 800,000+ in 18 months. Just commit to show up."
       />
 
       <nav className="nav">
@@ -133,7 +133,7 @@ const CreatorBusinessLive = () => {
       {/* HERO */}
       <section className="hero">
         <div className="hero-content">
-          <h1>CREATOR<br />BUSINESS<br /><span>MASTERCLASS</span></h1>
+          <h1>CREATOR<br />BUSINESS<br /><span>LIVE</span><br /><span>MASTERCLASS</span></h1>
           <p className="hero-sub">
             90 minutes. One framework. The exact system behind 800,000+ followers, 70M+ views, and a business
             built entirely on storytelling. No theory. Just the blueprint that changed everything. This
@@ -291,7 +291,7 @@ const CreatorBusinessLive = () => {
 
       {/* FINAL CTA */}
       <section className="final-cta">
-        <p className="eyebrow">The Masterclass — 1 Hour</p>
+        <p className="eyebrow">The Live Masterclass — 90 Minutes</p>
         <h2 className="h2">One Hour Could Change How You Build For The Next Ten Years</h2>
         <p className="sub">
           This is the framework behind everything. The audience. The business. The opportunities. One session.

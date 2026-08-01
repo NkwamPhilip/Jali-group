@@ -8,6 +8,7 @@ const links = [
   { name: "For Founders", to: "/founders" },
   { name: "WAMC", to: "/wamc" },
   { name: "Pricing", to: "/pricing" },
+  { name: "Fast Track", to: "/fast-track" },
   { name: "CB-Live", to: "/live" },
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },

@@ -180,7 +180,7 @@ const JaliPricing = () => (
     <section>
       <div className="wrap">
         <p className="sec-label">$5 Commitment</p>
-        <h2>The Creator Business Masterclass</h2>
+        <h2>The Creator Business Live Masterclass</h2>
         <p className="lead">
           1h 30min with Victor Okafor. The framework to use your story to build an audience, attract
           opportunities, and generate revenue. Free value, $5 commitment to show up.
