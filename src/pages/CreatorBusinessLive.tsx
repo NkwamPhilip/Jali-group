@@ -7,21 +7,23 @@ import "@/styles/cbl.css";
 const RESERVE_URL = "https://nestuge.com/cblivemasterclass";
 
 // ── Weekly live masterclass schedule ────────────────────────────────
-// The class runs EVERY Saturday. The countdown below auto-rolls to the
-// next Saturday session with no manual updates. To change the start
-// time, edit these two constants (West Africa Time, UTC+1, no DST).
-const SESSION_HOUR_WAT = 18; // 18:00 = 6:00 PM WAT
+// CB Live runs live EVERY Saturday at 6:00 PM WAT (West Africa Time,
+// UTC+1, no DST) for 90 minutes. The countdown below counts down to the
+// FIRST session and then AUTO-ADVANCES 7 days each week — no manual
+// updates, ever. It never counts to a "today" that isn't an event day.
+//
+// The series is anchored to its first session. To move the whole series,
+// change FIRST_SESSION (year, month [0 = January], day, UTC hour, minute).
+// 17:00 UTC = 18:00 WAT.
 const SESSION_DURATION_MIN = 90;
-const WAT_UTC_OFFSET = 1; // WAT is UTC+1 year-round
+const FIRST_SESSION_MS = Date.UTC(2026, 7, 8, 17, 0, 0); // Sat 8 Aug 2026, 6:00 PM WAT
 
-// Returns the start Date of the next (or currently-running) Saturday session.
+// Returns the start Date of the next (or currently-running) Saturday session,
+// rolling forward one week at a time from the first session.
 function getUpcomingSession(now: Date): Date {
-  const t = new Date(
-    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), SESSION_HOUR_WAT - WAT_UTC_OFFSET, 0, 0, 0)
-  );
-  t.setUTCDate(t.getUTCDate() + ((6 - t.getUTCDay() + 7) % 7)); // advance to Saturday
   const durationMs = SESSION_DURATION_MIN * 60 * 1000;
-  // Roll forward a week only once this week's session has fully ended.
+  const t = new Date(FIRST_SESSION_MS);
+  // Advance a week only once the current session has fully ended.
   while (now.getTime() >= t.getTime() + durationMs) {
     t.setUTCDate(t.getUTCDate() + 7);
   }
