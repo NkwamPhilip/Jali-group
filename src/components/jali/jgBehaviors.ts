@@ -34,6 +34,45 @@ export function initSlider(root: HTMLElement): (() => void) | void {
   return () => clearInterval(timer);
 }
 
+// "What's On" carousel on the Tribe page (.jc / .jc-slide.on / .jc-btn[data-step] / .jc-dot[data-i]).
+export function initJcCarousel(root: HTMLElement): (() => void) | void {
+  const jc = root.querySelector<HTMLElement>(".jc");
+  if (!jc) return;
+  const slides = Array.from(jc.querySelectorAll<HTMLElement>(".jc-slide"));
+  const dots = Array.from(jc.querySelectorAll<HTMLElement>(".jc-dot"));
+  const btns = Array.from(jc.querySelectorAll<HTMLElement>(".jc-btn"));
+  if (slides.length === 0) return;
+  let idx = 0;
+  let timer: ReturnType<typeof setInterval>;
+  const render = () => {
+    slides.forEach((s, k) => s.classList.toggle("on", k === idx));
+    dots.forEach((d, k) => d.classList.toggle("on", k === idx));
+  };
+  const reset = () => {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      idx = (idx + 1) % slides.length;
+      render();
+    }, 5000);
+  };
+  const go = (i: number) => {
+    idx = (i + slides.length) % slides.length;
+    render();
+    reset();
+  };
+  btns.forEach((b) => {
+    const step = parseInt(b.dataset.step || "0", 10);
+    if (step) b.onclick = () => go(idx + step);
+  });
+  dots.forEach((d) => {
+    const i = parseInt(d.dataset.i || "0", 10);
+    d.onclick = () => go(i);
+  });
+  render();
+  reset();
+  return () => clearInterval(timer);
+}
+
 // Waitlist countdown to a fixed deadline (ms epoch). Mirrors the source page JS.
 export function initWaitlistTimer(root: HTMLElement, endMs: number): (() => void) | void {
   const el = root.querySelector<HTMLElement>("#wlClock");

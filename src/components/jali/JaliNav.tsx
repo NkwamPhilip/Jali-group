@@ -8,6 +8,7 @@ const links = [
   { name: "For Founders", to: "/founders" },
   { name: "WAMC", to: "/wamc" },
   { name: "Pricing", to: "/pricing" },
+  { name: "The Vision", to: "/the-vision" },
   { name: "CB-Live", to: "/live" },
   { name: "About", to: "/about" },
 ];

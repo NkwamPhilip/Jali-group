@@ -339,3 +339,18 @@
   .jg .jg-burger{display:inline-block}
   .jg .jg-mobile.open{display:flex}
 }
+
+/* ===== hand-added: Tribe "What's On" carousel + note styles ===== */
+.jg .hero-note{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#8A8A8A;margin-top:16px;}
+.jg .outcome-note{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:22px;background:var(--g1);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500;}
+.jg .jc{position:relative;max-width:560px;margin:48px auto 0;border:1px solid #333;overflow:hidden;}
+.jg .jc-slide{display:none;}
+.jg .jc-slide.on{display:block;animation:jcFade .9s ease;}
+.jg .jc-slide img{width:100%;display:block;filter:none;}
+.jg .jc-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #333;background:#000;}
+.jg .jc-btn{font-family:'IBM Plex Mono',monospace;font-size:16px;background:#000;border:none;padding:12px 20px;cursor:pointer;color:#FFF;}
+.jg .jc-btn:hover{background:var(--g1);color:#14100A;}
+.jg .jc-dots{display:flex;gap:8px;}
+.jg .jc-dot{width:9px;height:9px;border:1px solid #666;background:#000;cursor:pointer;padding:0;}
+.jg .jc-dot.on{background:var(--g1);border-color:transparent;}
+@keyframes jcFade{from{opacity:0}to{opacity:1}}

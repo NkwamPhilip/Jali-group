@@ -1,8 +1,15 @@
 import RawJgPage from "@/components/jali/RawJgPage";
-import { initWaitlistTimer, WAITLIST_END } from "@/components/jali/jgBehaviors";
+import { initWaitlistTimer, initJcCarousel, WAITLIST_END } from "@/components/jali/jgBehaviors";
 import html from "./_raw/tribe.html?raw";
 
-const onReady = (root: HTMLElement) => initWaitlistTimer(root, WAITLIST_END);
+const onReady = (root: HTMLElement) => {
+  const stopTimer = initWaitlistTimer(root, WAITLIST_END);
+  const stopCarousel = initJcCarousel(root);
+  return () => {
+    stopTimer?.();
+    stopCarousel?.();
+  };
+};
 
 const JaliTribe = () => (
   <RawJgPage

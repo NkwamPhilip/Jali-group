@@ -9,8 +9,8 @@ const JaliFooter = () => {
         <Link to="/tribe">The Tribe</Link>
         <Link to="/founders">For Founders</Link>
         <Link to="/wamc">WAMC</Link>
+        <Link to="/the-vision">The Vision</Link>
         <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
       </p>
       <p>
         © {year} Jali Group. <a href="mailto:hello@jaliafriq.com">hello@jaliafriq.com</a>
