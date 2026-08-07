@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 
 const links = [
-  { name: "Home", to: "/" },
   { name: "The Tribe", to: "/tribe" },
   { name: "Pricing", to: "/pricing" },
-  { name: "Fast Track", to: "/fast-track" },
-  { name: "Creator Label", to: "/creator-label" },
+  { name: "The Vision", to: "/the-vision" },
 ];
 
-interface JpNavProps {
-  cta?: { label: string; href: string };
+export interface JgCta {
+  label: string;
+  href: string;
 }
 
-const JpNav = ({ cta = { label: "See Pricing", href: "/pricing" } }: JpNavProps) => (
+const JgNav = ({ cta = { label: "Join The Tribe", href: "/tribe" } }: { cta?: JgCta }) => (
   <nav>
     <div className="wrap nav-inner">
       <Link className="logo" to="/">Jali Group</Link>
@@ -30,4 +29,4 @@ const JpNav = ({ cta = { label: "See Pricing", href: "/pricing" } }: JpNavProps)
   </nav>
 );
 
-export default JpNav;
+export default JgNav;

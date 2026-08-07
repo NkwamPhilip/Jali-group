@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const JpFooter = () => (
+const JgFooter = () => (
   <footer>
     <div className="wrap foot">
       <Link className="logo" to="/">Jali Group</Link>
@@ -12,4 +12,4 @@ const JpFooter = () => (
   </footer>
 );
 
-export default JpFooter;
+export default JgFooter;

@@ -5,20 +5,17 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ui/ScrollToTop";
 
-// New Jali Group design
+// Jali Group — unified "blackout + amber gradient" design system
 import JaliHome from "./pages/JaliHome";
 import JaliTribe from "./pages/JaliTribe";
 import CreatorFounder from "./pages/CreatorFounder";
 import JaliWamc from "./pages/JaliWamc";
+import JaliPricing from "./pages/JaliPricing";
+import CreatorLabel from "./pages/CreatorLabel";
+import TheVision from "./pages/TheVision";
 import CreatorBusinessLive from "./pages/CreatorBusinessLive";
 
-// New "pricing / fast-track / creator-label" design system
-import JaliPricing from "./pages/JaliPricing";
-import FastTrack from "./pages/FastTrack";
-import CreatorLabel from "./pages/CreatorLabel";
-
 import JaliAbout from "./pages/JaliAbout";
-import JaliContact from "./pages/JaliContact";
 import NotFound from "./pages/NotFound";
 import ComingSoon from "./pages/ComingSoon";
 
@@ -68,18 +65,17 @@ const App = () => (
             {/* WAMC Growth Challenge */}
             <Route path="/wamc" element={<JaliWamc />} />
 
-            {/* Pricing · Fast Track · Creator Label (new design system) */}
+            {/* Pricing · Creator Label · The Vision */}
             <Route path="/pricing" element={<JaliPricing />} />
-            <Route path="/fast-track" element={<FastTrack />} />
             <Route path="/creator-label" element={<CreatorLabel />} />
+            <Route path="/the-vision" element={<TheVision />} />
 
             {/* Creator Business Live — campaign landing page */}
             <Route path="/cblive" element={<CreatorBusinessLive />} />
             <Route path="/live" element={<CreatorBusinessLive />} />
 
-            {/* About + Contact (new design) */}
+            {/* About (kept; not in the primary nav) */}
             <Route path="/about" element={<JaliAbout />} />
-            <Route path="/contact" element={<JaliContact />} />
 
             {/* Catch-all for 404s */}
             <Route path="*" element={<NotFound />} />
