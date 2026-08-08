@@ -42,6 +42,11 @@ const RawJgPage = ({ html, title, description, cta, scope = "jg", chrome = true,
         q.parentElement?.classList.toggle("open");
         return;
       }
+      const mod = target.closest(".module-head");
+      if (mod) {
+        mod.parentElement?.classList.toggle("open");
+        return;
+      }
       const a = target.closest("a");
       if (a) {
         const href = a.getAttribute("href") || "";
