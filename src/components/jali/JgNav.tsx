@@ -7,7 +7,8 @@ const links = [
   { name: "Masterclass", to: "/cblive" },
   { name: "Pricing", to: "/pricing" },
   { name: "The Vision", to: "/the-vision" },
-  { name: "For Founders", to: "/founders" }
+  { name: "For Founders", to: "/founders" },
+  { name: "About", to: "/about" },
 ];
 
 export interface JgCta {
