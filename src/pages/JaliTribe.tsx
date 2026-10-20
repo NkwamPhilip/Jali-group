@@ -15,7 +15,7 @@ const JaliTribe = () => (
   <RawJgPage
     html={html}
     title="The Jali Tribe — A Room For Creators & Entrepreneurs"
-    description="An international community of creators and entrepreneurs building profitable businesses. AI tools, studios, coaching, live sessions and physical events."
+    description="An international community of creators and entrepreneurs building profitable businesses. AI tools, coaching, live sessions and physical events."
     cta={{ label: "Join Now", href: "#pricing" }}
     onReady={onReady}
   />
