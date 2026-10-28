@@ -110,4 +110,4 @@ export function initWaitlistTimer(root: HTMLElement, endMs: number): (() => void
 // Waitlist deadline used on Pricing: Monday 10 August 2026, 09:00 UK time.
 export const WAITLIST_END = new Date("2026-08-10T09:00:00+01:00").getTime();
 // Tribe waitlist deadline: Friday 14 August 2026, 09:00 UK time.
-export const TRIBE_WAITLIST_END = new Date("2026-08-25T09:00:00+01:00").getTime();
+export const TRIBE_WAITLIST_END = new Date("2026-10-30T07:00:00+01:00").getTime();
