@@ -2,8 +2,19 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import ScrollToTop from "./components/ui/ScrollToTop";
+import { trackView } from "./services/track";
+
+/** Fires a page-view beacon to /api/track on every route change. */
+const RouteTracker = () => {
+  const location = useLocation();
+  useEffect(() => {
+    trackView(location.pathname);
+  }, [location.pathname]);
+  return null;
+};
 
 // Jali Group — unified "blackout + amber gradient" design system
 import JaliHome from "./pages/JaliHome";
@@ -40,6 +51,7 @@ const App = () => (
       <BrowserRouter>
         {/* This component ensures the user starts at the top of every new page */}
         <ScrollToTop />
+        <RouteTracker />
 
         {LAUNCHING_SOON ? (
           /* ─── Gated: only Creator Business Live is reachable ─── */

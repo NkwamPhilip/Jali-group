@@ -1,6 +1,4 @@
-# Netlify build + SPA routing config.
-# Makes the build settings explicit (so they don't depend on the UI) and
-# guarantees client-side routes (e.g. /cblive) resolve on direct visit.
+# Netlify build + functions + SPA routing config.
 
 [build]
   command = "npm run build"
@@ -9,9 +7,19 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback: serve the app for any path that isn't a real file.
-# (Same effect as public/_redirects — kept here too so it works even if
-# the _redirects file is missed.)
+# Serverless API (/api/content, /api/track, /api/admin) — routing via each
+# function's `export const config = { path }`. Matched before the redirects below.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Pretty URL for the CMS portal (admin.html is a real file in dist/).
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+# SPA fallback: serve the app for any path that isn't a real file or an API route.
 [[redirects]]
   from = "/*"
   to = "/index.html"

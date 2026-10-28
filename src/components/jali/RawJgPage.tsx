@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import SEOHead from "@/components/ui/SEOHead";
 import JgNav, { JgCta } from "./JgNav";
 import JgFooter from "./JgFooter";
+import { useContent, fillTokens } from "@/services/content";
 import "@/styles/jg.css";
 
 interface RawJgPageProps {
@@ -20,11 +21,15 @@ interface RawJgPageProps {
 
 /**
  * Renders a ported Jali marketing page from trusted, build-time HTML.
- * Wires up the ticker, FAQ accordions and SPA link navigation for all pages.
+ * CMS-editable [[tokens]] are filled from /api/content (falling back to the
+ * baked-in defaults), and the ticker, FAQ/module accordions and SPA link
+ * navigation are wired up for all pages.
  */
 const RawJgPage = ({ html, title, description, cta, scope = "jg", chrome = true, onReady }: RawJgPageProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const content = useContent();
+  const htmlOut = useMemo(() => fillTokens(html, content), [html, content]);
 
   useEffect(() => {
     const root = ref.current;
@@ -64,13 +69,13 @@ const RawJgPage = ({ html, title, description, cta, scope = "jg", chrome = true,
       root.removeEventListener("click", onClick);
       if (cleanup) cleanup();
     };
-  }, [navigate, onReady, html]);
+  }, [navigate, onReady, htmlOut]);
 
   return (
     <div className={scope}>
       <SEOHead title={title} description={description} />
       {chrome && <JgNav cta={cta} />}
-      <div ref={ref} dangerouslySetInnerHTML={{ __html: html }} />
+      <div ref={ref} dangerouslySetInnerHTML={{ __html: htmlOut }} />
       {chrome && <JgFooter />}
     </div>
   );
