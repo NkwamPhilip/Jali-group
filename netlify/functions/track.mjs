@@ -12,4 +12,3 @@ export default async (req) => {
   return new Response(null, { status: 204, headers: { "Cache-Control": "no-store" } });
 };
 
-export const config = { path: "/api/track" };

@@ -1,3 +1,4 @@
-# Netlify SPA fallback + CMS portal pretty URL.
-/admin    /admin.html   200
+# Route the serverless API to functions BEFORE the SPA fallback.
+/api/*    /.netlify/functions/:splat    200
+/admin    /admin.html    200
 /*    /index.html   200

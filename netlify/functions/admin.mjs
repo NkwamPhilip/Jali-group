@@ -26,4 +26,3 @@ export default async (req) => {
   return json({ error: "unknown action" }, 404);
 };
 
-export const config = { path: "/api/admin" };

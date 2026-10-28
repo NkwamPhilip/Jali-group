@@ -13,6 +13,12 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Serverless API → functions, BEFORE the SPA catch-all so it isn't swallowed.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
 # Pretty URL for the CMS portal (admin.html is a real file in dist/).
 [[redirects]]
   from = "/admin"
