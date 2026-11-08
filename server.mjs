@@ -60,6 +60,13 @@ function serveStatic(req, res, pathname) {
   if (existsSync(file) && statSync(file).isFile()) {
     return sendFile(res, file, pathname === "/admin.html" ? { "X-Robots-Tag": "noindex, nofollow", "X-Frame-Options": "DENY" } : {});
   }
+  // Directory index, e.g. the standalone /roadmap/ landing page → roadmap/index.html.
+  // Redirect the no-slash form first so the page's relative media/ paths resolve.
+  if (existsSync(file) && statSync(file).isDirectory()) {
+    if (!pathname.endsWith("/")) { res.writeHead(301, { Location: pathname + "/" }); return res.end(); }
+    const idx = path.join(file, "index.html");
+    if (existsSync(idx)) return sendFile(res, idx);
+  }
   // SPA fallback: any non-file path renders the app (client-side routing).
   const index = path.join(DIST, "index.html");
   if (existsSync(index)) return sendFile(res, index, {}, pathname === "/index.html" ? 200 : 200);

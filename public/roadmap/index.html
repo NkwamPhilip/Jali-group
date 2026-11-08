@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>90-Day Growth Roadmap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">
+<style>
+/* Layout: Humanstock editorial landing. Paper page, ink band for the Tribers, serif headlines with italic accents, hard-shadow cards, one accent per goal. */
+:root{
+  --paper:#ffffff; --paper-2:#f3f3f2; --ink:#0b0b0b; --ink-2:#4d4d4b; --ink-3:#8a8a87; --line:#e1e1df;
+  --shadow:#0b0b0b; --band:#0b0b0b; --band-fg:#f5f5f3; --band-2:#9a9a96; --band-line:#2a2a28;
+  --on-accent:#0b0b0b; --on-cobalt:#ffffff;
+  --sun:#ffc629; --tomato:#ff5a36; --cobalt:#2e55ff; --mint:#16c79c; --pink:#ff8fd2; --lime:#c2ec3a;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0b0b0b; --paper-2:#171717; --ink:#f5f5f3; --ink-2:#b3b3b0; --ink-3:#7a7a77; --line:#2a2a28; --shadow:#3a3a37;
+  --band:#161616; --band-line:#2f2f2d; color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0b0b0b; --paper-2:#171717; --ink:#f5f5f3; --ink-2:#b3b3b0; --ink-3:#7a7a77; --line:#2a2a28; --shadow:#3a3a37;
+  --band:#161616; --band-line:#2f2f2d; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-height:1.04;margin:0;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.eyebrow{font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.lede{font-size:clamp(18px,2vw,21px);line-height:1.55;color:var(--ink-2);max-width:56ch}
+.u{background-image:linear-gradient(var(--u,var(--sun)),var(--u,var(--sun)));background-size:100% .14em;background-position:0 90%;background-repeat:no-repeat}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:4px;border:1.5px solid var(--ink);transition:transform .15s ease,box-shadow .15s ease}
+.btn.primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--sun)}
+.btn.primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--sun)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--paper-2)}
+.btn .arr{font-family:var(--display);font-size:20px;line-height:0}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{font:500 28px/1 var(--display);letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo .mark{width:22px;height:22px;border-radius:5px;background:var(--ink);display:grid;place-items:center}
+.logo .mark i{width:8px;height:8px;border-radius:50%;background:var(--sun);display:block}
+.logo span{color:var(--ink-3)}
+nav.links{display:flex;gap:28px;font:600 15px/1 var(--body)}
+nav.links a{text-decoration:none;color:var(--ink-2)}
+nav.links a:hover{color:var(--ink)}
+header .btn{padding:11px 16px;font-size:14px;box-shadow:3px 3px 0 var(--sun)}
+@media (max-width:820px){nav.links{display:none}}
+
+/* hero */
+.hero{padding-block:64px 72px;border-bottom:1.5px solid var(--ink)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .wrap > *{min-width:0}
+.hero h1{font-size:clamp(48px,7.4vw,98px);margin-top:20px}
+.hero .lede{margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.social{display:flex;align-items:center;gap:16px;margin-top:40px;flex-wrap:wrap}
+.faces{display:flex;flex-wrap:wrap;row-gap:6px;padding-left:10px}
+.faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2.5px solid var(--paper);margin-left:-12px}
+@media (max-width:480px){.faces img{width:32px;height:32px;margin-left:-9px;border-width:2px}}
+.social p{font:500 15px/1.4 var(--body);color:var(--ink-2);max-width:30ch}
+.social p b{color:var(--ink);font-weight:800}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+
+/* phone mock */
+.phone{justify-self:center;width:min(360px,100%);border:1.5px solid var(--ink);border-radius:30px;background:var(--paper);box-shadow:10px 10px 0 var(--shadow);overflow:hidden}
+.phone .bar{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:500 18px/1 var(--display);font-style:italic;color:var(--on-accent);flex:none}
+.av.zuri{object-fit:cover;border:1.5px solid var(--ink)}
+.phone .bar b{display:block;font:700 15px/1.2 var(--body)}
+.phone .bar small{font-size:12.5px;color:var(--ink-3)}
+.chat{padding:18px 16px 20px;display:grid;gap:10px;background:var(--paper)}
+.msg{max-width:84%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45}
+.msg.in{background:var(--paper-2);border-top-left-radius:4px}
+.msg.out{justify-self:end;background:var(--ink);color:var(--paper);border-top-right-radius:4px}
+.picks{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.picks span{font:700 12.5px/1 var(--body);padding:9px 11px;border-radius:999px;border:1.5px solid var(--ink)}
+.picks span.on{background:var(--sun);color:var(--on-accent);border-color:var(--sun)}
+.typing{display:flex;gap:4px;padding:12px 14px;background:var(--paper-2);border-radius:14px;border-top-left-radius:4px;width:max-content}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--ink-3);display:block;animation:b 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none}}
+
+/* stats */
+.stats{border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 20px 30px 0;border-right:1px solid var(--line);display:grid;gap:6px}
+.stat:last-child{border-right:0}
+.stat b{font:400 clamp(38px,5vw,56px)/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat span{font:600 14px/1.35 var(--body);color:var(--ink-2)}
+.stats .wrap > .stat + .stat{padding-left:24px}
+@media (max-width:720px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.stats .wrap > .stat:nth-child(3){padding-left:0}}
+
+/* sections */
+section{padding-block:96px}
+.sh{display:grid;gap:16px;margin-bottom:48px;max-width:760px}
+.sh h2{font-size:clamp(38px,5.6vw,68px)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.step{padding:30px 28px 34px;border-right:1px solid var(--line);display:grid;gap:14px;align-content:start;min-width:0}
+.step:last-child{border-right:0}
+.step .n{font:400 56px/1 var(--display);font-style:italic}
+.step h3{font-size:30px}
+.step p{color:var(--ink-2);font-size:16px}
+.step ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.step li{font-size:15px;padding-left:22px;position:relative;color:var(--ink-2)}
+.step li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:10px;border-radius:50%;background:var(--sun)}
+.goalchips{display:flex;flex-wrap:wrap;gap:6px}
+.goalchips span{font:700 12.5px/1 var(--body);padding:8px 11px;border-radius:4px;color:var(--on-accent)}
+.guides{display:grid;gap:10px}
+.guide{display:flex;gap:12px;align-items:center}
+.guide b{display:block;font:700 15px/1.2 var(--body)}
+.guide small{font-size:13.5px;color:var(--ink-2)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}}
+
+/* get */
+.get{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.get > div{border:1.5px solid var(--ink);border-radius:6px;padding:26px;display:grid;gap:10px;align-content:start;background:var(--paper);min-width:0}
+.get h3{font-size:26px}
+.get p{font-size:15.5px;color:var(--ink-2)}
+.get .tag{font:700 11.5px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width:900px){.get{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.get{grid-template-columns:1fr}}
+
+/* results */
+#results{background:var(--paper-2);border-block:1.5px solid var(--ink)}
+.feature{display:grid;grid-template-columns:minmax(0,420px) 1fr;gap:56px;align-items:center;border:1.5px solid var(--ink);border-radius:6px;background:var(--paper);padding:clamp(18px,3vw,36px);box-shadow:10px 10px 0 var(--shadow)}
+.feature > *{min-width:0}
+.vbox{position:relative;border-radius:14px;overflow:hidden;border:1.5px solid var(--ink);background:#000;aspect-ratio:720/1038;max-width:100%}
+.vbox video{width:100%;height:100%;object-fit:cover;display:block}
+.vbox .loc{position:absolute;left:14px;top:14px;font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;background:rgba(11,11,11,.72);color:#f5f5f3;padding:8px 10px;border-radius:999px;display:flex;align-items:center;gap:7px;pointer-events:none}
+.vbox .loc i{width:7px;height:7px;border-radius:50%;background:var(--tomato);display:block}
+.snd{position:absolute;right:12px;bottom:12px;font:700 13px/1 var(--body);background:#f5f5f3;color:#0b0b0b;border:0;border-radius:999px;padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.snd:hover{background:#ffffff}
+.who{display:flex;align-items:center;gap:14px}
+.who img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:1.5px solid var(--ink)}
+.who b{display:block;font:700 17px/1.2 var(--body)}
+.tri{display:inline-flex;align-items:center;gap:6px;font:800 10.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;background:var(--sun);color:var(--on-accent);padding:6px 8px;border-radius:3px;margin-top:6px}
+.tri i{width:6px;height:6px;border-radius:50%;background:var(--on-accent);display:block}
+.feature h3{font-size:clamp(34px,4.6vw,56px);margin-top:26px}
+.feature .lede{margin-top:18px}
+.wins{display:grid;gap:0;margin-top:28px;border-top:1.5px solid var(--ink)}
+.wins div{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.wins b{font:400 30px/1 var(--display);font-style:italic;min-width:70px}
+.wins span{font-size:16px;color:var(--ink-2)}
+.feature + .feature{margin-top:40px}
+.feature.flip{grid-template-columns:1fr minmax(0,420px)}
+.feature.flip .vbox{order:2}
+@media (max-width:860px){.feature,.feature.flip{grid-template-columns:1fr;gap:32px}.feature.flip .vbox{order:0}.vbox{max-width:420px;width:100%;justify-self:center}}
+
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+.story{display:grid;grid-template-columns:200px 1fr;border:1.5px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--paper);box-shadow:8px 8px 0 var(--shadow)}
+.story > *{min-width:0}
+.story img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;aspect-ratio:4/5;border-right:1.5px solid var(--ink)}
+.story .tx{padding:24px;display:grid;gap:12px;align-content:start}
+.story .big{font:400 clamp(52px,6vw,72px)/.9 var(--display);letter-spacing:-.03em}
+.story .big em{font-style:italic}
+.story h3{font-size:24px;line-height:1.15}
+.story p{font-size:15.5px;color:var(--ink-2)}
+.story .nm{font:700 15px/1 var(--body)}
+@media (max-width:960px){.pair{grid-template-columns:1fr}}
+@media (max-width:520px){.story{grid-template-columns:1fr}.story img{border-right:0;border-bottom:1.5px solid var(--ink);aspect-ratio:5/4}}
+
+/* tribers band */
+.band{background:var(--band);color:var(--band-fg)}
+.band .eyebrow{color:var(--band-2)}
+.band .lede{color:var(--band-2)}
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:980px}
+.tile{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/5;background:#000;margin:0}
+.tile img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.03)}
+.tile figcaption{position:absolute;inset:auto 0 0 0;padding:44px 16px 16px;background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,0));display:grid;gap:4px;color:#f5f5f3}
+.tile figcaption b{font:400 clamp(20px,2.4vw,28px)/1.05 var(--display)}
+.tile .tri{margin-top:2px;justify-self:start}
+@media (prefers-reduced-motion:reduce){.tile img{transition:none}}
+@media (max-width:640px){.wall{grid-template-columns:1fr 1fr;gap:12px}.tile figcaption{padding:36px 10px 10px}}
+.band .note{margin-top:32px;font-family:var(--hand);font-size:34px;line-height:1.1;color:var(--sun)}
+
+/* goals */
+.goals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.goal{border:1.5px solid var(--ink);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;background:var(--paper)}
+.goal .hd{padding:20px;color:var(--on-accent)}
+.goal .hd h3{font-size:28px}
+.goal p{padding:18px 20px 22px;font-size:15px;color:var(--ink-2)}
+.goal p b{color:var(--ink)}
+.goal .q{font:400 17px/1.35 var(--display);font-style:italic;color:var(--ink);padding-bottom:0}
+@media (max-width:960px){.goals{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.goals{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:0;border-top:1.5px solid var(--ink);max-width:820px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:22px 0;font:400 clamp(21px,2.4vw,26px)/1.25 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 30px/1 var(--display);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--ink-2);max-width:62ch}
+
+/* final */
+.final{border-top:1.5px solid var(--ink);text-align:left}
+.final h2{font-size:clamp(46px,8vw,112px)}
+.final h2 .dot{color:var(--tomato)}
+.final .ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
+.mail{font:600 15px/1.4 var(--body);color:var(--ink-2)}
+.wl{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.wl > *{min-width:0}
+.price{border:1.5px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--paper);box-shadow:10px 10px 0 var(--shadow)}
+.price .ph{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 24px;background:var(--sun);color:var(--on-accent);border-bottom:1.5px solid var(--ink)}
+.price .save{font:800 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;background:var(--on-accent);color:var(--sun);padding:7px 10px;border-radius:999px}
+.price .pb{padding:12px 24px 26px;display:grid}
+.price .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink-2)}
+.price .row b{font:400 32px/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.price .row.total{border-bottom:1.5px solid var(--ink)}
+.price .row.total span{color:var(--ink);font-weight:700}
+.price .row.total b{font-size:48px;font-style:italic}
+.price .row.was{border-bottom:0}
+.price .row.was s{font:400 26px/1 var(--display);color:var(--ink-3);text-decoration-color:var(--tomato);text-decoration-thickness:2px}
+.price .btn{justify-content:center;margin-top:16px}
+.price .fine{font-size:13.5px;color:var(--ink-3);text-align:center;margin-top:12px}
+@media (max-width:860px){.wl{grid-template-columns:1fr;gap:40px}}
+.mail span{color:var(--ink);user-select:all}
+
+footer{border-top:1px solid var(--line);padding-block:28px 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink-3)}
+.strip{display:flex;height:8px}
+.strip i{flex:1}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Jali</a>
+    <nav class="links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#results">Results</a>
+      <a href="#tribers">Tribers</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn primary" href="#waitlist">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">The 90-Day Growth Roadmap</p>
+      <h1>90 days of content that <em class="u">converts.</em> Already planned.</h1>
+      <p class="lede">Get Victor Okafo as your personal content strategist. The same framework he has used to train 2,500+ founders in 40+ countries, tailored to your business and your goal. Walk away with 13 weeks of content, three signature series and a script for every week.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#waitlist">Join the waitlist <span class="arr">→</span></a>
+        <a class="btn ghost" href="#results">See the results</a>
+      </div>
+      <div class="social">
+        <div class="faces" aria-hidden="true">
+          <img src="media/seunfaj.jpg" alt=""><img src="media/david.jpg" alt=""><img src="media/yemisi.jpg" alt=""><img src="media/paul.jpg" alt=""><img src="media/tobi.jpg" alt=""><img src="media/martin.jpg" alt=""><img src="media/face-t1.jpg" alt=""><img src="media/face-t2.jpg" alt=""><img src="media/face-t3.jpg" alt=""><img src="media/face-t4.jpg" alt=""><img src="media/face-t5.jpg" alt=""><img src="media/face-t6.jpg" alt=""><img src="media/face-t7.jpg" alt="">
+        </div>
+        <p><b>200+ creators and entrepreneurs</b> in <b>10+ countries</b> are already getting results with it.</p>
+      </div>
+    </div>
+
+    <div class="phone" aria-label="Preview of the app">
+      <div class="bar"><img class="av zuri" src="media/zuri.jpg" alt="Zuri"><div><b>Zuri</b><small>Your roadmap guide · online</small></div></div>
+      <div class="chat">
+        <p class="msg in">Hey! I'm Zuri. Welcome to Jali's 90-Day Growth Roadmap! First, what should I call you?</p>
+        <p class="msg out">Ada 👋</p>
+        <p class="msg in">Nice to meet you, Ada. What do you want the next 90 days to give you?</p>
+        <div class="picks" aria-hidden="true"><span class="on">Revenue</span><span>Thought leadership</span><span>Visibility</span><span>Community</span></div>
+        <p class="msg out">Revenue. I want my content to sell.</p>
+        <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>2,500+</b><span>founders trained with this framework</span></div>
+    <div class="stat"><b>40+</b><span>countries where it has been taught</span></div>
+    <div class="stat"><b>200+</b><span>creators and entrepreneurs already using the roadmap</span></div>
+    <div class="stat"><b>13</b><span>weeks of content built around your goal</span></div>
+  </div>
+</div>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="sh">
+      <p class="eyebrow">How it works</p>
+      <h2>Five minutes in. <em>Ninety days</em> built for you.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Choose your result</h3>
+        <p>More sales, more reach, more authority or a community that stays. Every post in your plan is built to get you there.</p>
+        <div class="goalchips"><span style="background:var(--sun)">Revenue</span><span style="background:var(--cobalt);color:var(--on-cobalt)">Thought leadership</span><span style="background:var(--tomato)">Visibility</span><span style="background:var(--mint)">Community</span></div>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Tell us about your business</h3>
+        <p>Five questions, so every post fits your customer, your offer and your story.</p>
+        <ul>
+          <li>What you sell, who it's for, what it costs</li>
+          <li>Your customer's worst moment</li>
+          <li>Your story in four short lines</li>
+          <li>What your industry gets wrong</li>
+          <li>Where you're starting from</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Post, and watch it work</h3>
+        <p>Your plan tells you exactly what to post each week to move you closer to your goal.</p>
+        <ul>
+          <li>13 weeks of posts made for your business</li>
+          <li>A ready-to-film script every week</li>
+          <li>A coach in the app keeping you on track to your goal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET -->
+<section id="get" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <p class="eyebrow">What you get</p>
+      <h2>Not generic tips. <em>Your</em> plan.</h2>
+      <p class="lede">Every piece is built from your answers, so it sounds like you, speaks to your customer and pushes toward your goal.</p>
+    </div>
+    <div class="get">
+      <div><span class="tag">Your customer</span><h3>Know who buys, and why</h3><p>Who your customer is, what keeps them up at night and what makes them say yes. So every post lands.</p></div>
+      <div><span class="tag">Your stories</span><h3>Stories that build trust</h3><p>Five stories from your own journey, written so your customer sees themselves in them and trusts you.</p></div>
+      <div><span class="tag">Your platforms</span><h3>Post where it pays</h3><p>Stop posting everywhere. Know the two platforms where your customers are, and where the sale closes.</p></div>
+      <div><span class="tag">Your series</span><h3>Three signature series</h3><p>One brings people in, one builds trust, one turns viewers into buyers. The same move that got Marvellous his first client.</p></div>
+      <div><span class="tag">Your 13 weeks</span><h3>Every week mapped to your goal</h3><p>3 to 5 post ideas a week with the format for each. You will never ask "what should I post?" again.</p></div>
+      <div><span class="tag">Your scripts</span><h3>Ready to film</h3><p>Hook, story and call to action, written for your offer and your customer. Just film it on your phone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="wrap">
+    <div class="sh">
+      <p class="eyebrow">Results</p>
+      <h2>Real people. <em>Real results.</em></h2>
+      <p class="lede">Jali Tribers who applied this framework to their own business, and what it got them.</p>
+    </div>
+
+    <div class="feature">
+      <div class="vbox">
+        <video src="media/seunfaj-winnipeg.mp4" poster="media/seunfaj-poster.jpg" muted loop playsinline preload="metadata" aria-label="Seun Faj's first event in Winnipeg, Canada"></video>
+        <span class="loc"><i></i>Winnipeg, Canada</span>
+        <button class="snd" type="button" aria-pressed="false">🔇 Tap for sound</button>
+      </div>
+      <div>
+        <div class="who"><img src="media/seunfaj.jpg" alt="Seun Faj"><div><b>Seun Faj</b><span class="tri"><i></i>Jali Triber</span></div></div>
+        <h3>From mentorship launch to a <em>full room</em> in Winnipeg.</h3>
+        <p class="lede">Seun Faj launched her mentorship and held her first event in Winnipeg, Canada.</p>
+        <div class="wins">
+          <div><b>01</b><span>Launched a mentorship programme</span></div>
+          <div><b>02</b><span>Held her first live event in Winnipeg, Canada</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="vbox">
+        <video src="media/david-salongrid.mp4" poster="media/david-poster.jpg" muted loop playsinline preload="metadata" aria-label="David at the SalonGrid stand"></video>
+        <span class="loc"><i></i>SalonGrid</span>
+        <button class="snd" type="button" aria-pressed="false">🔇 Tap for sound</button>
+      </div>
+      <div>
+        <div class="who"><img src="media/david.jpg" alt="David"><div><b>David</b><span class="tri"><i></i>Jali Triber</span></div></div>
+        <h3>His first <em>18K views</em>, and a series that opened 12 doors.</h3>
+        <p class="lede">David got his first 18K views, then built a signature series that brought him 12 interviews.</p>
+        <div class="wins">
+          <div><b>18K</b><span>His first 18,000 views</span></div>
+          <div><b>12</b><span>Interviews from his signature series</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="vbox">
+        <video src="media/marvellous-client.mp4" poster="media/marvellous-poster.jpg" muted loop playsinline preload="metadata" aria-label="Marvellous sharing that he landed his first client"></video>
+        <span class="loc"><i></i>Signature series</span>
+        <button class="snd" type="button" aria-pressed="false">🔇 Tap for sound</button>
+      </div>
+      <div>
+        <div class="who"><img src="media/marvellous.jpg" alt="Marvellous"><div><b>Marvellous</b><span class="tri"><i></i>Jali Triber</span></div></div>
+        <h3>His signature series landed his <em>first client.</em></h3>
+        <p class="lede">Marvellous documented his build in public, day by day. The series did the selling, and his first client came from it.</p>
+        <div class="wins">
+          <div><b>01</b><span>Launched his signature series</span></div>
+          <div><b>1st</b><span>Landed his first client from the series</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIBERS -->
+<section id="tribers" class="band">
+  <div class="wrap">
+    <div class="sh">
+      <p class="eyebrow">The Tribe</p>
+      <h2>Meet the <em>Jali Tribers.</em></h2>
+      <p class="lede">Founders, creators and professionals across 10+ countries, getting results with the same framework.</p>
+    </div>
+    <div class="wall">
+      <figure class="tile"><img src="media/paul.jpg" alt="Paul"><figcaption><b>Paul</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/jeremy.jpg" alt="Jeremy"><figcaption><b>Jeremy</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/martin.jpg" alt="Martin"><figcaption><b>Martin</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/yemisi.jpg" alt="Dr Yemisi"><figcaption><b>Dr Yemisi</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/david.jpg" alt="David"><figcaption><b>David</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/stephen.jpg" alt="Stephen"><figcaption><b>Stephen</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/seunfaj.jpg" alt="Seun Faj"><figcaption><b>Seun Faj</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/tobi.jpg" alt="Tobi"><figcaption><b>Tobi</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+      <figure class="tile"><img src="media/marvellous.jpg" alt="Marvellous"><figcaption><b>Marvellous</b><span class="tri"><i></i>Jali Triber</span></figcaption></figure>
+    </div>
+    <p class="note">Your result goes here next.</p>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+  <div class="wrap">
+    <div class="sh">
+      <p class="eyebrow">Four goals</p>
+      <h2>Pick your goal. <em>Get a plan built to hit it.</em></h2>
+    </div>
+    <div class="goals">
+      <div class="goal"><div class="hd" style="background:var(--sun)"><h3>Revenue</h3></div><p class="q">"I need content that sells."</p><p><b>Your result:</b> more DMs, more sales calls, more sales. Your plan builds trust first, then leads to a launch in month 3.</p></div>
+      <div class="goal"><div class="hd" style="background:var(--cobalt);color:var(--on-cobalt)"><h3>Thought leadership</h3></div><p class="q">"I want to be the name in my field."</p><p><b>Your result:</b> invites to speak, inbound DMs and a name people quote. Built around a point of view only you own.</p></div>
+      <div class="goal"><div class="hd" style="background:var(--tomato)"><h3>Visibility</h3></div><p class="q">"I need more people to see me."</p><p><b>Your result:</b> more views, more followers, more shares. Short video built to travel beyond your circle.</p></div>
+      <div class="goal"><div class="hd" style="background:var(--mint)"><h3>Community</h3></div><p class="q">"I want people who stay."</p><p><b>Your result:</b> people who reply, return and show up. A home for your people, and your first gathering.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <p class="eyebrow">Questions</p>
+      <h2>Good to <em>know.</em></h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Who is it for?</summary><p>Business owners, creators and professionals who want their content to do a job: sell, build authority, grow reach or build community.</p></details>
+      <details><summary>Do I have to show my face on camera?</summary><p>No. You tell us how you like to show up: on camera, voice only, or text and carousels. Your formats and platforms follow that.</p></details>
+      <details><summary>How does the waitlist work?</summary><p>Join today for $1. On launch day you pay just $9 more, so your total is $10. Everyone else pays $25.</p></details>
+      <details><summary>How long does setup take?</summary><p>About five minutes. One goal, five questions and how many times a week you can post: 3, 4 or 5.</p></details>
+      <details><summary>What do I need to get started?</summary><p>A free Gemini API key. Zuri walks you through getting one in a minute. Your information stays saved in your own browser.</p></details>
+      <details><summary>Is this generic AI content?</summary><p>No. Your plan runs on the framework Victor Okafo has used to train 2,500+ founders in 40+ countries. It is applied to your customer, your offer and your story, so no two plans are the same.</p></details>
+      <details><summary>Will it work for my kind of business?</summary><p>Your plan is built from your own answers about your business, your customer and your goal. It fits whether you sell a product, a service or your expertise.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="waitlist" class="final">
+  <div class="wrap wl">
+    <div>
+      <p class="eyebrow">Join the waitlist</p>
+      <h2 style="margin-top:18px">Stories can <em>change</em><span class="dot">.</span></h2>
+      <p class="lede" style="margin-top:22px">Ninety days from now, you could have a result like Seun's, David's or Marvellous's, with a plan built for your business and your goal. Get in early for $1 and pay less than half price on launch day.</p>
+      <p class="mail" style="margin-top:28px">Questions? <span>hello@jaligroup.org</span></p>
+    </div>
+    <div class="price">
+      <div class="ph"><span class="eyebrow" style="color:inherit">Waitlist price</span><span class="save">Less than half price</span></div>
+      <div class="pb">
+        <div class="row"><span>Join the waitlist today</span><b>$1</b></div>
+        <div class="row"><span>Pay on launch day</span><b>$9</b></div>
+        <div class="row total"><span>Your total</span><b>$10</b></div>
+        <div class="row was"><span>Everyone else on launch day</span><s>$25</s></div>
+        <a class="btn primary" href="https://jaligroup.org" target="_blank" rel="noopener">Join the waitlist for $1 <span class="arr">→</span></a>
+        <p class="fine">Your $1 holds your spot and your launch-day price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="strip" aria-hidden="true"><i style="background:var(--sun)"></i><i style="background:var(--tomato)"></i><i style="background:var(--cobalt)"></i><i style="background:var(--mint)"></i><i style="background:var(--pink)"></i><i style="background:var(--lime)"></i></div>
+  <div class="wrap" style="margin-top:24px">
+    <span>Jali · The 90-Day Growth Roadmap</span>
+    <span>© 2026 Jali Group · London and Lagos</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.vbox'));
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(v){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+  function label(b,v){ b.textContent=v.muted?'🔇 Tap for sound':'🔊 Sound on'; b.setAttribute('aria-pressed',String(!v.muted)); }
+  boxes.forEach(function(box){
+    var v=box.querySelector('video'), b=box.querySelector('.snd');
+    if(reduce){ v.setAttribute('controls',''); if(b) b.hidden=true; return; }
+    b.addEventListener('click',function(){
+      var turnOn=v.muted;
+      boxes.forEach(function(o){ var ov=o.querySelector('video'); ov.muted=true; label(o.querySelector('.snd'),ov); });
+      if(turnOn){ v.muted=false; v.currentTime=0; play(v); }
+      label(b,v);
+    });
+  });
+  if(reduce) return;
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ var v=e.target; if(e.isIntersecting){ play(v); } else { v.pause(); } });
+    },{threshold:.35});
+    boxes.forEach(function(box){ io.observe(box.querySelector('video')); });
+  } else {
+    boxes.forEach(function(box){ play(box.querySelector('video')); });
+  }
+})();
+</script>
+
+</body></html>
