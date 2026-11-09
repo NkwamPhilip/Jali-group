@@ -10,7 +10,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "node server.mjs",
-    "serve": "npm run build && node server.mjs"
+    "serve": "npm run build && node server.mjs",
+    "postinstall": "npm run build || echo '[postinstall] build skipped (dev deps missing?) — dist not rebuilt'"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
