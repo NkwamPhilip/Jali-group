@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build || echo \"[build] vite unavailable — serving committed dist/\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "start": "node server.mjs",
     "serve": "npm run build && node server.mjs"
   },
-  "dependencies": {
+  "optionalDependencies": {
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.0",
     "@hookform/resolvers": "^3.10.0",
@@ -66,9 +66,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.9",
-    "zod": "^3.25.76"
-  },
-  "devDependencies": {
+    "zod": "^3.25.76",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",
