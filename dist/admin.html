@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Jali Group · Admin</title>
+<style>
+  :root { --g1: linear-gradient(90deg,#F3C94F,#EE9F5A 55%,#E88A55); --amber:#EFA84F; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background:#0a0a0a; color:#fff; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 22px 80px; }
+  h1 { font-size: 26px; letter-spacing:-.02em; }
+  h2 { font-size: 18px; margin: 34px 0 14px; color:#fff; }
+  .sub { color:#9b9b9b; font-size:14px; margin-top:4px; }
+  .card { border:1px solid #333; border-radius:12px; padding:22px; background:#111; margin-top:18px; }
+  label { display:block; font-size:12px; letter-spacing:.04em; color:#b9b9b9; margin:14px 0 6px; }
+  input[type=text], input[type=password] { width:100%; background:#0a0a0a; border:1px solid #333; border-radius:8px; color:#fff; padding:11px 13px; font-size:15px; font-family:inherit; }
+  input:focus { outline:none; border-color: var(--amber); }
+  button { background: var(--g1); color:#14100A; border:0; border-radius:8px; padding:12px 22px; font-weight:600; font-size:14px; cursor:pointer; font-family:inherit; }
+  button.ghost { background:#1a1a1a; color:#fff; border:1px solid #444; }
+  .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:20px; }
+  .msg { margin-top:14px; font-size:14px; min-height:20px; }
+  .ok { color:#5ad17a; } .err { color:#ff6b6b; }
+  .hide { display:none; }
+  table { width:100%; border-collapse:collapse; margin-top:10px; font-size:14px; }
+  td, th { text-align:left; padding:8px 10px; border-bottom:1px solid #262626; }
+  th { color:var(--amber); font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+  .stat-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+  .stat { border:1px solid #333; border-radius:10px; padding:16px 20px; min-width:120px; }
+  .stat .n { font-size:28px; font-weight:800; letter-spacing:-.02em; }
+  .stat .l { font-size:12px; color:#9b9b9b; }
+  .muted { color:#777; font-size:13px; }
+  a { color: var(--amber); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Jali Group · Admin</h1>
+  <p class="sub">Edit the website’s prices, countdown and copy, and see visitor activity. Changes go live immediately — no code or deploy needed.</p>
+
+  <!-- LOGIN -->
+  <div id="login" class="card">
+    <label for="pw">Admin password</label>
+    <input id="pw" type="password" placeholder="••••••••" autocomplete="current-password" />
+    <div class="row"><button id="loginBtn">Sign in</button></div>
+    <div id="loginMsg" class="msg"></div>
+  </div>
+
+  <!-- APP -->
+  <div id="app" class="hide">
+    <h2>Content</h2>
+    <p class="sub">The Tribe &amp; Pricing pages read these the moment they load.</p>
+    <div id="fields" class="card"></div>
+    <div class="row">
+      <button id="saveBtn">Save changes</button>
+      <button id="reloadBtn" class="ghost">Reset</button>
+      <span id="saveMsg" class="msg"></span>
+    </div>
+
+    <h2>Visits · last 14 days</h2>
+    <div id="stats" class="stat-row"></div>
+    <div class="card">
+      <h3 style="font-size:14px;color:#b9b9b9;margin-bottom:4px">Top pages</h3>
+      <table id="pages"><tbody></tbody></table>
+      <h3 style="font-size:14px;color:#b9b9b9;margin:18px 0 4px">Interactions</h3>
+      <table id="events"><tbody></tbody></table>
+      <h3 style="font-size:14px;color:#b9b9b9;margin:18px 0 4px">Where visitors came from</h3>
+      <table id="refs"><tbody></tbody></table>
+    </div>
+    <div class="row"><button id="logoutBtn" class="ghost">Sign out</button></div>
+  </div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const KEY = "jali_admin_pw";
+let pw = sessionStorage.getItem(KEY) || "";
+const api = (action, opts = {}) =>
+  fetch("/api/admin?action=" + action, {
+    ...opts,
+    headers: { "Authorization": "Bearer " + pw, "Content-Type": "application/json", ...(opts.headers || {}) },
+  });
+
+async function doLogin() {
+  pw = $("pw").value.trim();
+  $("loginMsg").textContent = "Checking…"; $("loginMsg").className = "msg";
+  try {
+    const r = await api("login", { method: "POST" });
+    const d = await r.json();
+    if (d.ok) { sessionStorage.setItem(KEY, pw); show(); }
+    else { $("loginMsg").textContent = "Wrong password."; $("loginMsg").className = "msg err"; }
+  } catch { $("loginMsg").textContent = "Network error."; $("loginMsg").className = "msg err"; }
+}
+
+async function show() {
+  $("login").classList.add("hide"); $("app").classList.remove("hide");
+  await loadContent(); await loadVisits();
+}
+
+let FIELDS = [];
+async function loadContent() {
+  const r = await api("content");
+  if (r.status === 401) return signOut();
+  const d = await r.json();
+  FIELDS = d.fields;
+  $("fields").innerHTML = d.fields.map(f =>
+    `<label for="f_${f.key}">${f.label}</label><input type="text" id="f_${f.key}" value="${(d.content[f.key] || "").replace(/"/g, "&quot;")}" />`
+  ).join("");
+}
+
+async function save() {
+  const patch = {};
+  FIELDS.forEach(f => { patch[f.key] = $("f_" + f.key).value; });
+  $("saveMsg").textContent = "Saving…"; $("saveMsg").className = "msg";
+  const r = await api("save", { method: "POST", body: JSON.stringify(patch) });
+  if (r.status === 401) return signOut();
+  const d = await r.json();
+  if (d.saved) { $("saveMsg").textContent = "Saved. It’s live now."; $("saveMsg").className = "msg ok"; }
+  else { $("saveMsg").textContent = "Could not save."; $("saveMsg").className = "msg err"; }
+}
+
+function rows(obj) {
+  const e = Object.entries(obj || {}).sort((a, b) => b[1] - a[1]).slice(0, 12);
+  return e.length ? e.map(([k, v]) => `<tr><td>${esc(k)}</td><td style="text-align:right">${v}</td></tr>`).join("") : `<tr><td class="muted">None yet</td><td></td></tr>`;
+}
+const esc = (s) => String(s).replace(/</g, "&lt;");
+
+async function loadVisits() {
+  const r = await api("visits&days=14");
+  if (r.status === 401) return signOut();
+  const d = await r.json();
+  const days = d.visits || [];
+  const total = days.reduce((s, x) => s + (x.total || 0), 0);
+  const pages = {}, events = {}, refs = {};
+  for (const day of days) {
+    for (const [k, v] of Object.entries(day.pages || {})) pages[k] = (pages[k] || 0) + v;
+    for (const [k, v] of Object.entries(day.events || {})) events[k] = (events[k] || 0) + v;
+    for (const [k, v] of Object.entries(day.referrers || {})) refs[k] = (refs[k] || 0) + v;
+  }
+  const todayTotal = days.length ? (days[days.length - 1].total || 0) : 0;
+  $("stats").innerHTML =
+    `<div class="stat"><div class="n">${total}</div><div class="l">Views · 14 days</div></div>` +
+    `<div class="stat"><div class="n">${todayTotal}</div><div class="l">Views · today</div></div>`;
+  $("pages").querySelector("tbody").innerHTML = rows(pages);
+  $("events").querySelector("tbody").innerHTML = rows(events);
+  $("refs").querySelector("tbody").innerHTML = rows(refs);
+}
+
+function signOut() { sessionStorage.removeItem(KEY); pw = ""; location.reload(); }
+
+$("loginBtn").onclick = doLogin;
+$("pw").addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
+$("saveBtn").onclick = save;
+$("reloadBtn").onclick = loadContent;
+$("logoutBtn").onclick = signOut;
+if (pw) show();
+</script>
+</body>
+</html>
